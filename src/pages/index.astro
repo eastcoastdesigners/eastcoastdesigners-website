@@ -1,8 +1,10 @@
 ---
+import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PhoneLink from '../components/PhoneLink.astro';
 import ServiceCard from '../components/ServiceCard.astro';
 import GoldRule from '../components/GoldRule.astro';
+import logoMetallic from '../assets/logos/logo-metallic.png';
 
 const title = 'Connecticut Renovation & Construction | East Coast Designers';
 const description = 'East Coast Designers is a Connecticut renovation and construction firm. Whole-home renovations, kitchens, baths, additions, basements, and new builds — statewide CT.';
@@ -10,6 +12,16 @@ const description = 'East Coast Designers is a Connecticut renovation and constr
 <BaseLayout title={title} description={description}>
 
   <section class="hero">
+    <Image
+      src={logoMetallic}
+      alt=""
+      role="presentation"
+      aria-hidden="true"
+      widths={[800, 1200]}
+      sizes="900px"
+      loading="eager"
+      class="hero-watermark"
+    />
     <div class="container hero-inner">
       <span class="eyebrow hero-eyebrow">Renovation &amp; Construction — Connecticut</span>
       <h1>Built carefully.<br/>Finished beautifully.</h1>
@@ -85,8 +97,32 @@ const description = 'East Coast Designers is a Connecticut renovation and constr
     color: var(--color-white);
     padding-top: var(--space-16);
     padding-bottom: var(--space-16);
+    position: relative;
+    overflow: hidden;
   }
-  .hero-inner { max-width: var(--content-width); margin: 0 auto; }
+  .hero-watermark {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: auto;
+    height: 110%;
+    max-height: 900px;
+    max-width: none;
+    opacity: 0.12;
+    pointer-events: none;
+    user-select: none;
+    z-index: 0;
+  }
+  @media (max-width: 767px) {
+    .hero-watermark { display: none; }
+  }
+  .hero-inner {
+    max-width: var(--content-width);
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
   .hero-eyebrow { margin-bottom: var(--space-4); }
   .hero h1 { color: var(--color-white); margin-bottom: var(--space-4); }
   .hero-subhead {

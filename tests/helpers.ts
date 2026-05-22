@@ -1,10 +1,11 @@
 import { type Page, expect } from '@playwright/test';
 
 /**
- * The 4 page routes the site exposes (Projects page removed pre-launch per owner request;
- * /projects redirects to / via public/_redirects).
+ * The 5 page routes the site exposes. /projects exists and is reachable by direct URL,
+ * but is intentionally NOT linked from the primary nav (owner decision — placeholder
+ * page is unlisted until real photography is added).
  */
-export const PAGES = ['/', '/services', '/about', '/contact'] as const;
+export const PAGES = ['/', '/projects', '/services', '/about', '/contact'] as const;
 
 /**
  * Phone number in tel: format. Single source of truth for assertions.

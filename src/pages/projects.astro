@@ -1,0 +1,85 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PhoneLink from '../components/PhoneLink.astro';
+import logoNavy from '../assets/logos/logo-navy.png';
+
+const title = 'Recent Projects | East Coast Designers';
+const description = 'Recent renovation and construction projects across Connecticut. Whole-home renovations, kitchens, baths, additions, and new builds.';
+---
+<BaseLayout title={title} description={description}>
+
+  <section class="page-header section">
+    <div class="container content">
+      <span class="eyebrow">Selected work</span>
+      <h1>Recent projects.</h1>
+      <p class="lede">A look at some of the homes we've worked on across Connecticut.</p>
+    </div>
+  </section>
+
+  <section class="section-bleed-offwhite placeholder-section">
+    <div class="container">
+      <div class="placeholder-card">
+        <Image
+          src={logoNavy}
+          alt="East Coast Designers monogram"
+          widths={[160, 320]}
+          sizes="180px"
+          loading="eager"
+          class="placeholder-mark"
+        />
+        <p class="placeholder-text">
+          New project gallery coming soon. To request photos of recent work or discuss a
+          project of your own, call <PhoneLink class="placeholder-phone" />.
+        </p>
+      </div>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-header { padding-top: var(--space-8); padding-bottom: var(--space-6); }
+  .lede {
+    font-size: var(--text-xl);
+    color: var(--color-muted);
+    margin-top: var(--space-3);
+    max-width: 60ch;
+  }
+
+  .placeholder-section {
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+  }
+
+  .placeholder-card {
+    max-width: 640px;
+    margin: 0 auto;
+    text-align: center;
+    background-color: var(--color-offwhite);
+  }
+
+  .placeholder-mark {
+    height: 140px;
+    width: auto;
+    margin: 0 auto var(--space-6);
+    display: block;
+  }
+
+  .placeholder-text {
+    font-family: var(--font-heading);
+    font-size: var(--text-xl);
+    color: var(--color-navy);
+    line-height: 1.5;
+    max-width: 50ch;
+    margin: 0 auto;
+  }
+
+  .placeholder-phone {
+    color: var(--color-navy);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-gold);
+  }
+  .placeholder-phone:hover { color: var(--color-gold); }
+</style>

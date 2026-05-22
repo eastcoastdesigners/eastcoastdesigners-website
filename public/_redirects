@@ -1,7 +1,6 @@
 # Cloudflare Pages _redirects — applied at the edge before the static asset lookup.
 # Format: <source-path> <destination> <status>
-
-# Projects page was removed pre-launch. Any inbound link to /projects (search
-# engines, prior bookmarks, the old LeadConnector nav) goes home with a 301.
-/projects  /  301
-/projects/  /  301
+#
+# Currently empty. The Projects page exists at /projects (unlisted from the primary
+# nav but reachable by direct URL); no path-level redirects are needed at launch.
+# Add entries here only when a real legacy URL pattern surfaces.
