@@ -1,0 +1,16 @@
+// Wrangler config for Cloudflare's Workers-with-Static-Assets deploy.
+// This site is pure static — Astro's `output: 'static'` produces only HTML/CSS/JS in
+// `dist/`, no server-rendering. Therefore: no `main` field (no Worker entry) and no
+// compatibility_flags. Just serve the assets directory verbatim.
+//
+// Pre-committing this file stops Cloudflare's Pages build pipeline from auto-running
+// `astro add cloudflare`, which adds an SSR adapter that's incompatible with our
+// static output and produces a `_worker.js` entry that doesn't exist in our build.
+{
+  "$schema": "https://json.schemastore.org/wrangler.json",
+  "name": "eastcoastdesigners-website",
+  "compatibility_date": "2026-05-22",
+  "assets": {
+    "directory": "./dist"
+  }
+}
