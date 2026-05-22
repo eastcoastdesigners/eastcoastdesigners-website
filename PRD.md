@@ -96,7 +96,7 @@ eastcoastdesigners-website/
 │   ├── old-site-pages/                     *   raw HTML snapshots of each pre-rewrite page (excluded from Playwright runs)
 │   ├── old-site-capture-date.txt           *   UTC timestamp of crawl, for audit trail
 │   ├── _redirects-proposal.md              *** proposed redirect mapping derived from old-site-sitemap.md — REQUIRES OWNER REVIEW before becoming public/_redirects
-│   └── godaddy-dns-before.png              *** screenshot of GoDaddy DNS records before cutover (for rollback)
+│   └── godaddy-nameservers-before.png      *** screenshot of GoDaddy nameserver config before cutover (for rollback)
 ├── public/
 │   ├── favicon.ico                         **
 │   ├── favicon-32x32.png                   **
@@ -314,6 +314,28 @@ Maps each of the 12 items in Section 8 of the brief to the spec file (or manual 
 
 **Critical:** the current eastcoastdesigners.com is causing insurance problems. A half-deployed new site that's also broken would be worse than the current state. **Always verify on staging first, then flip.**
 
+### Discovered DNS stack (as of 2026-05-22)
+
+The Phase 1 crawl and owner confirmation revealed the current production stack:
+
+| Layer | Who controls it | Owner has credentials? |
+|---|---|---|
+| Domain registrar (`eastcoastdesigners.com`) | **Owner** (GoDaddy) | ✅ Yes — verified |
+| Nameservers (`ns1.wpdns.host`, `ns2.wpdns.host`, `ns3.wpdns.host`) | WPMU DEV (third-party developer's account) | ❌ No |
+| CDN / proxy | Cloudflare (third-party developer's account) | ❌ No |
+| Site origin | LeadConnector / HighLevel (third-party developer's account) | ❌ No |
+
+The owner controls **only** the registrar. The rest of the stack lives in accounts she does not have credentials for and is not pursuing.
+
+### Cutover approach: nameserver change at the registrar (Path B — bypass entire third-party stack)
+
+**Plan:** in Phase 3, change the nameservers for `eastcoastdesigners.com` in GoDaddy from `ns*.wpdns.host` to a **new Cloudflare account that the owner creates and controls**. This single change moves DNS authority away from WPMU DEV, which simultaneously orphans the dev's Cloudflare proxy and the LeadConnector origin — clean break, no need to negotiate with any third party.
+
+**Implications:**
+- WPMU DEV, Cloudflare-old, and LeadConnector subscriptions continue billing the third-party developer (not the owner) after cutover. **Not the owner's problem.** No coordination required, no notice required.
+- Owner should independently confirm — separate from cutover — that no recurring charges from any of those services are hitting her credit card. If anything is, she disputes / cancels at the payment-method layer. This is a 5-minute card-statement check, not part of this build.
+- The orphaned third-party stack will keep running (and billing the dev) for as long as he keeps paying it. That's his decision, not the owner's, and has no effect on the new site.
+
 ### Step 1 — Build and deploy to Cloudflare Pages staging (Phase 1)
 1. Push the repo to a GitHub repository (private is fine).
 2. In Cloudflare Pages dashboard → **Create a project** → **Connect to Git** → select the repo.
@@ -329,31 +351,42 @@ Maps each of the 12 items in Section 8 of the brief to the spec file (or manual 
 5. Have the owner do a final read-through of all 5 pages on staging. Confirm no copy was paraphrased or "improved."
 6. Only after **all of the above pass**, proceed to Step 3.
 
-### Step 3 — DNS cutover from GoDaddy to Cloudflare Pages
-**Approach:** keep GoDaddy as the registrar (do not transfer the domain, do not change nameservers). Use GoDaddy's DNS panel to point the existing A/CNAME records at Cloudflare Pages.
+### Step 3 — Nameserver cutover from WPMU DEV to a new owner-controlled Cloudflare account
 
-1. In Cloudflare Pages → project → **Custom domains** → **Set up a custom domain** → enter `eastcoastdesigners.com` and `www.eastcoastdesigners.com`. Cloudflare displays the exact CNAME (or A record) target to use.
-2. **Take screenshots of the current GoDaddy DNS records before changing anything.** Save them in the repo as `deployment/godaddy-dns-before.png` for rollback.
-3. In the GoDaddy DNS panel:
-   - For `eastcoastdesigners.com` (root): replace the existing A record with the Cloudflare-provided target (likely a CNAME flattening — Cloudflare gives the exact value)
-   - For `www.eastcoastdesigners.com`: replace the existing CNAME with the Cloudflare-provided CNAME target
-   - Lower TTL to 600 seconds before the change so the propagation window is short
-4. Wait for propagation (5–15 minutes typically). Verify with `dig eastcoastdesigners.com` and `dig www.eastcoastdesigners.com`.
-5. Cloudflare automatically issues a free SSL certificate. Wait for it to provision (usually <5 minutes after DNS resolves) — the custom-domain status in the dashboard goes from "Verifying" to "Active."
-6. Open `https://eastcoastdesigners.com` in a fresh browser (no cache) and confirm the new site loads, with a valid TLS certificate.
-7. Re-run the Playwright suite against the production URL: `BASE_URL=https://eastcoastdesigners.com npx playwright test`. All four spec files must still pass.
-8. Restore the TTL to a normal value (3600+ seconds) in GoDaddy.
+**Approach:** keep GoDaddy as the registrar. Change the nameservers in GoDaddy from `ns*.wpdns.host` (WPMU DEV) to the new Cloudflare nameservers issued for an owner-controlled Cloudflare zone created in this step. This bypasses the entire third-party stack in a single move.
+
+1. **Owner creates a new Cloudflare account** (free tier) under her own email. This is the new authoritative DNS host for `eastcoastdesigners.com`.
+2. In the new Cloudflare account → **Add a site** → enter `eastcoastdesigners.com`. Cloudflare assigns two nameservers (something like `floyd.ns.cloudflare.com` and `nora.ns.cloudflare.com` — the exact names vary per zone). Record both.
+3. In the new Cloudflare zone → add DNS records pointing the apex and `www` at the Cloudflare Pages project:
+   - `eastcoastdesigners.com` (CNAME, proxied) → `<project-name>.pages.dev`
+   - `www.eastcoastdesigners.com` (CNAME, proxied) → `<project-name>.pages.dev`
+4. In Cloudflare Pages → project → **Custom domains** → add both `eastcoastdesigners.com` and `www.eastcoastdesigners.com`. Pages will verify ownership via the DNS records just created.
+5. **Take screenshots of GoDaddy's current nameserver configuration before changing anything.** Save in repo as `deployment/godaddy-nameservers-before.png` for rollback evidence.
+6. In **GoDaddy → My Products → Domains → eastcoastdesigners.com → Nameservers → Change**:
+   - Switch from "I'll use my own nameservers" with `ns1.wpdns.host`, `ns2.wpdns.host`, `ns3.wpdns.host`
+   - To the two Cloudflare nameservers from step 2
+   - Save
+7. Wait for propagation. GoDaddy says "up to 48 hours" but Cloudflare zones typically activate within 5–60 minutes. Monitor in the Cloudflare dashboard — zone status goes from "Pending" to "Active."
+8. Once active, Cloudflare automatically issues a free SSL certificate for the custom domain. Wait for the Pages custom-domain status to go from "Verifying" to "Active" (usually <5 minutes after the zone activates).
+9. Open `https://eastcoastdesigners.com` in a fresh browser (cache cleared, or incognito) and confirm the new site loads with a valid TLS certificate.
+10. Re-run the Playwright suite against the production URL: `BASE_URL=https://eastcoastdesigners.com npx playwright test`. All four spec files must still pass.
+
+**Effect on third-party stack:** the moment the new Cloudflare nameservers take over, DNS queries for `eastcoastdesigners.com` stop hitting WPMU DEV. The dev's Cloudflare zone for this domain becomes inert (no longer authoritative). The LeadConnector origin still exists but receives no traffic for this domain. None of those services need to be touched, contacted, or cancelled for cutover to succeed.
 
 ### Step 4 — Rollback procedure (if anything is wrong after cutover)
-1. In GoDaddy DNS, restore the original A and CNAME records from the screenshots taken in Step 3.2. Propagation is fast because TTL was lowered.
-2. The old site comes back. Investigate, fix on staging, re-verify, re-cut over.
+1. In GoDaddy → Nameservers → Change → restore the previous nameservers (`ns1.wpdns.host`, `ns2.wpdns.host`, `ns3.wpdns.host`) from the screenshots taken in Step 3.5.
+2. Within propagation window (typically faster than the initial cutover since the WPMU DEV zone is still configured upstream), the old site comes back.
+3. Investigate, fix on staging, re-verify, re-cut over. The new Cloudflare zone stays configured and ready — only the nameserver pointer changes.
 
 ### Step 5 — Post-launch (within 24 hours, developer-scoped)
 1. Submit the new sitemap to Google Search Console.
 2. Request re-indexing of the 5 main URLs in Search Console (to overwrite the old site's cached content as fast as possible).
 3. Confirm GoDaddy domain privacy/proxy is still active.
 
-**Out of developer scope (owner follow-ups):** Notifying the insurance agent that the site has been replaced is the owner's separate conversation and is not part of this build. Noted here only as a reminder to the owner, not as a deliverable.
+**Out of developer scope (owner follow-ups, not deliverables of this build):**
+- Notifying the insurance agent that the site has been replaced — owner's separate conversation.
+- Reviewing her credit card / payment methods to confirm no recurring charges from WPMU DEV, Cloudflare (the third-party developer's account), or LeadConnector are hitting her card. Independent from cutover; ~5 minutes on a statement.
+- The orphaned third-party stack (WPMU DEV, dev's Cloudflare, LeadConnector) continues to bill the third-party developer until he cancels. The owner is not involved in that.
 
 ---
 
