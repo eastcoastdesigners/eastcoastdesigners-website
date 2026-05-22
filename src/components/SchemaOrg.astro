@@ -1,0 +1,29 @@
+---
+const schema = {
+  "@context": "https://schema.org",
+  "@type": "GeneralContractor",
+  "name": "East Coast Designers",
+  "description": "Connecticut renovation and construction firm. Whole-home renovations, kitchens, baths, additions, basements, historic restorations, and new construction across Connecticut.",
+  "telephone": "+1-203-228-9197",
+  "url": "https://www.eastcoastdesigners.com",
+  "address": {
+    "@type": "PostalAddress",
+    "addressRegion": "CT",
+    "addressCountry": "US"
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "Connecticut"
+  },
+  "knowsAbout": [
+    "Renovations",
+    "Additions",
+    "Kitchen Remodeling",
+    "Bathroom Remodeling",
+    "Basement Finishing",
+    "Historic Restoration",
+    "New Home Construction"
+  ]
+};
+---
+<script type="application/ld+json" set:html={JSON.stringify(schema)} />

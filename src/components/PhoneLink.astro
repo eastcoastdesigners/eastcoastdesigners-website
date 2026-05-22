@@ -1,0 +1,9 @@
+---
+interface Props {
+  display?: string;
+  class?: string;
+  prefix?: string;
+}
+const { display = '(203) 228-9197', class: className = '', prefix = '' } = Astro.props;
+---
+<a href="tel:+12032289197" class={className} aria-label="Call East Coast Designers at (203) 228-9197">{prefix}{display}</a>

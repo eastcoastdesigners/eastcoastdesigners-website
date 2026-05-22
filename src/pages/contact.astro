@@ -1,0 +1,98 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PhoneLink from '../components/PhoneLink.astro';
+import GoldRule from '../components/GoldRule.astro';
+
+const title = 'Contact | East Coast Designers — (203) 228-9197';
+const description = 'Call East Coast Designers at (203) 228-9197 to discuss a renovation, addition, or new construction project in Connecticut.';
+---
+<BaseLayout title={title} description={description}>
+
+  <section class="page-header section">
+    <div class="container content">
+      <span class="eyebrow">Get in touch</span>
+      <h1>Let's talk about your project.</h1>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container content">
+      <p class="contact-lede">
+        The best way to reach us is by phone.<br/>
+        Call <PhoneLink class="inline-phone" /> and we'll set up a time to come walk
+        through your project.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-bleed-offwhite contact-details">
+    <div class="container content">
+      <dl class="contact-list">
+        <div class="contact-row">
+          <GoldRule width="40px" />
+          <dt>Phone</dt>
+          <dd><PhoneLink class="big-phone" /></dd>
+        </div>
+        <div class="contact-row">
+          <GoldRule width="40px" />
+          <dt>Service area</dt>
+          <dd>Connecticut, statewide</dd>
+        </div>
+        <div class="contact-row">
+          <GoldRule width="40px" />
+          <dt>Hours</dt>
+          <dd>By appointment. Call to schedule a walk-through.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-header { padding-top: var(--space-8); padding-bottom: var(--space-6); }
+
+  .contact-lede {
+    font-size: var(--text-xl);
+    color: var(--color-body);
+    line-height: 1.6;
+    max-width: 60ch;
+  }
+  .inline-phone {
+    color: var(--color-navy);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-gold);
+  }
+  .inline-phone:hover { color: var(--color-gold); }
+
+  .contact-list {
+    display: grid;
+    gap: var(--space-6);
+    margin: 0;
+  }
+  .contact-row dt {
+    font-family: var(--font-label);
+    font-size: var(--text-sm);
+    font-weight: 500;
+    letter-spacing: var(--label-letter-spacing);
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-bottom: var(--space-1);
+  }
+  .contact-row dd {
+    margin: 0;
+    font-size: var(--text-lg);
+    color: var(--color-body);
+  }
+  .big-phone {
+    font-family: var(--font-heading);
+    font-size: clamp(var(--text-3xl), 5vw, var(--text-5xl));
+    font-weight: 500;
+    color: var(--color-navy);
+    text-decoration: none;
+    display: inline-block;
+    line-height: 1.1;
+  }
+  .big-phone:hover { color: var(--color-gold); }
+</style>

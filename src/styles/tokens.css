@@ -1,0 +1,50 @@
+/* Brand tokens — Section 3 of the brief. Do not introduce new colors or fonts without updating the brief. */
+
+:root {
+  /* Color palette */
+  --color-navy: #0F2A44;
+  --color-gold: #C9A961;
+  --color-offwhite: #F5F2EC;
+  --color-body: #333333;
+  --color-muted: #6B6B6B;
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  --font-body: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-label: 'Montserrat', system-ui, -apple-system, sans-serif;
+
+  --label-letter-spacing: 0.15em;
+
+  /* Type scale */
+  --text-xs: 0.75rem;
+  --text-sm: 0.875rem;
+  --text-base: 1rem;
+  --text-lg: 1.125rem;
+  --text-xl: 1.25rem;
+  --text-2xl: 1.5rem;
+  --text-3xl: 2rem;
+  --text-4xl: 2.75rem;
+  --text-5xl: 3.75rem;
+
+  /* Spacing scale (8px base) */
+  --space-1: 0.5rem;
+  --space-2: 1rem;
+  --space-3: 1.5rem;
+  --space-4: 2rem;
+  --space-6: 3rem;
+  --space-8: 4rem;
+  --space-12: 6rem;
+  --space-16: 8rem;
+  --space-24: 12rem;
+
+  /* Layout */
+  --max-width: 1200px;
+  --content-width: 900px;
+  --gutter: clamp(1rem, 4vw, 2rem);
+
+  /* Borders */
+  --border-gold: 1px solid var(--color-gold);
+  --border-navy: 1px solid var(--color-navy);
+}

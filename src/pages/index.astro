@@ -1,0 +1,150 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PhoneLink from '../components/PhoneLink.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import GoldRule from '../components/GoldRule.astro';
+
+const title = 'Connecticut Renovation & Construction | East Coast Designers';
+const description = 'East Coast Designers is a Connecticut renovation and construction firm. Whole-home renovations, kitchens, baths, additions, basements, and new builds — statewide CT.';
+---
+<BaseLayout title={title} description={description}>
+
+  <section class="hero">
+    <div class="container hero-inner">
+      <span class="eyebrow hero-eyebrow">Renovation &amp; Construction — Connecticut</span>
+      <h1>Built carefully.<br/>Finished beautifully.</h1>
+      <p class="hero-subhead">
+        East Coast Designers is a Connecticut renovation and construction firm. We handle
+        whole-home renovations, kitchens, bathrooms, additions, basements, and new builds
+        across the state — with a calm, organized process and craftsmanship that holds up.
+      </p>
+      <p class="hero-cta-row">
+        <PhoneLink class="btn btn-primary hero-cta" prefix="Call " />
+      </p>
+      <p class="hero-subnote">Serving Connecticut homeowners statewide.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="services-grid">
+        <ServiceCard heading="Renovations &amp; Additions">
+          Whole-home renovations, kitchens, bathrooms, and additions. Careful planning, clear
+          timelines, and finish work you can stand close to.
+        </ServiceCard>
+        <ServiceCard heading="New Construction">
+          Ground-up builds across Connecticut. We coordinate the trades, hold the schedule,
+          and deliver homes that are built to last.
+        </ServiceCard>
+        <ServiceCard heading="Restorations &amp; Basements">
+          Historic restorations done with respect for the original house, and basement
+          finishes that add real, usable space.
+        </ServiceCard>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-bleed-offwhite">
+    <div class="container content">
+      <span class="eyebrow">How we work</span>
+      <div class="process-grid">
+        <article class="process-step">
+          <span class="process-num">01</span>
+          <h3>Walk-through &amp; Scope</h3>
+          <p>We visit the home, talk through what you want done, and put together a scope
+            and a number you can actually plan around.</p>
+        </article>
+        <article class="process-step">
+          <span class="process-num">02</span>
+          <h3>Planning &amp; Permits</h3>
+          <p>We line up drawings, permits, and the trades. You'll know who's doing what,
+            when they're starting, and what it costs before we break ground.</p>
+        </article>
+        <article class="process-step">
+          <span class="process-num">03</span>
+          <h3>Build</h3>
+          <p>Our crew runs the job. You get a single point of contact, regular check-ins,
+            and a job site that stays organized from demo to punch list.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-bleed-navy closing-band">
+    <div class="container content">
+      <h2>Planning a project in Connecticut?</h2>
+      <p>We'd be glad to come take a look. Call <PhoneLink class="closing-phone" />.</p>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .hero {
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+  }
+  .hero-inner { max-width: var(--content-width); margin: 0 auto; }
+  .hero-eyebrow { margin-bottom: var(--space-4); }
+  .hero h1 { color: var(--color-white); margin-bottom: var(--space-4); }
+  .hero-subhead {
+    color: var(--color-white);
+    opacity: 0.92;
+    margin-bottom: var(--space-6);
+    max-width: 60ch;
+  }
+  .hero-cta-row { margin-bottom: var(--space-2); }
+  .hero-cta {
+    background-color: var(--color-white);
+    color: var(--color-navy);
+    border-color: var(--color-white);
+  }
+  .hero-cta:hover {
+    background-color: var(--color-white);
+    color: var(--color-navy);
+    border-color: var(--color-gold);
+  }
+  .hero-subnote {
+    font-family: var(--font-label);
+    font-size: var(--text-sm);
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    opacity: 0.9;
+    margin: 0;
+  }
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-6);
+  }
+
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: var(--space-6);
+    margin-top: var(--space-4);
+  }
+  .process-step .process-num {
+    font-family: var(--font-heading);
+    font-size: var(--text-2xl);
+    color: var(--color-gold);
+    display: block;
+    margin-bottom: var(--space-1);
+    letter-spacing: 0.04em;
+  }
+  .process-step h3 { margin-bottom: var(--space-2); }
+  .process-step p { font-size: var(--text-base); }
+
+  .closing-band { text-align: center; }
+  .closing-band h2 { margin-bottom: var(--space-3); }
+  .closing-phone {
+    color: var(--color-gold);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .closing-phone:hover { color: var(--color-white); }
+</style>

@@ -27,6 +27,9 @@ playwright/.cache/
 # Lighthouse CI
 .lighthouseci/
 
+# Local Lighthouse JSON reports (large; summary is in deployment/lighthouse-scores.md)
+.lighthouse-local/
+
 # Env
 .env
 .env.local

@@ -1,0 +1,78 @@
+---
+import { Image } from 'astro:assets';
+import PhoneLink from './PhoneLink.astro';
+import logoOnNavy from '../assets/logos/logo-on-navy.png';
+
+const year = new Date().getFullYear();
+---
+<footer class="site-footer">
+  <div class="container footer-inner">
+    <a href="/" class="footer-logo-link" aria-label="East Coast Designers — home">
+      <Image
+        src={logoOnNavy}
+        alt="East Coast Designers"
+        widths={[180, 360]}
+        sizes="200px"
+        loading="lazy"
+        class="footer-logo-img"
+      />
+    </a>
+
+    <p class="footer-tagline">A Connecticut renovation and construction firm.</p>
+
+    <p class="footer-phone-line">
+      <PhoneLink class="footer-phone" />
+    </p>
+
+    <p class="footer-copyright">&copy; {year} East Coast Designers. All rights reserved.</p>
+  </div>
+</footer>
+
+<style>
+  .site-footer {
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    padding-top: var(--space-8);
+    padding-bottom: var(--space-6);
+    margin-top: var(--space-16);
+  }
+  .footer-inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-3);
+    text-align: center;
+  }
+  .footer-logo-img {
+    height: 64px;
+    width: auto;
+    display: block;
+  }
+  .footer-tagline {
+    font-size: var(--text-base);
+    color: var(--color-white);
+    opacity: 0.9;
+    margin: 0;
+    max-width: 36ch;
+  }
+  .footer-phone-line { margin: var(--space-1) 0 0 0; }
+  .footer-phone {
+    font-family: var(--font-label);
+    font-size: var(--text-lg);
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    text-decoration: none;
+  }
+  .footer-phone:hover { color: var(--color-white); }
+  .footer-copyright {
+    font-size: var(--text-xs);
+    font-family: var(--font-label);
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--color-white);
+    opacity: 0.6;
+    margin: 0;
+    margin-top: var(--space-3);
+  }
+</style>

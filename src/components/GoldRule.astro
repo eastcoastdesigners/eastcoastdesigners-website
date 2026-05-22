@@ -1,0 +1,22 @@
+---
+interface Props {
+  width?: string;
+  align?: 'left' | 'center';
+}
+const { width = '60px', align = 'left' } = Astro.props;
+---
+<hr class={`gold-rule align-${align}`} style={`--rule-width: ${width};`} />
+
+<style>
+  .gold-rule {
+    border: none;
+    border-top: 1px solid var(--color-gold);
+    width: var(--rule-width);
+    margin-top: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+  .gold-rule.align-center {
+    margin-left: auto;
+    margin-right: auto;
+  }
+</style>

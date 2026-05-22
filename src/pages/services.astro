@@ -1,0 +1,116 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import PhoneLink from '../components/PhoneLink.astro';
+import GoldRule from '../components/GoldRule.astro';
+
+const title = 'Renovation & Construction Services | East Coast Designers Connecticut';
+const description = 'Whole-home renovations, kitchens, bathrooms, additions, basements, historic restorations, and new construction across Connecticut.';
+
+const services = [
+  {
+    heading: 'Whole-Home Renovations',
+    body: `Top-to-bottom renovations of existing homes. We handle the demo, structural work, mechanicals, and finishes — and we keep the job organized so you're not living in chaos any longer than you have to.`
+  },
+  {
+    heading: 'Kitchens',
+    body: `Full kitchen renovations, from layout changes and new cabinetry to stone, tile, appliances, and lighting. Built around how you actually cook and live.`
+  },
+  {
+    heading: 'Bathrooms',
+    body: `Primary baths, guest baths, powder rooms. New tile, fixtures, vanities, glass, and the waterproofing and mechanical work behind the walls that makes them last.`
+  },
+  {
+    heading: 'Additions',
+    body: `Adding square footage to your existing home — bump-outs, second-story additions, in-law suites, sunrooms. We handle the framing, mechanicals, and finishes, and tie the new space cleanly into the old.`
+  },
+  {
+    heading: 'Basements',
+    body: `Finished basements that actually feel like part of the house. Family rooms, home offices, guest suites, gyms, theaters. Done with the moisture control and mechanicals that make the space hold up.`
+  },
+  {
+    heading: 'Historic Restorations',
+    body: `Older Connecticut homes deserve careful hands. We restore original details where it matters and modernize what needs to be modernized — heating, electrical, plumbing, insulation — without losing the character of the house.`
+  },
+  {
+    heading: 'New Construction',
+    body: `Ground-up custom homes in Connecticut. We coordinate with your architect (or one of ours), manage permits and trades, and run the build from foundation to final walk-through.`
+  },
+];
+---
+<BaseLayout title={title} description={description}>
+
+  <section class="page-header section">
+    <div class="container content">
+      <span class="eyebrow">Services</span>
+      <h1>What we build.</h1>
+      <p class="lede">
+        We're a renovation and construction firm. The list below covers what we take on
+        — all of it across Connecticut.
+      </p>
+    </div>
+  </section>
+
+  <section class="section-tight">
+    <div class="container content">
+      {services.map((service) => (
+        <article class="service-block">
+          <GoldRule width="48px" />
+          <h2>{service.heading}</h2>
+          <p>{service.body}</p>
+          <p class="discuss-link">
+            <PhoneLink prefix="Call to discuss — " class="discuss-phone" />
+          </p>
+        </article>
+      ))}
+    </div>
+  </section>
+
+  <section class="section section-bleed-offwhite closing">
+    <div class="container content">
+      <p>
+        Not sure which category your project falls under?
+        Call <PhoneLink class="inline-phone" /> and we'll figure it out together.
+      </p>
+    </div>
+  </section>
+
+</BaseLayout>
+
+<style>
+  .page-header { padding-top: var(--space-8); padding-bottom: var(--space-6); }
+  .lede {
+    font-size: var(--text-xl);
+    color: var(--color-muted);
+    margin-top: var(--space-3);
+    max-width: 60ch;
+  }
+
+  .service-block {
+    padding: var(--space-6) 0;
+    border-bottom: 1px solid rgba(15, 42, 68, 0.08);
+  }
+  .service-block:last-child { border-bottom: none; }
+  .service-block h2 { margin-bottom: var(--space-2); }
+  .service-block p { max-width: 65ch; }
+  .discuss-link { margin-top: var(--space-3); }
+  .discuss-phone {
+    font-family: var(--font-label);
+    font-size: var(--text-sm);
+    letter-spacing: 0.08em;
+    color: var(--color-gold);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-gold);
+    padding-bottom: 2px;
+  }
+  .discuss-phone:hover { color: var(--color-navy); border-color: var(--color-navy); }
+
+  .closing { text-align: center; }
+  .closing p { font-size: var(--text-xl); margin: 0; }
+  .inline-phone {
+    color: var(--color-navy);
+    font-weight: 600;
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-gold);
+  }
+  .inline-phone:hover { color: var(--color-gold); }
+</style>

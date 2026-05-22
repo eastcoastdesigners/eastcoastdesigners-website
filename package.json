@@ -1,0 +1,23 @@
+{
+  "name": "eastcoastdesigners-website",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Static marketing website for East Coast Designers — Connecticut renovation and construction firm",
+  "scripts": {
+    "dev": "astro dev",
+    "start": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview",
+    "astro": "astro",
+    "test": "playwright test",
+    "test:headed": "playwright test --headed",
+    "test:ui": "playwright test --ui"
+  },
+  "dependencies": {
+    "astro": "^5.0.0"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.49.0"
+  }
+}

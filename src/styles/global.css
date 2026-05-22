@@ -1,0 +1,125 @@
+@import './tokens.css';
+@import './reset.css';
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  color: var(--color-body);
+  background-color: var(--color-white);
+  font-weight: 400;
+}
+
+/* Headings */
+h1, h2, h3, h4 {
+  font-family: var(--font-heading);
+  font-weight: 500;
+  color: var(--color-navy);
+  line-height: 1.15;
+  letter-spacing: -0.005em;
+}
+
+h1 { font-size: clamp(var(--text-4xl), 5vw, var(--text-5xl)); }
+h2 { font-size: clamp(var(--text-3xl), 3.5vw, var(--text-4xl)); }
+h3 { font-size: var(--text-2xl); }
+h4 { font-size: var(--text-xl); }
+
+p { font-size: var(--text-lg); line-height: 1.65; color: var(--color-body); }
+
+/* Eyebrow / small-caps label */
+.eyebrow {
+  font-family: var(--font-label);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: var(--label-letter-spacing);
+  text-transform: uppercase;
+  color: var(--color-gold);
+  margin-bottom: var(--space-3);
+  display: inline-block;
+}
+
+/* Links */
+a {
+  color: var(--color-navy);
+  text-decoration-color: var(--color-gold);
+  text-underline-offset: 0.2em;
+}
+a:hover { color: var(--color-gold); }
+
+/* Focus state — gold outline per brief Section 7 */
+:focus-visible {
+  outline: 2px solid var(--color-gold);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* Containers */
+.container {
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+.content {
+  max-width: var(--content-width);
+  margin: 0 auto;
+}
+
+/* Buttons (brief Section 3) */
+.btn {
+  display: inline-block;
+  font-family: var(--font-label);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 14px 32px;
+  border: 1px solid transparent;
+  border-radius: 2px;
+  transition: border-color 0.15s, background-color 0.15s, color 0.15s;
+  cursor: pointer;
+  line-height: 1.2;
+}
+
+.btn-primary {
+  background-color: var(--color-navy);
+  color: var(--color-white);
+  border-color: var(--color-navy);
+}
+.btn-primary:hover {
+  background-color: var(--color-navy);
+  color: var(--color-white);
+  border-color: var(--color-gold);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--color-navy);
+  border-color: var(--color-navy);
+}
+.btn-secondary:hover {
+  color: var(--color-gold);
+  border-color: var(--color-gold);
+}
+
+/* Section spacing */
+.section {
+  padding-top: var(--space-12);
+  padding-bottom: var(--space-12);
+}
+.section-tight { padding-top: var(--space-8); padding-bottom: var(--space-8); }
+.section-bleed-navy {
+  background-color: var(--color-navy);
+  color: var(--color-white);
+}
+.section-bleed-navy h1,
+.section-bleed-navy h2,
+.section-bleed-navy h3 { color: var(--color-white); }
+.section-bleed-navy p { color: var(--color-white); opacity: 0.95; }
+.section-bleed-navy .eyebrow { color: var(--color-gold); }
+
+.section-bleed-offwhite { background-color: var(--color-offwhite); }

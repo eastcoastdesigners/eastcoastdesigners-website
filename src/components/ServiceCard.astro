@@ -1,0 +1,27 @@
+---
+import GoldRule from './GoldRule.astro';
+
+interface Props {
+  heading: string;
+}
+const { heading } = Astro.props;
+---
+<article class="service-card">
+  <GoldRule width="40px" />
+  <h3>{heading}</h3>
+  <p><slot /></p>
+</article>
+
+<style>
+  .service-card {
+    padding: var(--space-3) 0;
+  }
+  .service-card h3 {
+    margin-bottom: var(--space-2);
+  }
+  .service-card p {
+    font-size: var(--text-base);
+    color: var(--color-body);
+    margin: 0;
+  }
+</style>
