@@ -1,10 +1,9 @@
 ---
 import { Image } from 'astro:assets';
 import PhoneLink from './PhoneLink.astro';
-import logoOnNavy from '../assets/logos/logo-on-navy.png';
+import logoMetallic from '../assets/logos/logo-metallic.png';
 
 const navLinks = [
-  { href: '/projects', label: 'Projects' },
   { href: '/services', label: 'Services' },
   { href: '/about', label: 'About' },
   { href: '/contact', label: 'Contact' },
@@ -16,7 +15,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
   <div class="container header-inner">
     <a href="/" class="logo-link" aria-label="East Coast Designers — home">
       <Image
-        src={logoOnNavy}
+        src={logoMetallic}
         alt="East Coast Designers"
         widths={[140, 280]}
         sizes="(min-width: 768px) 220px, 160px"

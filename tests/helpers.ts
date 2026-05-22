@@ -1,9 +1,10 @@
 import { type Page, expect } from '@playwright/test';
 
 /**
- * The 5 page routes the site exposes. The crawl confirmed 1:1 match with the old site.
+ * The 4 page routes the site exposes (Projects page removed pre-launch per owner request;
+ * /projects redirects to / via public/_redirects).
  */
-export const PAGES = ['/', '/projects', '/services', '/about', '/contact'] as const;
+export const PAGES = ['/', '/services', '/about', '/contact'] as const;
 
 /**
  * Phone number in tel: format. Single source of truth for assertions.

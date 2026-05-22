@@ -26,7 +26,6 @@ import {
 
 const expectedTitles: Record<string, string> = {
   '/': 'Connecticut Renovation & Construction | East Coast Designers',
-  '/projects': 'Recent Projects | East Coast Designers',
   '/services': 'Renovation & Construction Services | East Coast Designers Connecticut',
   '/about': 'About | East Coast Designers — Connecticut Renovation & Construction',
   '/contact': 'Contact | East Coast Designers — (203) 228-9197',
@@ -87,14 +86,10 @@ for (const path of PAGES) {
   });
 }
 
-test('projects page renders the placeholder, not a stock-photo grid', async ({ page }) => {
-  await page.goto('/projects');
-  await expect(page.getByText(/New project gallery coming soon/i)).toBeVisible();
-
-  // No img tags inside any element that looks like a project grid/gallery
-  const galleryImgs = await page.locator('.project-grid img, .gallery img, [data-projects] img').count();
-  expect(galleryImgs, 'projects page must not contain a project image grid').toBe(0);
-});
+// Note: /projects was removed pre-launch. public/_redirects sends /projects → /
+// (301). That redirect is honored by Cloudflare Pages in production, not by the
+// local Astro dev server, so no automated assertion here. Verify manually against
+// the deployed *.pages.dev URL after each build.
 
 test('no testimonials, blockquotes, or fabricated quote markup anywhere', async ({ page }) => {
   for (const path of PAGES) {
