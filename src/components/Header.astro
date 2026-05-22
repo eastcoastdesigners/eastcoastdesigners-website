@@ -17,8 +17,8 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
       <Image
         src={logoMetallic}
         alt="East Coast Designers"
-        widths={[260, 520]}
-        sizes="(min-width: 768px) 320px, 220px"
+        widths={[200, 320, 480]}
+        sizes="(min-width: 768px) 200px, 140px"
         loading="eager"
         class="logo-img"
       />
@@ -59,7 +59,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
   }
   .logo-link { display: inline-flex; align-items: center; }
   .logo-img {
-    height: 96px;
+    height: 120px;
     width: auto;
     display: block;
   }
@@ -103,7 +103,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 
   @media (max-width: 720px) {
     .header-inner { gap: var(--space-2); }
-    .logo-img { height: 64px; }
+    .logo-img { height: 80px; }
     .primary-nav { width: 100%; margin-left: 0; }
     .primary-nav ul { gap: var(--space-2); justify-content: flex-start; }
     .primary-nav a { font-size: var(--text-xs); }
