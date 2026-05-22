@@ -54,12 +54,14 @@ This is the actual reason the project exists.
 ### Feature 3 — Honest Projects page + correct logo-on-background usage
 - Projects page (`/projects`) ships with the placeholder treatment from Section 4 of the brief: off-white background (`#F5F2EC`), navy monogram centered, single message `New project gallery coming soon. To request photos of recent work or discuss a project of your own, call (203) 228-9197.` **No stock interior photos labeled as ECD projects.**
 - **Important distinction:** Services and Home pages **may** use neutral, generic architectural stock photography as long as nothing in the surrounding markup, alt text, or caption implies "this is our project in [town]." Captions like `Kitchen renovation` are acceptable; captions like `East Coast Designers project in Greenwich` are not. The Projects page is the only page subject to the strict placeholder treatment.
-- Logo variant rules from Section 3 of the brief are enforced:
-  - Navy backgrounds → `East_Cost_Designers_-_logo-03.png`
-  - White/light backgrounds → `East_Cost_Designers_-_logo-09.png` or `-10.png`
-  - Black backgrounds → `East_Cost_Designers_-_logo-04.png` or `-06.png`
-  - Hero marbled treatment → `-14.png` or `-15.png`
-  - Favicon → cropped monogram exported at 32×32 and 192×192
+- Logo variant rules (corrected against actual on-disk asset inventory — see [BRIEF_ERRATA.md](BRIEF_ERRATA.md)):
+  - **Phase 1 uses `-01` through `-04` only.** These are the only standalone logo files that physically exist.
+  - Navy backgrounds → `East Cost Designers - logo-03.png` (silver + gold on navy) — on disk
+  - Black backgrounds → `East Cost Designers - logo-04.png` or `-01.png` (silver + gold on dark) — on disk
+  - **White / light backgrounds → no navy-on-light variant exists in the upload package.** Phase 1 uses plain navy text in place of the logo on light surfaces, OR falls back to `-03` on a small navy band within the header. **Navy-on-light variant to be exported from the `.ai` master before Phase 2.**
+  - **Hero marbled treatment is deferred.** Phase 1 hero uses a solid navy background with the `-03` logo. The marbled version was a "nice to have"; revisit post-launch only if owner exports it from the master.
+  - Favicon → cropped monogram from the `.ai` master (or any available logo) exported at 32×32 and 192×192 in Phase 2.
+- The brief's Section 3 references variants `-09`, `-10`, `-14`, `-15` that do not physically exist in the upload package. This is documented in [BRIEF_ERRATA.md](BRIEF_ERRATA.md); the brief itself is preserved unmodified as the historical handoff artifact. `PHASE_1_DONE.md` will list the missing variants in its Deferred section.
 - Verified by `content.spec.ts` (Projects page contains placeholder text and no `<img>` tags within a `.project-grid` or similar pattern) and manual visual QA before deploy.
 
 ### Hard constraint (not a feature, but binding)
@@ -89,6 +91,12 @@ eastcoastdesigners-website/
 │   └── workflows/
 │       ├── ci.yml                          ***  Lighthouse CI + Playwright on PR
 │       └── deploy-staging.yml              *    auto-deploy to *.pages.dev preview
+├── deployment/                             *   Phase 1 captures + Phase 3 cutover materials
+│   ├── old-site-sitemap.md                 *   URL inventory + status + titles from pre-rewrite crawl
+│   ├── old-site-pages/                     *   raw HTML snapshots of each pre-rewrite page (excluded from Playwright runs)
+│   ├── old-site-capture-date.txt           *   UTC timestamp of crawl, for audit trail
+│   ├── _redirects-proposal.md              *** proposed redirect mapping derived from old-site-sitemap.md — REQUIRES OWNER REVIEW before becoming public/_redirects
+│   └── godaddy-dns-before.png              *** screenshot of GoDaddy DNS records before cutover (for rollback)
 ├── public/
 │   ├── favicon.ico                         **
 │   ├── favicon-32x32.png                   **
@@ -122,7 +130,7 @@ eastcoastdesigners-website/
 │       ├── about.astro                     *  About (/about)
 │       └── contact.astro                   *  Contact (/contact)
 └── tests/
-    ├── helpers.ts                          *  exports FORBIDDEN_STRINGS, FORBIDDEN_ADDRESSES, EMAIL_REGEX + assertNoForbiddenStrings/assertNoEmails/assertNoKnownAddresses helpers
+    ├── helpers.ts                          *  exports FORBIDDEN_STRINGS, FORBIDDEN_ADDRESSES, FORBIDDEN_PII, EMAIL_REGEX + assertNoForbiddenStrings/assertNoEmails/assertNoKnownAddresses/assertNoKnownPII helpers
     ├── content.spec.ts                     *  Phase 1: forbidden strings, phone, schema, no mailto
     ├── accessibility.spec.ts               ** Phase 2: axe-core per page, alt text, keyboard nav
     ├── responsive.spec.ts                  ** Phase 2: mobile menu at 375px, layout at 768/1280/1920
@@ -211,11 +219,18 @@ The audit log is only useful if it's complete and honest.
 15. [src/pages/contact.astro](src/pages/contact.astro) — Contact, verbatim
 16. [src/pages/projects.astro](src/pages/projects.astro) — placeholder treatment only
 17. [playwright.config.ts](playwright.config.ts)
-18. [tests/helpers.ts](tests/helpers.ts) — `assertNoForbiddenStrings(page, strings: string[])` that loops and asserts one-at-a-time (works around the [Playwright `not.toContainText` array bug](https://github.com/microsoft/playwright/issues/16083))
+18. [tests/helpers.ts](tests/helpers.ts) — exports `FORBIDDEN_STRINGS` (NY/NJ/coastal/interior-design terms), `FORBIDDEN_ADDRESSES: string[] = []` (owner-populated locally), `FORBIDDEN_PII: string[] = []` (owner-populated locally — owner's full name and parents' full names, since the original site exposed personal info beyond just the address), and `EMAIL_REGEX`. Helper functions: `assertNoForbiddenStrings`, `assertNoEmails`, `assertNoKnownAddresses`, `assertNoKnownPII`. All assert one-at-a-time to work around the [Playwright `not.toContainText` array bug](https://github.com/microsoft/playwright/issues/16083). The two owner-populated arrays ship empty with a comment block instructing the owner not to paste real values into chat/commit messages — only into a local edit. Empty arrays make `assertNoKnown*` pass trivially; meaningfulness is restored the moment the owner populates them.
 19. [tests/content.spec.ts](tests/content.spec.ts) — forbidden strings absent, phone present & clickable on all 5 pages, schema type is `GeneralContractor`, no `mailto:` anywhere
 20. [.github/workflows/deploy-staging.yml](.github/workflows/deploy-staging.yml) — auto-deploy to Cloudflare Pages preview on push
 21. [README.md](README.md) — how to run, build, test, deploy
-22. [deployment/old-site-sitemap.md](deployment/old-site-sitemap.md) — **capture this in Phase 1 while the old site is still live.** Crawl `eastcoastdesigners.com` (use [xml-sitemaps.com](https://www.xml-sitemaps.com/) or `wget --spider --recursive --no-verbose`) and record every URL the old site exposes. This list is the source material for the `_redirects` file in Phase 3. Also save a full-page screenshot of each old page in `deployment/old-site-screenshots/` as a defensible "before" record. The moment DNS flips, these URLs are gone for crawling — capture now.
+22. **Step zero of Phase 1: old-site capture.** Run before any other Phase 1 work. Produces:
+    - [deployment/old-site-sitemap.md](deployment/old-site-sitemap.md) — every URL discovered, with HTTP status and `<title>` of each. If the crawl finds URLs that aren't in the new 5-page structure (individual project pages, blog posts, service sub-pages), they're listed with proposed redirect targets.
+    - [deployment/old-site-pages/](deployment/old-site-pages/) — raw HTML capture of each page, named by slug (`index.html`, `projects.html`, etc.).
+    - [deployment/old-site-capture-date.txt](deployment/old-site-capture-date.txt) — UTC timestamp of the crawl.
+    - Constraints:
+      - Respect `robots.txt` even though it's the owner's own site. If blocked, fetch the URLs visible in the nav directly.
+      - **The captured HTML will contain the forbidden content (NY/NJ refs, fake testimonial, etc.).** That's expected — it's an artifact kept for redirect-mapping only. The Playwright config (`testIgnore`) must exclude `deployment/old-site-pages/` so forbidden-string assertions don't false-positive against the historical capture.
+      - **Flag any unexpected live-site risks discovered during the crawl** — specifically: an active contact form that's still receiving email submissions, exposed analytics keys, or anything that should be disabled before cutover. Stop and tell the owner if found.
 
 **Verification step:**
 - `npm run build` succeeds with no errors
@@ -259,10 +274,11 @@ The audit log is only useful if it's complete and honest.
 1. [lighthouserc.cjs](lighthouserc.cjs) — `staticDistDir: 'dist'`, assertions enforcing performance ≥ 0.9, accessibility ≥ 0.9, best-practices ≥ 0.9, SEO ≥ 0.9 across all 5 pages
 2. [.github/workflows/ci.yml](.github/workflows/ci.yml) — on PR: install, build, run Playwright, run Lighthouse CI; all must pass to merge. Uses `fetch-depth: 20` on checkout to avoid the LHCI "could not find hash" issue.
 3. [tests/seo.spec.ts](tests/seo.spec.ts) — unique `<title>` per page (matches the table in Section 5 above), unique meta description per page, exactly one `<h1>` per page, Open Graph tags present and correct, JSON-LD parses and `areaServed.name === "Connecticut"`
-4. [public/_redirects](public/_redirects) — 301s from any old URLs identified by crawling the current live site
-5. [public/robots.txt](public/robots.txt) — allow all, point at sitemap
-6. `@astrojs/sitemap` integration → auto-generates `/sitemap.xml`
-7. Validate the JSON-LD once manually at [validator.schema.org](https://validator.schema.org) and Google's [Rich Results Test](https://search.google.com/test/rich-results)
+4. [deployment/_redirects-proposal.md](deployment/_redirects-proposal.md) — proposed redirect mapping derived from [deployment/old-site-sitemap.md](deployment/old-site-sitemap.md). **Owner must review and approve this mapping before it becomes [public/_redirects](public/_redirects).** Any old URL the crawl found that doesn't correspond to a new-site route gets a proposed target (most commonly `/`); the owner confirms or overrides each row before Phase 3 ships.
+5. [public/_redirects](public/_redirects) — created from the approved proposal in step 4 above.
+6. [public/robots.txt](public/robots.txt) — allow all, point at sitemap
+7. `@astrojs/sitemap` integration → auto-generates `/sitemap.xml`
+8. Validate the JSON-LD once manually at [validator.schema.org](https://validator.schema.org) and Google's [Rich Results Test](https://search.google.com/test/rich-results)
 
 **Verification step:**
 - All 12 items in the Acceptance Checklist Mapping table (Section 7 below) pass
