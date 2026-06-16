@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PhoneLink from '../components/PhoneLink.astro';
+import TextLink from '../components/TextLink.astro';
 import GoldRule from '../components/GoldRule.astro';
 
 const title = 'Contact | East Coast Designers — (203) 228-9197';
@@ -18,9 +19,10 @@ const description = 'Call East Coast Designers at (203) 228-9197 to discuss a de
   <section class="section-tight">
     <div class="container content">
       <p class="contact-lede">
-        The best way to reach us is by phone.<br/>
-        Call <PhoneLink class="inline-phone" /> and we'll set up a time to come walk
-        through your project.
+        The best way to reach us is by phone or text.<br/>
+        Call <PhoneLink class="inline-phone" /> or
+        <TextLink class="inline-phone" label="send a request" /> and we'll set up a time
+        to come walk through your project.
       </p>
     </div>
   </section>
@@ -36,7 +38,7 @@ const description = 'Call East Coast Designers at (203) 228-9197 to discuss a de
         <div class="contact-row">
           <GoldRule width="40px" />
           <dt>Service area</dt>
-          <dd>Connecticut, statewide</dd>
+          <dd>Based in Connecticut. Tri-state area regularly; select projects nationwide.</dd>
         </div>
         <div class="contact-row">
           <GoldRule width="40px" />

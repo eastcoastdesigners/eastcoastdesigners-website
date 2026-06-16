@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PhoneLink from '../components/PhoneLink.astro';
+import TextLink from '../components/TextLink.astro';
 import GoldRule from '../components/GoldRule.astro';
 
 import constructionHero from '../assets/images/exterior-modern.jpg';
@@ -13,7 +14,7 @@ import commercialLobby from '../assets/images/commercial-lobby.jpg';
 import commercialOffice from '../assets/images/commercial-office.jpg';
 
 const title = 'Construction — Additions, New Builds, Residential & Commercial | East Coast Designers';
-const description = 'Connecticut construction firm: additions, ground-up new construction, whole-home renovations, and commercial buildouts. Statewide CT, residential and commercial.';
+const description = 'Construction practice: additions, ground-up new construction, whole-home renovations, and commercial buildouts. Residential and commercial. Based in Connecticut, working tri-state and select projects nationwide.';
 ---
 <BaseLayout title={title} description={description}>
 
@@ -33,7 +34,7 @@ const description = 'Connecticut construction firm: additions, ground-up new con
       <GoldRule width="64px" />
       <p class="page-hero-subhead">
         Additions, ground-up new construction, whole-home renovations, and commercial
-        buildouts. Residential and commercial, statewide Connecticut.
+        buildouts. Residential and commercial.
       </p>
     </div>
   </section>
@@ -62,9 +63,9 @@ const description = 'Connecticut construction firm: additions, ground-up new con
           <div class="service-body">
             <h3>Ground-Up New Construction</h3>
             <p>
-              Custom homes built from the foundation up. We coordinate with your architect
-              (or one of ours), manage permits and trades, and run the build from
-              foundation to final walk-through.
+              Custom homes and commercial buildings built from the foundation up. We
+              coordinate with your architect (or one of ours), manage permits and trades,
+              and run the build from foundation to final walk-through.
             </p>
           </div>
         </article>
@@ -84,9 +85,9 @@ const description = 'Connecticut construction firm: additions, ground-up new con
           <div class="service-body">
             <h3>Commercial Buildouts</h3>
             <p>
-              Commercial interiors and ground-up commercial construction across
-              Connecticut. The same care that goes into a residential project, applied at
-              commercial scale and schedule.
+              Commercial interiors and ground-up commercial construction. The same care
+              that goes into a residential project, applied at commercial scale and
+              schedule.
             </p>
           </div>
         </article>
@@ -140,7 +141,7 @@ const description = 'Connecticut construction firm: additions, ground-up new con
     <div class="container">
       <div class="portfolio-header">
         <span class="eyebrow">Work</span>
-        <h2>Recent construction work across Connecticut.</h2>
+        <h2>Construction across residential and commercial.</h2>
       </div>
       <div class="portfolio-grid">
         <figure class="portfolio-tile">
@@ -209,8 +210,12 @@ const description = 'Connecticut construction firm: additions, ground-up new con
 
   <section class="section section-bleed-navy closing-band">
     <div class="container content">
-      <h2>Planning a construction project in Connecticut?</h2>
-      <p>We'd be glad to come take a look. Call <PhoneLink class="closing-phone" />.</p>
+      <h2>Planning a construction project?</h2>
+      <p class="closing-body">We'd be glad to come take a look. Call or send a request — we'll get back to you the same day.</p>
+      <div class="closing-cta-row">
+        <PhoneLink class="btn btn-primary closing-cta" prefix="Call " />
+        <TextLink class="btn btn-ghost closing-cta-ghost" label="Request a consultation" />
+      </div>
     </div>
   </section>
 
@@ -398,12 +403,42 @@ const description = 'Connecticut construction firm: additions, ground-up new con
     margin-bottom: var(--space-3);
     font-size: clamp(var(--text-3xl), 4vw, var(--text-4xl));
   }
-  .closing-phone {
-    color: var(--color-gold);
-    text-decoration: none;
-    font-weight: 600;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.15s;
+  .closing-body {
+    color: var(--color-white);
+    opacity: 0.94;
+    margin-bottom: var(--space-6);
+    max-width: 50ch;
+    margin-left: auto;
+    margin-right: auto;
   }
-  .closing-phone:hover { border-bottom-color: var(--color-gold); }
+  .closing-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    justify-content: center;
+  }
+  .closing-cta {
+    background-color: var(--color-white);
+    color: var(--color-navy);
+    border-color: var(--color-white);
+    padding: 14px 32px;
+    text-decoration: none;
+  }
+  .closing-cta:hover {
+    background-color: transparent;
+    color: var(--color-white);
+    border-color: var(--color-gold);
+  }
+  .closing-cta-ghost {
+    background-color: transparent;
+    color: var(--color-white);
+    border-color: rgba(255, 255, 255, 0.5);
+    padding: 14px 32px;
+    text-decoration: none;
+  }
+  .closing-cta-ghost:hover {
+    background-color: transparent;
+    color: var(--color-gold);
+    border-color: var(--color-gold);
+  }
 </style>

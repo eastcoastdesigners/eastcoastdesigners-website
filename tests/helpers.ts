@@ -19,20 +19,15 @@ export const PHONE_DISPLAY = '(203) 228-9197';
  * the insurance-related geographic and service-area misrepresentations.
  */
 export const FORBIDDEN_STRINGS: readonly string[] = [
-  // Geography — Connecticut-only commitment stands. No non-CT regions or towns.
-  'new york',
-  'new jersey',
-  'brooklyn',
-  'manhattan',
-  'park avenue',
-  'newport',
-  'coastal markets',
-  // Service framing the brief flagged as inaccurate even under the expanded scope.
-  // June 2026: "interior design", "interior architecture", and "decorating" were
-  // REMOVED from this list because the business now formally offers interior
-  // design as a distinct service line (owner waived the insurance-classification
-  // pushback and accepted the coverage risk in writing — see chat log).
-  // These three remain forbidden because they implied false claims even before:
+  // 2026-06-16 second waiver: geographic forbids (NY, NJ, Brooklyn, Manhattan, Park
+  // Avenue, Newport, "coastal markets") were REMOVED. Owner declared the practice
+  // works the tri-state area and select projects nationwide, layering a second
+  // insurance-coverage waiver on top of the first (see chat log). Geographic
+  // strings the original carrier flagged are now legitimate scope claims.
+  //
+  // These three remain forbidden because they were specific fabrications on the
+  // original LeadConnector site (curation services that were never offered, an
+  // "HOA coordination" line that didn't exist):
   'art curation',
   'furniture curation',
   'landmark & hoa coordination',

@@ -25,7 +25,7 @@ import {
  */
 
 const expectedTitles: Record<string, string> = {
-  '/': 'Design + Build, Connecticut | East Coast Designers',
+  '/': 'Design + Build | East Coast Designers',
   '/construction': 'Construction — Additions, New Builds, Residential & Commercial | East Coast Designers',
   '/interior-design': 'Interior Design — Renderings, Sourcing, Full Service | East Coast Designers',
   '/contact': 'Contact | East Coast Designers — (203) 228-9197',
@@ -71,14 +71,16 @@ for (const path of PAGES) {
       expect(h1Count, 'pages must have exactly one h1 inside <main>').toBe(1);
     });
 
-    test('schema.org includes GeneralContractor + InteriorDesignService with Connecticut areaServed', async ({ page }) => {
+    test('schema.org includes GeneralContractor + InteriorDesignService with US areaServed', async ({ page }) => {
       const schema = await getSchemaOrg(page);
       const type = schema['@type'];
       const types = Array.isArray(type) ? type : [type];
       expect(types, 'schema must declare GeneralContractor').toContain('GeneralContractor');
       expect(types, 'schema must declare InteriorDesignService').toContain('InteriorDesignService');
       const areaServed = schema['areaServed'] as { name?: string } | undefined;
-      expect(areaServed?.name).toBe('Connecticut');
+      // 2026-06-16 second waiver: scope expanded from CT-only to US (tri-state + select
+      // nationwide). Either is acceptable on the test boundary.
+      expect(['Connecticut', 'United States']).toContain(areaServed?.name);
       expect(schema['telephone']).toBe('+1-203-228-9197');
     });
 

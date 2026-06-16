@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PhoneLink from '../components/PhoneLink.astro';
+import TextLink from '../components/TextLink.astro';
 import GoldRule from '../components/GoldRule.astro';
 
 import heroLiving from '../assets/images/hero-living.jpg';
@@ -11,8 +12,8 @@ import diningElegant from '../assets/images/dining-elegant.jpg';
 import livingWarm from '../assets/images/living-warm.jpg';
 import exteriorTraditional from '../assets/images/exterior-traditional.jpg';
 
-const title = 'Design + Build, Connecticut | East Coast Designers';
-const description = 'East Coast Designers is a Connecticut design and construction firm — full interior design, 2D and 3D renderings, and ground-up construction. Residential and commercial, statewide.';
+const title = 'Design + Build | East Coast Designers';
+const description = 'East Coast Designers is a design and construction practice — full interior design, 2D and 3D renderings, and ground-up construction. Residential and commercial. Based in Connecticut, working tri-state and select projects nationwide.';
 ---
 <BaseLayout title={title} description={description}>
 
@@ -27,16 +28,17 @@ const description = 'East Coast Designers is a Connecticut design and constructi
     />
     <div class="hero-overlay"></div>
     <div class="container hero-inner">
-      <span class="eyebrow hero-eyebrow">Design + Build — Connecticut</span>
+      <span class="eyebrow hero-eyebrow">Design + Build</span>
       <h1>Design and construction,<br/>under one roof.</h1>
       <GoldRule width="64px" />
       <p class="hero-subhead">
-        Interior design, renderings, and ground-up construction — residential and commercial,
-        statewide.
+        Interior design, renderings, and ground-up construction. Residential and commercial.
+        Based in Connecticut, working tri-state and select projects nationwide.
       </p>
-      <p class="hero-cta-row">
+      <div class="hero-cta-row">
         <PhoneLink class="btn btn-primary hero-cta" prefix="Call " />
-      </p>
+        <TextLink class="btn btn-ghost hero-cta-ghost" label="Request a consultation" />
+      </div>
     </div>
   </section>
 
@@ -46,16 +48,18 @@ const description = 'East Coast Designers is a Connecticut design and constructi
       <h2 class="bio-headline">A full-service design and construction firm,<br/>founded and led by a contractor and designer.</h2>
       <GoldRule width="64px" />
       <p class="bio-lede">
-        East Coast Designers is a Connecticut firm that handles every stage of a project,
-        from the first rendering through the final punch list. Founded by Cristina — a
-        contractor and interior designer who grew up in the trade — the practice brings
-        design and construction under one roof.
+        East Coast Designers is a design and construction practice that handles every stage
+        of a project, from the first rendering through the final punch list. Founded by
+        Cristina — a contractor and interior designer who grew up in the trade — the
+        practice brings design and construction under one roof.
       </p>
       <p class="bio-body">
         We work on residential and commercial projects: full interior design, 2D and 3D
         renderings, finish and material sourcing, additions, renovations, and ground-up
-        construction. The work is simple, classic, and timeless. The goal is to make a
-        house feel like a home — comfortable, considered, built to last.
+        construction. The work is simple, classic, and timeless — built to make a house
+        feel like a home, and to make a commercial space feel right for the people who
+        use it. Based in Connecticut. We work the tri-state area regularly and take on
+        select projects nationwide.
       </p>
     </div>
   </section>
@@ -78,7 +82,7 @@ const description = 'East Coast Designers is a Connecticut design and constructi
             <h3>Construction</h3>
             <p>
               Additions, ground-up new construction, whole-home renovations, and commercial
-              buildouts. Residential and commercial, statewide Connecticut.
+              buildouts. Residential and commercial.
             </p>
             <span class="pair-link">See construction →</span>
           </div>
@@ -125,7 +129,7 @@ const description = 'East Coast Designers is a Connecticut design and constructi
     <div class="container">
       <div class="teaser-header">
         <span class="eyebrow">Work</span>
-        <h2>Design and build across Connecticut.</h2>
+        <h2>Design and build, across a range of projects.</h2>
       </div>
       <div class="teaser-grid">
         <figure class="teaser-tile teaser-tile--tall">
@@ -164,8 +168,12 @@ const description = 'East Coast Designers is a Connecticut design and constructi
 
   <section class="section section-bleed-navy closing-band">
     <div class="container content">
-      <h2>Planning a project in Connecticut?</h2>
-      <p>We'd be glad to come take a look. Call <PhoneLink class="closing-phone" />.</p>
+      <h2>Planning a project?</h2>
+      <p class="closing-body">We'd be glad to come take a look. Call or send a request — we'll get back to you the same day.</p>
+      <div class="closing-cta-row">
+        <PhoneLink class="btn btn-primary closing-cta" prefix="Call " />
+        <TextLink class="btn btn-ghost closing-cta-ghost" label="Request a consultation" />
+      </div>
     </div>
   </section>
 
@@ -219,16 +227,36 @@ const description = 'East Coast Designers is a Connecticut design and constructi
     max-width: 56ch;
     line-height: 1.55;
   }
+  .hero-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
   .hero-cta {
     background-color: var(--color-white);
     color: var(--color-navy);
     border-color: var(--color-white);
     padding: 16px 36px;
     font-size: var(--text-base);
+    text-decoration: none;
   }
   .hero-cta:hover {
     background-color: transparent;
     color: var(--color-white);
+    border-color: var(--color-gold);
+  }
+  .hero-cta-ghost {
+    background-color: transparent;
+    color: var(--color-white);
+    border-color: rgba(255, 255, 255, 0.5);
+    padding: 16px 36px;
+    font-size: var(--text-base);
+    text-decoration: none;
+  }
+  .hero-cta-ghost:hover {
+    background-color: transparent;
+    color: var(--color-gold);
     border-color: var(--color-gold);
   }
 
@@ -402,12 +430,42 @@ const description = 'East Coast Designers is a Connecticut design and constructi
     margin-bottom: var(--space-3);
     font-size: clamp(var(--text-3xl), 4vw, var(--text-4xl));
   }
-  .closing-phone {
-    color: var(--color-gold);
-    text-decoration: none;
-    font-weight: 600;
-    border-bottom: 1px solid transparent;
-    transition: border-color 0.15s;
+  .closing-body {
+    color: var(--color-white);
+    opacity: 0.94;
+    margin-bottom: var(--space-6);
+    max-width: 50ch;
+    margin-left: auto;
+    margin-right: auto;
   }
-  .closing-phone:hover { border-bottom-color: var(--color-gold); }
+  .closing-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    justify-content: center;
+  }
+  .closing-cta {
+    background-color: var(--color-white);
+    color: var(--color-navy);
+    border-color: var(--color-white);
+    padding: 14px 32px;
+    text-decoration: none;
+  }
+  .closing-cta:hover {
+    background-color: transparent;
+    color: var(--color-white);
+    border-color: var(--color-gold);
+  }
+  .closing-cta-ghost {
+    background-color: transparent;
+    color: var(--color-white);
+    border-color: rgba(255, 255, 255, 0.5);
+    padding: 14px 32px;
+    text-decoration: none;
+  }
+  .closing-cta-ghost:hover {
+    background-color: transparent;
+    color: var(--color-gold);
+    border-color: var(--color-gold);
+  }
 </style>
