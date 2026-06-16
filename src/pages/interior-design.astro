@@ -123,7 +123,7 @@ const description = 'Full interior design. 2D and 3D renderings, finish and mate
             sizes="(min-width: 960px) 50vw, 100vw"
             loading="lazy"
           />
-          <figcaption>Living room design</figcaption>
+          <figcaption>Riverlight Living</figcaption>
         </figure>
         <figure class="portfolio-tile">
           <Image
@@ -133,7 +133,7 @@ const description = 'Full interior design. 2D and 3D renderings, finish and mate
             sizes="(min-width: 960px) 50vw, 100vw"
             loading="lazy"
           />
-          <figcaption>Dining room design</figcaption>
+          <figcaption>Soft Classical Dining</figcaption>
         </figure>
         <figure class="portfolio-tile">
           <Image
@@ -143,7 +143,7 @@ const description = 'Full interior design. 2D and 3D renderings, finish and mate
             sizes="(min-width: 960px) 50vw, 100vw"
             loading="lazy"
           />
-          <figcaption>Kitchen design</figcaption>
+          <figcaption>Statement Marble Kitchen</figcaption>
         </figure>
         <figure class="portfolio-tile">
           <Image
@@ -153,7 +153,7 @@ const description = 'Full interior design. 2D and 3D renderings, finish and mate
             sizes="(min-width: 960px) 50vw, 100vw"
             loading="lazy"
           />
-          <figcaption>Sitting room with fireplace</figcaption>
+          <figcaption>Bay Window Salon</figcaption>
         </figure>
         <figure class="portfolio-tile">
           <Image
@@ -163,7 +163,7 @@ const description = 'Full interior design. 2D and 3D renderings, finish and mate
             sizes="(min-width: 960px) 50vw, 100vw"
             loading="lazy"
           />
-          <figcaption>Primary bath design</figcaption>
+          <figcaption>Carrara Primary Suite</figcaption>
         </figure>
         <figure class="portfolio-tile">
           <Image
@@ -173,7 +173,7 @@ const description = 'Full interior design. 2D and 3D renderings, finish and mate
             sizes="(min-width: 960px) 50vw, 100vw"
             loading="lazy"
           />
-          <figcaption>Whole-home design</figcaption>
+          <figcaption>Modern Estate</figcaption>
         </figure>
       </div>
     </div>
@@ -313,7 +313,8 @@ const description = 'Full interior design. 2D and 3D renderings, finish and mate
   .portfolio-grid {
     display: grid;
     grid-template-columns: 1fr;
-    gap: var(--space-3);
+    column-gap: var(--space-3);
+    row-gap: var(--space-8);
   }
   @media (min-width: 768px) {
     .portfolio-grid { grid-template-columns: 1fr 1fr; }
@@ -321,21 +322,23 @@ const description = 'Full interior design. 2D and 3D renderings, finish and mate
   @media (min-width: 1200px) {
     .portfolio-grid { grid-template-columns: 1fr 1fr 1fr; }
   }
-  .portfolio-tile { margin: 0; }
+  .portfolio-tile { margin: 0; display: flex; flex-direction: column; }
   .portfolio-tile :global(img) {
     width: 100%;
-    height: 100%;
+    height: auto;
     object-fit: cover;
     aspect-ratio: 4 / 3;
     display: block;
   }
   .portfolio-tile figcaption {
     font-family: var(--font-label);
-    font-size: var(--text-xs);
+    font-size: var(--text-sm);
+    font-weight: 500;
     letter-spacing: var(--label-letter-spacing);
     text-transform: uppercase;
-    color: var(--color-muted);
-    margin-top: var(--space-2);
+    color: var(--color-navy);
+    margin-top: var(--space-3);
+    line-height: 1.4;
   }
 
   .closing-band { text-align: center; padding-top: var(--space-16); padding-bottom: var(--space-16); }
