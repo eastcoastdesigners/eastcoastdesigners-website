@@ -1,0 +1,21 @@
+---
+interface Props {
+  label?: string;
+  body?: string;
+  class?: string;
+  cellNumber?: string;
+}
+const {
+  label = 'Request a consultation',
+  body = 'Hi — I’d like to discuss a project.',
+  class: className = '',
+  cellNumber = '+12032289197',
+} = Astro.props;
+
+// sms: URI with iOS-style body parameter. Most modern clients (iOS Messages,
+// Android Messages, macOS Messages) honor the ?body= query. Encoded once at build.
+const href = `sms:${cellNumber}?&body=${encodeURIComponent(body)}`;
+---
+<a href={href} class={className} aria-label="Text East Coast Designers to request a consultation">
+  {label}
+</a>

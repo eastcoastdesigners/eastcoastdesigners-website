@@ -25,11 +25,11 @@ import {
  */
 
 const expectedTitles: Record<string, string> = {
-  '/': 'Connecticut Renovation & Construction | East Coast Designers',
-  '/projects': 'Recent Projects | East Coast Designers',
-  '/services': 'Renovation & Construction Services | East Coast Designers Connecticut',
-  '/about': 'About | East Coast Designers — Connecticut Renovation & Construction',
+  '/': 'Design + Build | East Coast Designers',
+  '/construction': 'Construction — Additions, New Builds, Residential & Commercial | East Coast Designers',
+  '/interior-design': 'Interior Design — Renderings, Sourcing, Full Service | East Coast Designers',
   '/contact': 'Contact | East Coast Designers — (203) 228-9197',
+  '/projects': 'Recent Projects | East Coast Designers',
 };
 
 for (const path of PAGES) {
@@ -71,18 +71,24 @@ for (const path of PAGES) {
       expect(h1Count, 'pages must have exactly one h1 inside <main>').toBe(1);
     });
 
-    test('schema.org is GeneralContractor with Connecticut areaServed', async ({ page }) => {
+    test('schema.org includes GeneralContractor + InteriorDesignService with US areaServed', async ({ page }) => {
       const schema = await getSchemaOrg(page);
-      expect(schema['@type']).toBe('GeneralContractor');
+      const type = schema['@type'];
+      const types = Array.isArray(type) ? type : [type];
+      expect(types, 'schema must declare GeneralContractor').toContain('GeneralContractor');
+      expect(types, 'schema must declare InteriorDesignService').toContain('InteriorDesignService');
       const areaServed = schema['areaServed'] as { name?: string } | undefined;
-      expect(areaServed?.name).toBe('Connecticut');
+      // 2026-06-16 second waiver: scope expanded from CT-only to US (tri-state + select
+      // nationwide). Either is acceptable on the test boundary.
+      expect(['Connecticut', 'United States']).toContain(areaServed?.name);
       expect(schema['telephone']).toBe('+1-203-228-9197');
     });
 
-    test('schema.org is not a forbidden type', async ({ page }) => {
+    test('schema.org does not declare ProfessionalService (carrier-flagged classification)', async ({ page }) => {
       const schema = await getSchemaOrg(page);
-      const forbiddenTypes = ['InteriorDesignService', 'ProfessionalService'];
-      expect(forbiddenTypes).not.toContain(schema['@type']);
+      const type = schema['@type'];
+      const types = Array.isArray(type) ? type : [type];
+      expect(types, 'schema must not use ProfessionalService').not.toContain('ProfessionalService');
     });
   });
 }
