@@ -2,82 +2,162 @@
 import { Image } from 'astro:assets';
 import BaseLayout from '../layouts/BaseLayout.astro';
 import PhoneLink from '../components/PhoneLink.astro';
-import ServiceCard from '../components/ServiceCard.astro';
 import GoldRule from '../components/GoldRule.astro';
-import logoMetallic from '../assets/logos/logo-metallic.png';
 
-const title = 'Connecticut Renovation & Construction | East Coast Designers';
-const description = 'East Coast Designers is a Connecticut renovation and construction firm. Whole-home renovations, kitchens, baths, additions, basements, and new builds — statewide CT.';
+import heroLiving from '../assets/images/hero-living.jpg';
+import kitchenMarble from '../assets/images/kitchen-marble.jpg';
+import bathMarble from '../assets/images/bath-marble.jpg';
+import diningElegant from '../assets/images/dining-elegant.jpg';
+import livingWarm from '../assets/images/living-warm.jpg';
+import exteriorTraditional from '../assets/images/exterior-traditional.jpg';
+
+const title = 'Design + Build, Connecticut | East Coast Designers';
+const description = 'East Coast Designers is a Connecticut design and construction firm — full interior design, 2D and 3D renderings, and ground-up construction. Residential and commercial, statewide.';
 ---
 <BaseLayout title={title} description={description}>
 
   <section class="hero">
     <Image
-      src={logoMetallic}
-      alt=""
-      role="presentation"
-      aria-hidden="true"
-      widths={[800, 1200]}
-      sizes="900px"
+      src={heroLiving}
+      alt="Residential interior"
+      widths={[1200, 1800, 2400]}
+      sizes="100vw"
       loading="eager"
-      class="hero-watermark"
+      class="hero-photo"
     />
+    <div class="hero-overlay"></div>
     <div class="container hero-inner">
-      <span class="eyebrow hero-eyebrow">Renovation &amp; Construction — Connecticut</span>
-      <h1>Built carefully.<br/>Finished beautifully.</h1>
+      <span class="eyebrow hero-eyebrow">Design + Build — Connecticut</span>
+      <h1>Design and construction,<br/>under one roof.</h1>
+      <GoldRule width="64px" />
       <p class="hero-subhead">
-        East Coast Designers is a Connecticut renovation and construction firm. We handle
-        whole-home renovations, kitchens, bathrooms, additions, basements, and new builds
-        across the state — with a calm, organized process and craftsmanship that holds up.
+        Interior design, renderings, and ground-up construction — residential and commercial,
+        statewide.
       </p>
       <p class="hero-cta-row">
         <PhoneLink class="btn btn-primary hero-cta" prefix="Call " />
       </p>
-      <p class="hero-subnote">Serving Connecticut homeowners statewide.</p>
     </div>
   </section>
 
-  <section class="section">
+  <section class="section bio-section">
+    <div class="container content">
+      <span class="eyebrow">East Coast Designers</span>
+      <h2 class="bio-headline">A full-service design and construction firm,<br/>founded and led by a contractor and designer.</h2>
+      <GoldRule width="64px" />
+      <p class="bio-lede">
+        East Coast Designers is a Connecticut firm that handles every stage of a project,
+        from the first rendering through the final punch list. Founded by Cristina — a
+        contractor and interior designer who grew up in the trade — the practice brings
+        design and construction under one roof.
+      </p>
+      <p class="bio-body">
+        We work on residential and commercial projects: full interior design, 2D and 3D
+        renderings, finish and material sourcing, additions, renovations, and ground-up
+        construction. The work is simple, classic, and timeless. The goal is to make a
+        house feel like a home — comfortable, considered, built to last.
+      </p>
+    </div>
+  </section>
+
+  <section class="section section-bleed-offwhite services-pair">
     <div class="container">
-      <div class="services-grid">
-        <ServiceCard heading="Renovations &amp; Additions">
-          Whole-home renovations, kitchens, bathrooms, and additions. Careful planning, clear
-          timelines, and finish work you can stand close to.
-        </ServiceCard>
-        <ServiceCard heading="New Construction">
-          Ground-up builds across Connecticut. We coordinate the trades, hold the schedule,
-          and deliver homes that are built to last.
-        </ServiceCard>
-        <ServiceCard heading="Restorations &amp; Basements">
-          Historic restorations done with respect for the original house, and basement
-          finishes that add real, usable space.
-        </ServiceCard>
+      <div class="pair-grid">
+        <a href="/construction" class="pair-card">
+          <div class="pair-image">
+            <Image
+              src={exteriorTraditional}
+              alt="Residential exterior"
+              widths={[600, 900, 1200]}
+              sizes="(min-width: 768px) 50vw, 100vw"
+              loading="lazy"
+            />
+          </div>
+          <div class="pair-body">
+            <span class="eyebrow pair-eyebrow">01 — Service</span>
+            <h3>Construction</h3>
+            <p>
+              Additions, ground-up new construction, whole-home renovations, and commercial
+              buildouts. Residential and commercial, statewide Connecticut.
+            </p>
+            <span class="pair-link">See construction →</span>
+          </div>
+        </a>
+
+        <a href="/interior-design" class="pair-card">
+          <div class="pair-image">
+            <Image
+              src={kitchenMarble}
+              alt="Residential interior"
+              widths={[600, 900, 1200]}
+              sizes="(min-width: 768px) 50vw, 100vw"
+              loading="lazy"
+            />
+          </div>
+          <div class="pair-body">
+            <span class="eyebrow pair-eyebrow">02 — Service</span>
+            <h3>Interior Design</h3>
+            <p>
+              Full interior design, 2D and 3D renderings, finish and material selection,
+              and furniture and fixtures sourcing.
+            </p>
+            <span class="pair-link">See interior design →</span>
+          </div>
+        </a>
       </div>
     </div>
   </section>
 
-  <section class="section section-bleed-offwhite">
-    <div class="container content">
-      <span class="eyebrow">How we work</span>
-      <div class="process-grid">
-        <article class="process-step">
-          <span class="process-num">01</span>
-          <h3>Walk-through &amp; Scope</h3>
-          <p>We visit the home, talk through what you want done, and put together a scope
-            and a number you can actually plan around.</p>
-        </article>
-        <article class="process-step">
-          <span class="process-num">02</span>
-          <h3>Planning &amp; Permits</h3>
-          <p>We line up drawings, permits, and the trades. You'll know who's doing what,
-            when they're starting, and what it costs before we break ground.</p>
-        </article>
-        <article class="process-step">
-          <span class="process-num">03</span>
-          <h3>Build</h3>
-          <p>Our crew runs the job. You get a single point of contact, regular check-ins,
-            and a job site that stays organized from demo to punch list.</p>
-        </article>
+  <section class="section philosophy-band">
+    <div class="container content philosophy-inner">
+      <span class="eyebrow">Philosophy</span>
+      <h2 class="philosophy-mark">Simple. Classic. Timeless.</h2>
+      <GoldRule width="64px" align="center" />
+      <p class="philosophy-body">
+        Atmosphere is the work. A well-built room with the right proportions, the right
+        light, and the right materials feels right to live in for decades. We design with
+        that in mind — and we build the way the design deserves to be built.
+      </p>
+    </div>
+  </section>
+
+  <section class="section work-teaser">
+    <div class="container">
+      <div class="teaser-header">
+        <span class="eyebrow">Work</span>
+        <h2>Design and build across Connecticut.</h2>
+      </div>
+      <div class="teaser-grid">
+        <figure class="teaser-tile teaser-tile--tall">
+          <Image
+            src={bathMarble}
+            alt="Bathroom renovation"
+            widths={[600, 900]}
+            sizes="(min-width: 960px) 33vw, 100vw"
+            loading="lazy"
+          />
+          <figcaption>Primary bath renovation</figcaption>
+        </figure>
+        <figure class="teaser-tile">
+          <Image
+            src={livingWarm}
+            alt="Living room"
+            widths={[600, 900]}
+            sizes="(min-width: 960px) 33vw, 100vw"
+            loading="lazy"
+          />
+          <figcaption>Living room design</figcaption>
+        </figure>
+        <figure class="teaser-tile">
+          <Image
+            src={diningElegant}
+            alt="Dining room"
+            widths={[600, 900]}
+            sizes="(min-width: 960px) 33vw, 100vw"
+            loading="lazy"
+          />
+          <figcaption>Dining room design</figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -92,95 +172,242 @@ const description = 'East Coast Designers is a Connecticut renovation and constr
 </BaseLayout>
 
 <style>
+  /* ----- HERO ----- */
   .hero {
-    background-color: var(--color-navy);
-    color: var(--color-white);
-    padding-top: var(--space-16);
-    padding-bottom: var(--space-16);
     position: relative;
+    min-height: 88vh;
+    display: flex;
+    align-items: center;
     overflow: hidden;
+    color: var(--color-white);
   }
-  .hero-watermark {
+  .hero-photo {
     position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: auto;
-    height: 110%;
-    max-height: 900px;
-    max-width: none;
-    opacity: 0.12;
-    pointer-events: none;
-    user-select: none;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
     z-index: 0;
   }
-  @media (max-width: 767px) {
-    .hero-watermark { display: none; }
-  }
-  .hero-inner {
-    max-width: var(--content-width);
-    margin: 0 auto;
-    position: relative;
+  .hero-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15,42,68,0.35) 0%, rgba(15,42,68,0.78) 100%);
     z-index: 1;
   }
-  .hero-eyebrow { margin-bottom: var(--space-4); }
-  .hero h1 { color: var(--color-white); margin-bottom: var(--space-4); }
+  .hero-inner {
+    position: relative;
+    z-index: 2;
+    padding-top: var(--space-16);
+    padding-bottom: var(--space-16);
+    max-width: 920px;
+  }
+  .hero-eyebrow { color: var(--color-gold); margin-bottom: var(--space-3); }
+  .hero h1 {
+    color: var(--color-white);
+    font-size: clamp(2.75rem, 7vw, 5.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.015em;
+    margin-bottom: var(--space-3);
+  }
   .hero-subhead {
     color: var(--color-white);
-    opacity: 0.92;
+    opacity: 0.94;
+    margin-top: var(--space-3);
     margin-bottom: var(--space-6);
-    max-width: 60ch;
+    font-size: clamp(var(--text-lg), 1.8vw, var(--text-xl));
+    max-width: 56ch;
+    line-height: 1.55;
   }
-  .hero-cta-row { margin-bottom: var(--space-2); }
   .hero-cta {
     background-color: var(--color-white);
     color: var(--color-navy);
     border-color: var(--color-white);
+    padding: 16px 36px;
+    font-size: var(--text-base);
   }
   .hero-cta:hover {
-    background-color: var(--color-white);
-    color: var(--color-navy);
+    background-color: transparent;
+    color: var(--color-white);
     border-color: var(--color-gold);
   }
-  .hero-subnote {
+
+  /* ----- BIO ----- */
+  .bio-section {
+    padding-top: clamp(var(--space-12), 10vw, var(--space-16));
+    padding-bottom: clamp(var(--space-12), 10vw, var(--space-16));
+  }
+  .bio-section .content { max-width: 820px; }
+  .bio-headline {
+    font-size: clamp(var(--text-3xl), 4.5vw, 3.25rem);
+    line-height: 1.15;
+    letter-spacing: -0.005em;
+    margin-bottom: var(--space-3);
+    color: var(--color-navy);
+  }
+  .bio-lede {
+    font-size: var(--text-xl);
+    line-height: 1.6;
+    color: var(--color-navy);
+    margin-top: var(--space-4);
+    margin-bottom: var(--space-4);
+    font-weight: 400;
+  }
+  .bio-body {
+    font-size: var(--text-lg);
+    line-height: 1.7;
+    color: var(--color-muted);
+    margin: 0;
+    max-width: 64ch;
+  }
+
+  /* ----- PAIR (Construction + Interior Design) ----- */
+  .services-pair {
+    padding-top: clamp(var(--space-12), 10vw, var(--space-16));
+    padding-bottom: clamp(var(--space-12), 10vw, var(--space-16));
+  }
+  .pair-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-8);
+  }
+  @media (min-width: 768px) {
+    .pair-grid {
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+    }
+  }
+  .pair-card {
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    color: inherit;
+    background-color: var(--color-white);
+    transition: transform 0.3s ease;
+  }
+  .pair-card:hover { transform: translateY(-4px); }
+  .pair-image {
+    aspect-ratio: 4 / 3;
+    overflow: hidden;
+  }
+  .pair-image :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+  }
+  .pair-card:hover .pair-image :global(img) { transform: scale(1.03); }
+  .pair-body { padding: var(--space-4) var(--space-4) var(--space-3); }
+  .pair-eyebrow { color: var(--color-gold); margin-bottom: var(--space-2); }
+  .pair-body h3 {
+    font-size: clamp(var(--text-2xl), 3vw, var(--text-3xl));
+    margin: var(--space-2) 0;
+    color: var(--color-navy);
+  }
+  .pair-body p {
+    font-size: var(--text-base);
+    color: var(--color-muted);
+    line-height: 1.65;
+    margin-bottom: var(--space-3);
+    max-width: 48ch;
+  }
+  .pair-link {
     font-family: var(--font-label);
     font-size: var(--text-sm);
-    letter-spacing: 0.08em;
+    letter-spacing: 0.1em;
     text-transform: uppercase;
-    color: var(--color-gold);
-    opacity: 0.9;
-    margin: 0;
+    color: var(--color-navy);
+    border-bottom: 1px solid var(--color-gold);
+    padding-bottom: 2px;
   }
+  .pair-card:hover .pair-link { color: var(--color-gold); }
 
-  .services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: var(--space-6);
+  /* ----- PHILOSOPHY BAND ----- */
+  .philosophy-band {
+    padding-top: clamp(var(--space-16), 12vw, 8rem);
+    padding-bottom: clamp(var(--space-16), 12vw, 8rem);
+    background-color: var(--color-white);
   }
-
-  .process-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-    gap: var(--space-6);
-    margin-top: var(--space-4);
-  }
-  .process-step .process-num {
+  .philosophy-inner { text-align: center; max-width: 720px; }
+  .philosophy-mark {
     font-family: var(--font-heading);
-    font-size: var(--text-2xl);
-    color: var(--color-gold);
-    display: block;
-    margin-bottom: var(--space-1);
-    letter-spacing: 0.04em;
+    font-size: clamp(var(--text-4xl), 6vw, 4rem);
+    line-height: 1.05;
+    letter-spacing: -0.01em;
+    color: var(--color-navy);
+    margin: var(--space-3) 0;
+    font-style: italic;
+    font-weight: 400;
   }
-  .process-step h3 { margin-bottom: var(--space-2); }
-  .process-step p { font-size: var(--text-base); }
+  .philosophy-body {
+    font-size: var(--text-lg);
+    color: var(--color-muted);
+    line-height: 1.7;
+    margin-top: var(--space-4);
+    max-width: 60ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
 
-  .closing-band { text-align: center; }
-  .closing-band h2 { margin-bottom: var(--space-3); }
+  /* ----- WORK TEASER ----- */
+  .work-teaser {
+    padding-top: clamp(var(--space-12), 10vw, var(--space-16));
+    padding-bottom: clamp(var(--space-12), 10vw, var(--space-16));
+    background-color: var(--color-offwhite);
+  }
+  .teaser-header {
+    margin-bottom: var(--space-8);
+    max-width: 720px;
+  }
+  .teaser-header h2 {
+    font-size: clamp(var(--text-3xl), 4vw, var(--text-4xl));
+    line-height: 1.15;
+    margin-top: var(--space-2);
+  }
+  .teaser-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  @media (min-width: 768px) {
+    .teaser-grid {
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr;
+      gap: var(--space-3);
+    }
+  }
+  .teaser-tile { margin: 0; position: relative; }
+  .teaser-tile :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    aspect-ratio: 4 / 5;
+    display: block;
+  }
+  @media (min-width: 768px) {
+    .teaser-tile--tall :global(img) { aspect-ratio: 4 / 5; }
+  }
+  .teaser-tile figcaption {
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    letter-spacing: var(--label-letter-spacing);
+    text-transform: uppercase;
+    color: var(--color-muted);
+    margin-top: var(--space-2);
+  }
+
+  /* ----- CLOSING ----- */
+  .closing-band { text-align: center; padding-top: var(--space-16); padding-bottom: var(--space-16); }
+  .closing-band h2 {
+    margin-bottom: var(--space-3);
+    font-size: clamp(var(--text-3xl), 4vw, var(--text-4xl));
+  }
   .closing-phone {
     color: var(--color-gold);
     text-decoration: none;
     font-weight: 600;
+    border-bottom: 1px solid transparent;
+    transition: border-color 0.15s;
   }
-  .closing-phone:hover { color: var(--color-white); }
+  .closing-phone:hover { border-bottom-color: var(--color-gold); }
 </style>

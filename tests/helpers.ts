@@ -1,11 +1,11 @@
 import { type Page, expect } from '@playwright/test';
 
 /**
- * The 5 page routes the site exposes. /projects exists and is reachable by direct URL,
- * but is intentionally NOT linked from the primary nav (owner decision — placeholder
- * page is unlisted until real photography is added).
+ * Page routes after the June 2026 dual-service expansion. Home rewritten as founder bio;
+ * /construction and /interior-design replace the old single /services page. /about folded
+ * into Home. /projects remains as unlisted placeholder (not in primary nav).
  */
-export const PAGES = ['/', '/projects', '/services', '/about', '/contact'] as const;
+export const PAGES = ['/', '/construction', '/interior-design', '/contact', '/projects'] as const;
 
 /**
  * Phone number in tel: format. Single source of truth for assertions.
@@ -19,7 +19,7 @@ export const PHONE_DISPLAY = '(203) 228-9197';
  * the insurance-related geographic and service-area misrepresentations.
  */
 export const FORBIDDEN_STRINGS: readonly string[] = [
-  // Geography (non-CT)
+  // Geography — Connecticut-only commitment stands. No non-CT regions or towns.
   'new york',
   'new jersey',
   'brooklyn',
@@ -27,16 +27,15 @@ export const FORBIDDEN_STRINGS: readonly string[] = [
   'park avenue',
   'newport',
   'coastal markets',
-  // Services we don't offer
-  'interior design',
-  'interior architecture',
-  'decorating',
+  // Service framing the brief flagged as inaccurate even under the expanded scope.
+  // June 2026: "interior design", "interior architecture", and "decorating" were
+  // REMOVED from this list because the business now formally offers interior
+  // design as a distinct service line (owner waived the insurance-classification
+  // pushback and accepted the coverage risk in writing — see chat log).
+  // These three remain forbidden because they implied false claims even before:
   'art curation',
   'furniture curation',
   'landmark & hoa coordination',
-  // Misrepresentation framing
-  'luxury home renovation',
-  'bespoke cabinetry & stonework',
 ];
 
 /**
