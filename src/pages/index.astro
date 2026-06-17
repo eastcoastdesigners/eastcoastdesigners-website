@@ -91,36 +91,47 @@ const description = 'East Coast Designers is a design and construction practice 
     </div>
   </section>
 
-  <section class="section bio-section">
-    <div class="container content">
-      <span class="eyebrow">East Coast Designers</span>
-      <h2 class="bio-headline">A full-service design and construction firm,<br/>founded and led by a contractor and designer.</h2>
-      <GoldRule width="64px" />
-      <p class="bio-lede">
-        East Coast Designers is a design and construction practice that handles every stage
-        of a project, from the first rendering through the final punch list. Founded by
-        Cristina — a contractor and interior designer who grew up in the trade — the
-        practice brings design and construction under one roof.
-      </p>
-      <p class="bio-body">
-        We work on residential and commercial projects: full interior design, 2D and 3D
-        renderings, finish and material sourcing, additions, renovations, and ground-up
-        construction. The work is simple, classic, and timeless — built to make a house
-        feel like a home, and to make a commercial space feel right for the people who
-        use it. Based in Connecticut. We work the tri-state area regularly and take on
-        select projects nationwide.
-      </p>
-      <p class="bio-body bio-team">
-        Owner-operated. Cristina leads every project as designer and general contractor,
-        working with a vetted network of trusted trade partners — and collaborating with
-        other designers, architects, and GCs when scope requires. The result is one
-        point of contact, one accountable lead, and a single team that handles design,
-        coordination, and build from start to finish.
-      </p>
+  <section class="bio-section">
+    <Image
+      src={heroLiving}
+      alt="Residential interior"
+      widths={[1200, 1800, 2400]}
+      sizes="100vw"
+      loading="lazy"
+      class="bio-bg-photo"
+    />
+    <div class="bio-overlay"></div>
+    <div class="container bio-inner">
+      <div class="bio-text-panel">
+        <span class="eyebrow">East Coast Designers</span>
+        <h2 class="bio-headline">A full-service design and construction firm,<br/>founded and led by a contractor and designer.</h2>
+        <GoldRule width="64px" />
+        <p class="bio-lede">
+          East Coast Designers is a design and construction practice that handles every stage
+          of a project, from the first rendering through the final punch list. Founded by
+          Cristina — a contractor and interior designer who grew up in the trade — the
+          practice brings design and construction under one roof.
+        </p>
+        <p class="bio-body">
+          We work on residential and commercial projects: full interior design, 2D and 3D
+          renderings, finish and material sourcing, additions, renovations, and ground-up
+          construction. The work is simple, classic, and timeless — built to make a house
+          feel like a home, and to make a commercial space feel right for the people who
+          use it. Based in Connecticut. We work the tri-state area regularly and take on
+          select projects nationwide.
+        </p>
+        <p class="bio-body bio-team">
+          Owner-operated. Cristina leads every project as designer and general contractor,
+          working with a vetted network of trusted trade partners — and collaborating with
+          other designers, architects, and GCs when scope requires. The result is one
+          point of contact, one accountable lead, and a single team that handles design,
+          coordination, and build from start to finish.
+        </p>
+      </div>
     </div>
   </section>
 
-  <section class="section practice-section">
+  <section class="section practice-section practice-section--dark">
     <div class="container">
       <div class="practice-header">
         <span class="eyebrow">Practice</span>
@@ -229,6 +240,15 @@ const description = 'East Coast Designers is a design and construction practice 
   </section>
 
   <section class="pullquote-band">
+    <Image
+      src={diningElegant}
+      alt="Dining interior"
+      widths={[1200, 1800, 2400]}
+      sizes="100vw"
+      loading="lazy"
+      class="pullquote-bg-photo"
+    />
+    <div class="pullquote-overlay"></div>
     <div class="container content pullquote-inner">
       <span class="pullquote-mark">&ldquo;</span>
       <p class="pullquote">
@@ -240,49 +260,17 @@ const description = 'East Coast Designers is a design and construction practice 
     </div>
   </section>
 
-  <section class="section work-teaser">
-    <div class="container">
-      <div class="teaser-header">
-        <span class="eyebrow">Work</span>
-        <h2>Design and build, across a range of projects.</h2>
-      </div>
-      <div class="teaser-grid">
-        <figure class="teaser-tile teaser-tile--tall">
-          <Image
-            src={bathMarble}
-            alt="Bathroom renovation"
-            widths={[600, 900]}
-            sizes="(min-width: 960px) 33vw, 100vw"
-            loading="lazy"
-          />
-          <figcaption>Primary bath renovation</figcaption>
-        </figure>
-        <figure class="teaser-tile">
-          <Image
-            src={livingWarm}
-            alt="Living room"
-            widths={[600, 900]}
-            sizes="(min-width: 960px) 33vw, 100vw"
-            loading="lazy"
-          />
-          <figcaption>Living room design</figcaption>
-        </figure>
-        <figure class="teaser-tile">
-          <Image
-            src={commercialReceptionWood}
-            alt="Office reception interior"
-            widths={[600, 900]}
-            sizes="(min-width: 960px) 33vw, 100vw"
-            loading="lazy"
-          />
-          <figcaption>Office Reception</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-
-  <section class="section section-bleed-navy closing-band">
-    <div class="container content">
+  <section class="closing-band">
+    <Image
+      src={hospitalityLounge}
+      alt="Hospitality lounge"
+      widths={[1200, 1800, 2400]}
+      sizes="100vw"
+      loading="lazy"
+      class="closing-bg-photo"
+    />
+    <div class="closing-overlay"></div>
+    <div class="container content closing-inner">
       <h2>Planning a project?</h2>
       <p class="closing-body">We'd be glad to come take a look. Call or send a request — we'll get back to you the same day.</p>
       <div class="closing-cta-row">
@@ -435,34 +423,71 @@ const description = 'East Coast Designers is a design and construction practice 
     .midband-rotator { min-height: 40vh; }
   }
 
-  /* ----- BIO ----- */
+  /* ----- BIO (photo bg + text panel) ----- */
   .bio-section {
-    padding-top: clamp(var(--space-12), 10vw, var(--space-16));
-    padding-bottom: clamp(var(--space-12), 10vw, var(--space-16));
+    position: relative;
+    overflow: hidden;
+    padding-top: clamp(var(--space-16), 12vw, 8rem);
+    padding-bottom: clamp(var(--space-16), 12vw, 8rem);
+    background-color: var(--color-navy);
   }
-  .bio-section .content { max-width: 820px; }
+  .bio-bg-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.55;
+  }
+  .bio-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, rgba(15,42,68,0.85) 0%, rgba(15,42,68,0.55) 100%);
+    z-index: 1;
+  }
+  .bio-inner {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+  }
+  .bio-text-panel {
+    background-color: rgba(15, 42, 68, 0.65);
+    -webkit-backdrop-filter: blur(16px) saturate(140%);
+    backdrop-filter: blur(16px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    padding: clamp(var(--space-6), 5vw, var(--space-12));
+    max-width: 820px;
+    width: 100%;
+  }
+  .bio-text-panel .eyebrow { color: var(--color-gold); }
   .bio-headline {
     font-size: clamp(var(--text-3xl), 4.5vw, 3.25rem);
     line-height: 1.15;
     letter-spacing: -0.005em;
     margin-bottom: var(--space-3);
-    color: var(--color-navy);
+    color: var(--color-white);
   }
   .bio-lede {
     font-size: var(--text-xl);
     line-height: 1.6;
-    color: var(--color-navy);
+    color: var(--color-white);
     margin-top: var(--space-4);
     margin-bottom: var(--space-4);
     font-weight: 400;
+    opacity: 0.95;
   }
   .bio-body {
     font-size: var(--text-lg);
     line-height: 1.7;
-    color: var(--color-muted);
+    color: var(--color-white);
     margin: 0;
+    margin-bottom: var(--space-3);
     max-width: 64ch;
+    opacity: 0.85;
   }
+  .bio-team { margin-top: var(--space-3); }
 
   /* ----- PAIR (Construction + Interior Design) ----- */
   .services-pair {
@@ -570,6 +595,10 @@ const description = 'East Coast Designers is a design and construction practice 
     padding-top: clamp(var(--space-12), 10vw, var(--space-16));
     padding-bottom: clamp(var(--space-12), 10vw, var(--space-16));
   }
+  .practice-section--dark {
+    background-color: var(--color-navy);
+    color: var(--color-white);
+  }
   .practice-header { max-width: 820px; margin-bottom: var(--space-12); }
   .practice-header h2 {
     font-size: clamp(var(--text-3xl), 4.5vw, 3.25rem);
@@ -578,6 +607,8 @@ const description = 'East Coast Designers is a design and construction practice 
     margin-bottom: var(--space-3);
     color: var(--color-navy);
   }
+  .practice-section--dark .practice-header h2 { color: var(--color-white); }
+  .practice-section--dark .practice-header .eyebrow { color: var(--color-gold); }
   .practice-list {
     list-style: none;
     padding: 0;
@@ -597,13 +628,16 @@ const description = 'East Coast Designers is a design and construction practice 
     padding-bottom: var(--space-4);
     border-bottom: 1px solid rgba(15, 42, 68, 0.06);
   }
+  .practice-section--dark .practice-item {
+    border-bottom-color: rgba(255, 255, 255, 0.12);
+  }
   .practice-num {
     font-family: var(--font-heading);
     font-size: var(--text-3xl);
     color: var(--color-gold);
     line-height: 1;
     letter-spacing: 0.02em;
-    opacity: 0.85;
+    opacity: 0.95;
   }
   .practice-body h3 {
     font-size: var(--text-xl);
@@ -611,6 +645,7 @@ const description = 'East Coast Designers is a design and construction practice 
     margin-top: -0.15em;
     color: var(--color-navy);
   }
+  .practice-section--dark .practice-body h3 { color: var(--color-white); }
   .practice-body p {
     font-size: var(--text-base);
     line-height: 1.65;
@@ -618,14 +653,37 @@ const description = 'East Coast Designers is a design and construction practice 
     margin: 0;
     max-width: 50ch;
   }
+  .practice-section--dark .practice-body p {
+    color: var(--color-white);
+    opacity: 0.85;
+  }
 
-  /* ----- PULL QUOTE BAND ----- */
+  /* ----- PULL QUOTE BAND (photo bg) ----- */
   .pullquote-band {
-    padding-top: clamp(var(--space-16), 12vw, 8rem);
-    padding-bottom: clamp(var(--space-16), 12vw, 8rem);
-    background-color: var(--color-white);
+    position: relative;
+    overflow: hidden;
+    padding-top: clamp(var(--space-16), 14vw, 9rem);
+    padding-bottom: clamp(var(--space-16), 14vw, 9rem);
+    background-color: var(--color-navy);
+  }
+  .pullquote-bg-photo {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.5;
+  }
+  .pullquote-overlay {
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(15,42,68,0.55) 0%, rgba(15,42,68,0.85) 100%);
+    z-index: 1;
   }
   .pullquote-inner {
+    position: relative;
+    z-index: 2;
     text-align: center;
     max-width: 820px;
   }
@@ -636,14 +694,14 @@ const description = 'East Coast Designers is a design and construction practice 
     color: var(--color-gold);
     line-height: 0.6;
     margin-bottom: var(--space-3);
-    opacity: 0.65;
+    opacity: 0.85;
   }
   .pullquote {
     font-family: var(--font-heading);
     font-size: clamp(var(--text-2xl), 3.6vw, 2.75rem);
     line-height: 1.3;
     letter-spacing: -0.005em;
-    color: var(--color-navy);
+    color: var(--color-white);
     margin: 0 auto var(--space-6) auto;
     padding: 0;
     border: none;
@@ -657,7 +715,8 @@ const description = 'East Coast Designers is a design and construction practice 
     font-size: var(--text-xs);
     letter-spacing: 0.2em;
     text-transform: uppercase;
-    color: var(--color-muted);
+    color: var(--color-gold);
+    opacity: 0.85;
     margin: var(--space-2) 0 0 0;
   }
 
@@ -687,58 +746,35 @@ const description = 'East Coast Designers is a design and construction practice 
     margin-right: auto;
   }
 
-  /* ----- WORK TEASER ----- */
-  .work-teaser {
-    padding-top: clamp(var(--space-12), 10vw, var(--space-16));
-    padding-bottom: clamp(var(--space-12), 10vw, var(--space-16));
-    background-color: var(--color-offwhite);
+  /* ----- CLOSING BAND (photo bg + dark overlay) ----- */
+  .closing-band {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding-top: clamp(var(--space-16), 12vw, 8rem);
+    padding-bottom: clamp(var(--space-16), 12vw, 8rem);
+    background-color: var(--color-navy);
   }
-  .teaser-header {
-    margin-bottom: var(--space-8);
-    max-width: 720px;
-  }
-  .teaser-header h2 {
-    font-size: clamp(var(--text-3xl), 4vw, var(--text-4xl));
-    line-height: 1.15;
-    margin-top: var(--space-2);
-  }
-  .teaser-grid {
-    display: grid;
-    grid-template-columns: 1fr;
-    gap: var(--space-3);
-  }
-  @media (min-width: 768px) {
-    .teaser-grid {
-      grid-template-columns: 1fr 1fr 1fr;
-      grid-template-rows: 1fr;
-      gap: var(--space-3);
-    }
-  }
-  .teaser-tile { margin: 0; position: relative; }
-  .teaser-tile :global(img) {
+  .closing-bg-photo {
+    position: absolute;
+    inset: 0;
     width: 100%;
     height: 100%;
     object-fit: cover;
-    aspect-ratio: 4 / 5;
-    display: block;
+    z-index: 0;
+    opacity: 0.45;
   }
-  @media (min-width: 768px) {
-    .teaser-tile--tall :global(img) { aspect-ratio: 4 / 5; }
+  .closing-overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15,42,68,0.6) 0%, rgba(15,42,68,0.9) 100%);
+    z-index: 1;
   }
-  .teaser-tile figcaption {
-    font-family: var(--font-label);
-    font-size: var(--text-xs);
-    letter-spacing: var(--label-letter-spacing);
-    text-transform: uppercase;
-    color: var(--color-muted);
-    margin-top: var(--space-2);
-  }
-
-  /* ----- CLOSING ----- */
-  .closing-band { text-align: center; padding-top: var(--space-16); padding-bottom: var(--space-16); }
+  .closing-inner { position: relative; z-index: 2; }
   .closing-band h2 {
     margin-bottom: var(--space-3);
     font-size: clamp(var(--text-3xl), 4vw, var(--text-4xl));
+    color: var(--color-white);
   }
   .closing-body {
     color: var(--color-white);
