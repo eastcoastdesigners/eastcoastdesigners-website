@@ -31,6 +31,7 @@ const expectedTitles: Record<string, string> = {
   '/contact': 'Contact | East Coast Designers — (203) 228-9197',
   '/projects': 'Recent Projects | East Coast Designers',
   '/journal': 'Journal | East Coast Designers',
+  '/pitch': 'Selected Work — Commercial & Residential | East Coast Designers',
 };
 
 for (const path of PAGES) {

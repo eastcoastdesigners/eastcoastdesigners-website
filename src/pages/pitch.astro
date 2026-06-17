@@ -1,0 +1,646 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GoldRule from '../components/GoldRule.astro';
+import PhoneLink from '../components/PhoneLink.astro';
+import TextLink from '../components/TextLink.astro';
+
+// Commercial photography
+import commercialExteriorTower from '../assets/images/commercial-exterior-tower.jpg';
+import commercialExteriorLimestone from '../assets/images/commercial-exterior-limestone.jpg';
+import commercialExteriorRestaurant from '../assets/images/commercial-exterior-restaurant.jpg';
+import commercialLobbyTall from '../assets/images/commercial-lobby-tall.jpg';
+import commercialLobbyMarble from '../assets/images/commercial-lobby-marble.jpg';
+import commercialReceptionWood from '../assets/images/commercial-reception-wood.jpg';
+import commercialLobby from '../assets/images/commercial-lobby.jpg';
+import commercialBoardroomSkyline from '../assets/images/commercial-boardroom-skyline.jpg';
+import commercialExecutiveWood from '../assets/images/commercial-executive-wood.jpg';
+import commercialOfficeSkyline from '../assets/images/commercial-office-skyline.jpg';
+import commercialConference from '../assets/images/commercial-conference.jpg';
+import commercialStorefrontFlagship from '../assets/images/commercial-storefront-flagship.jpg';
+import commercialStorefrontBoutique from '../assets/images/commercial-storefront-boutique.jpg';
+import commercialBoutiqueLight from '../assets/images/commercial-boutique-light.jpg';
+import commercialBathMarbleBrass from '../assets/images/commercial-bath-marble-brass.jpg';
+import commercialBathDarkStone from '../assets/images/commercial-bath-dark-stone.jpg';
+import commercialDetailParquet from '../assets/images/commercial-detail-parquet.jpg';
+import commercialLoungeTravertine from '../assets/images/commercial-lounge-travertine.jpg';
+
+// Residential photography
+import bathMarble from '../assets/images/bath-marble.jpg';
+import bathModern from '../assets/images/bath-modern.jpg';
+import kitchenHero from '../assets/images/kitchen-hero.jpg';
+import kitchenMarble from '../assets/images/kitchen-marble.jpg';
+import kitchenDetail from '../assets/images/kitchen-detail.jpg';
+import exteriorTraditional from '../assets/images/exterior-traditional.jpg';
+import exteriorModern from '../assets/images/exterior-modern.jpg';
+import livingFireplace from '../assets/images/living-fireplace.jpg';
+import livingWarm from '../assets/images/living-warm.jpg';
+import heroLiving from '../assets/images/hero-living.jpg';
+import diningElegant from '../assets/images/dining-elegant.jpg';
+import diningChandelier from '../assets/images/dining-chandelier.jpg';
+
+const title = 'Selected Work — Commercial & Residential | East Coast Designers';
+const description = 'A portfolio brief from East Coast Designers — commercial and residential interiors and architecture, designed and built to the standard of an AD100 firm.';
+---
+<BaseLayout title={title} description={description} noindex={true}>
+
+  {/* ============================================================
+       HERO
+       ============================================================ */}
+  <section class="pitch-hero">
+    <Image
+      src={commercialExteriorTower}
+      alt="Modern corporate tower exterior at dusk with warm lobby light"
+      widths={[1200, 1800, 2400]}
+      sizes="100vw"
+      loading="eager"
+      class="pitch-hero-bg"
+    />
+    <div class="pitch-hero-overlay"></div>
+    <div class="container pitch-hero-inner reveal">
+      <span class="eyebrow pitch-hero-eyebrow">Selected Work</span>
+      <h1 class="display display-italic pitch-hero-headline">
+        Rooms treated as <em>masterpieces</em>.
+      </h1>
+      <GoldRule width="80px" />
+      <p class="pitch-hero-subhead">
+        A condensed portfolio brief — commercial and residential. Each space a single,
+        considered work of art.
+      </p>
+    </div>
+  </section>
+
+  {/* ============================================================
+       INTRO
+       ============================================================ */}
+  <section class="section pitch-intro">
+    <div class="container content reveal">
+      <span class="eyebrow">The Practice</span>
+      <h2 class="display display-italic pitch-intro-headline">
+        Museum-grade craft, commercial and residential.
+      </h2>
+      <p>
+        We design and build to the standard of an AD100 firm. Material specification is
+        decided by the room, not the budget line. Brass is solid. Stone is bookmatched.
+        Millwork is hand-finished. The pages below are illustrative of capability — drawn
+        from current commissions and the catalogue of completed studies.
+      </p>
+    </div>
+  </section>
+
+  {/* ============================================================
+       SECTOR I — COMMERCIAL
+       ============================================================ */}
+  <section class="pitch-sector pitch-sector-commercial">
+    <div class="container pitch-sector-header reveal">
+      <span class="pitch-numeral" aria-hidden="true">I</span>
+      <span class="eyebrow">Sector I &mdash; Commercial</span>
+      <h2 class="display display-italic pitch-sector-headline">
+        Boardrooms, lobbies, <em>and the architecture</em> that contains them.
+      </h2>
+      <GoldRule width="64px" />
+      <p class="pitch-sector-lede">
+        From limestone facade to bookmatched marble in the executive restroom &mdash; every
+        surface specified to a single editorial standard.
+      </p>
+      <ul class="pitch-tags">
+        <li>Architecture</li>
+        <li>Lobbies &amp; Reception</li>
+        <li>Office Suites</li>
+        <li>Boardrooms</li>
+        <li>Storefronts</li>
+        <li>Bath &amp; Detail</li>
+        <li>Floors &amp; Walls</li>
+      </ul>
+    </div>
+
+    {/* Chapter 1 — Architecture */}
+    <div class="pitch-chapter">
+      <div class="container pitch-chapter-intro reveal">
+        <span class="eyebrow">Architecture</span>
+        <p>Buildings designed at the level of street presence, not just program.</p>
+      </div>
+      <figure class="pitch-feature reveal">
+        <Image
+          src={commercialExteriorTower}
+          alt="Modern corporate tower exterior at dusk with travertine base"
+          widths={[1200, 1800, 2400]}
+          sizes="100vw"
+          loading="lazy"
+        />
+      </figure>
+      <div class="container pitch-triptych reveal">
+        <Image src={commercialExteriorLimestone} alt="Luxury retail storefront with limestone facade and sage door" widths={[500, 800, 1100]} sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
+        <Image src={commercialExteriorRestaurant} alt="Upscale boutique restaurant exterior at blue hour" widths={[500, 800, 1100]} sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
+        <Image src={commercialStorefrontFlagship} alt="Flagship store entrance with limestone columns and brass chandelier" widths={[500, 800, 1100]} sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
+      </div>
+    </div>
+
+    {/* Chapter 2 — Lobbies & Reception */}
+    <div class="pitch-chapter">
+      <div class="container pitch-chapter-intro reveal">
+        <span class="eyebrow">Lobbies &amp; Reception</span>
+        <p>The first room &mdash; and the one that gets remembered.</p>
+      </div>
+      <figure class="pitch-feature reveal">
+        <Image src={commercialLobbyTall} alt="Double-height commercial lobby with sculptural brass pendant" widths={[1200, 1800, 2400]} sizes="100vw" loading="lazy" />
+      </figure>
+      <div class="container pitch-triptych reveal">
+        <Image src={commercialLobbyMarble} alt="Commercial lobby with bookmatched marble walls" widths={[500, 800, 1100]} sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
+        <Image src={commercialReceptionWood} alt="Reception desk with walnut paneling" widths={[500, 800, 1100]} sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
+        <Image src={commercialLobby} alt="Modern commercial lobby interior" widths={[500, 800, 1100]} sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
+      </div>
+    </div>
+
+    {/* Chapter 3 — Office Suites & Boardrooms */}
+    <div class="pitch-chapter">
+      <div class="container pitch-chapter-intro reveal">
+        <span class="eyebrow">Office Suites &amp; Boardrooms</span>
+        <p>Workspaces specified at the level of a residence.</p>
+      </div>
+      <figure class="pitch-feature reveal">
+        <Image src={commercialBoardroomSkyline} alt="Executive boardroom with skyline view" widths={[1200, 1800, 2400]} sizes="100vw" loading="lazy" />
+      </figure>
+      <div class="container pitch-triptych reveal">
+        <Image src={commercialExecutiveWood} alt="Executive office with walnut paneling" widths={[500, 800, 1100]} sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
+        <Image src={commercialOfficeSkyline} alt="Private office with skyline view" widths={[500, 800, 1100]} sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
+        <Image src={commercialConference} alt="Conference room with editorial styling" widths={[500, 800, 1100]} sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
+      </div>
+    </div>
+
+    {/* Chapter 4 — Storefronts & Retail */}
+    <div class="pitch-chapter">
+      <div class="container pitch-chapter-intro reveal">
+        <span class="eyebrow">Storefronts &amp; Retail</span>
+        <p>Retail environments treated as exhibition spaces.</p>
+      </div>
+      <figure class="pitch-feature reveal">
+        <Image src={commercialStorefrontBoutique} alt="Empty luxury boutique interior with walnut shelving" widths={[1200, 1800, 2400]} sizes="100vw" loading="lazy" />
+      </figure>
+      <div class="container pitch-triptych reveal">
+        <Image src={commercialBoutiqueLight} alt="Bright boutique retail interior" widths={[500, 800, 1100]} sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
+        <Image src={commercialExteriorRestaurant} alt="Restaurant storefront facade" widths={[500, 800, 1100]} sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
+        <Image src={commercialExteriorLimestone} alt="Limestone retail storefront" widths={[500, 800, 1100]} sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
+      </div>
+    </div>
+
+    {/* Chapter 5 — Interiors: Bath, Floors, Walls */}
+    <div class="pitch-chapter">
+      <div class="container pitch-chapter-intro reveal">
+        <span class="eyebrow">Interiors &mdash; Bath, Floors, Walls</span>
+        <p>The decisions that distinguish good work from masterpiece.</p>
+      </div>
+      <figure class="pitch-feature reveal">
+        <Image src={commercialBathMarbleBrass} alt="Executive restroom with Calacatta marble and brass tapware" widths={[1200, 1800, 2400]} sizes="100vw" loading="lazy" />
+      </figure>
+      <div class="container pitch-triptych reveal">
+        <Image src={commercialBathDarkStone} alt="Corporate restroom with dark Pietra Cardosa stone" widths={[500, 800, 1100]} sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
+        <Image src={commercialDetailParquet} alt="Herringbone parquet floor with brass inlay" widths={[500, 800, 1100]} sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
+        <Image src={commercialLoungeTravertine} alt="Commercial lounge with travertine surfaces" widths={[500, 800, 1100]} sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  {/* ============================================================
+       PULL QUOTE (navy band)
+       ============================================================ */}
+  <section class="pitch-pull">
+    <div class="container content reveal">
+      <p class="display display-italic pitch-pull-quote">
+        Every room is treated as a single, considered work of art.
+      </p>
+      <GoldRule width="48px" align="center" />
+      <span class="eyebrow pitch-pull-attr">The Studio</span>
+    </div>
+  </section>
+
+  {/* ============================================================
+       SECTOR II — RESIDENTIAL
+       ============================================================ */}
+  <section class="pitch-sector pitch-sector-residential">
+    <div class="container pitch-sector-header reveal">
+      <span class="pitch-numeral" aria-hidden="true">II</span>
+      <span class="eyebrow">Sector II &mdash; Residential</span>
+      <h2 class="display display-italic pitch-sector-headline">
+        Private homes <em>as private galleries</em>.
+      </h2>
+      <GoldRule width="64px" />
+      <p class="pitch-sector-lede">
+        Bathrooms detailed like cathedrals. Kitchens that earn their place at the center
+        of the house. Additions that read as if they were original to the building.
+      </p>
+      <ul class="pitch-tags">
+        <li>Bathrooms</li>
+        <li>Kitchens</li>
+        <li>Additions</li>
+        <li>Architecture &amp; Exteriors</li>
+        <li>Private Studies</li>
+      </ul>
+    </div>
+
+    {/* Chapter 1 — Bathrooms */}
+    <div class="pitch-chapter">
+      <div class="container pitch-chapter-intro reveal">
+        <span class="eyebrow">Bathrooms</span>
+        <p>Stone, brass, and light &mdash; composed.</p>
+      </div>
+      <figure class="pitch-feature reveal">
+        <Image src={bathMarble} alt="Primary bath with marble surfaces" widths={[1200, 1800, 2400]} sizes="100vw" loading="lazy" />
+      </figure>
+      <div class="container pitch-pair reveal">
+        <Image src={bathModern} alt="Modern primary bath" widths={[500, 800, 1100]} sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
+        <Image src={kitchenMarble} alt="Marble vanity detail" widths={[500, 800, 1100]} sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
+      </div>
+    </div>
+
+    {/* Chapter 2 — Kitchens */}
+    <div class="pitch-chapter">
+      <div class="container pitch-chapter-intro reveal">
+        <span class="eyebrow">Kitchens</span>
+        <p>The room at the center of the house, treated as such.</p>
+      </div>
+      <figure class="pitch-feature reveal">
+        <Image src={kitchenHero} alt="Custom kitchen with island and pendant lighting" widths={[1200, 1800, 2400]} sizes="100vw" loading="lazy" />
+      </figure>
+      <div class="container pitch-pair reveal">
+        <Image src={kitchenDetail} alt="Kitchen millwork and brass hardware detail" widths={[500, 800, 1100]} sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
+        <Image src={diningChandelier} alt="Adjacent dining space with chandelier" widths={[500, 800, 1100]} sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
+      </div>
+    </div>
+
+    {/* Chapter 3 — Architecture & Additions */}
+    <div class="pitch-chapter">
+      <div class="container pitch-chapter-intro reveal">
+        <span class="eyebrow">Architecture &amp; Additions</span>
+        <p>New work that reads as original to the house.</p>
+      </div>
+      <figure class="pitch-feature reveal">
+        <Image src={exteriorTraditional} alt="Traditional residential architecture" widths={[1200, 1800, 2400]} sizes="100vw" loading="lazy" />
+      </figure>
+      <div class="container pitch-pair reveal">
+        <Image src={exteriorModern} alt="Contemporary residential exterior" widths={[500, 800, 1100]} sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
+        <Image src={diningElegant} alt="Formal dining addition" widths={[500, 800, 1100]} sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
+      </div>
+    </div>
+
+    {/* Chapter 4 — Private Studies & Living */}
+    <div class="pitch-chapter">
+      <div class="container pitch-chapter-intro reveal">
+        <span class="eyebrow">Private Studies &amp; Living</span>
+        <p>Rooms made for reading, working, and the rest of the day.</p>
+      </div>
+      <figure class="pitch-feature reveal">
+        <Image src={livingFireplace} alt="Living room with fireplace and walnut millwork" widths={[1200, 1800, 2400]} sizes="100vw" loading="lazy" />
+      </figure>
+      <div class="container pitch-pair reveal">
+        <Image src={livingWarm} alt="Warm living room interior" widths={[500, 800, 1100]} sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
+        <Image src={heroLiving} alt="Living room with editorial styling" widths={[500, 800, 1100]} sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
+      </div>
+    </div>
+  </section>
+
+  {/* ============================================================
+       CTA
+       ============================================================ */}
+  <section class="pitch-cta">
+    <div class="container content reveal">
+      <span class="eyebrow">To Continue The Conversation</span>
+      <h2 class="display display-italic pitch-cta-headline">
+        Let&rsquo;s walk through it.
+      </h2>
+      <GoldRule width="56px" align="center" />
+      <p class="pitch-cta-body">
+        Call directly or request a consultation &mdash; we respond the same day.
+      </p>
+      <div class="pitch-cta-row">
+        <PhoneLink class="btn btn-primary pitch-cta-btn" prefix="Call " />
+        <TextLink class="btn btn-secondary pitch-cta-btn" label="Request a consultation" />
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && reveals.length > 0) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.12, rootMargin: '0px 0px -60px 0px' });
+      reveals.forEach((el) => observer.observe(el));
+    } else {
+      reveals.forEach((el) => el.classList.add('is-visible'));
+    }
+  </script>
+
+</BaseLayout>
+
+<style>
+  /* ============================================================
+     HERO
+     ============================================================ */
+  .pitch-hero {
+    position: relative;
+    min-height: 78vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: var(--color-white);
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+  }
+  .pitch-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.58;
+  }
+  .pitch-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15,42,68,0.45) 0%, rgba(15,42,68,0.82) 100%);
+    z-index: 1;
+  }
+  .pitch-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 820px;
+  }
+  .pitch-hero-eyebrow {
+    color: var(--color-gold);
+    letter-spacing: 0.34em;
+  }
+  .pitch-hero-headline {
+    color: var(--color-white);
+    font-size: clamp(2.75rem, 7vw, 5.5rem);
+    line-height: 1.01;
+    letter-spacing: -0.022em;
+    margin-bottom: var(--space-3);
+  }
+  .pitch-hero-headline em { font-style: italic; color: var(--color-white); }
+  .pitch-hero-subhead {
+    color: var(--color-white);
+    opacity: 0.93;
+    font-size: clamp(var(--text-base), 1.4vw, var(--text-xl));
+    margin-top: var(--space-4);
+    max-width: 56ch;
+    font-weight: 300;
+    line-height: 1.65;
+  }
+
+  /* ============================================================
+     INTRO
+     ============================================================ */
+  .pitch-intro {
+    background-color: var(--color-offwhite);
+    padding-top: clamp(var(--space-16), 12vw, 9rem);
+    padding-bottom: clamp(var(--space-16), 12vw, 9rem);
+    text-align: center;
+  }
+  .pitch-intro-headline {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    color: var(--color-navy);
+    margin: var(--space-3) 0 var(--space-4);
+    font-weight: 400;
+    line-height: 1.05;
+  }
+  .pitch-intro p {
+    color: var(--color-body);
+    font-weight: 300;
+    max-width: 64ch;
+    margin: 0 auto;
+  }
+
+  /* ============================================================
+     SECTOR HEADER (used twice — I & II)
+     ============================================================ */
+  .pitch-sector {
+    padding-top: clamp(var(--space-16), 12vw, 9rem);
+    padding-bottom: clamp(var(--space-16), 12vw, 9rem);
+    background-color: var(--color-white);
+  }
+  .pitch-sector-header {
+    position: relative;
+    max-width: 880px;
+    margin-bottom: clamp(var(--space-12), 8vw, var(--space-16));
+  }
+  .pitch-numeral {
+    position: absolute;
+    top: -0.4em;
+    right: -0.05em;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: clamp(7rem, 18vw, 14rem);
+    color: var(--color-gold);
+    opacity: 0.16;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    pointer-events: none;
+    font-weight: 300;
+  }
+  .pitch-sector-headline {
+    font-size: clamp(2.25rem, 5vw, 3.75rem);
+    line-height: 1.02;
+    color: var(--color-navy);
+    margin: var(--space-2) 0 var(--space-3);
+    font-weight: 400;
+    letter-spacing: -0.018em;
+    max-width: 18ch;
+    position: relative;
+    z-index: 1;
+  }
+  .pitch-sector-headline em { font-style: italic; }
+  .pitch-sector-lede {
+    color: var(--color-body);
+    font-size: clamp(var(--text-lg), 1.4vw, var(--text-xl));
+    font-weight: 300;
+    line-height: 1.7;
+    max-width: 56ch;
+    margin: var(--space-4) 0;
+    position: relative;
+    z-index: 1;
+  }
+  .pitch-tags {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-4) 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0;
+    position: relative;
+    z-index: 1;
+  }
+  .pitch-tags li {
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-navy);
+    font-weight: 500;
+    padding: 0 var(--space-3);
+    border-right: 1px solid var(--color-gold);
+  }
+  .pitch-tags li:first-child { padding-left: 0; }
+  .pitch-tags li:last-child { border-right: none; padding-right: 0; }
+
+  /* ============================================================
+     CHAPTER (capability band)
+     ============================================================ */
+  .pitch-chapter {
+    margin-top: clamp(var(--space-12), 9vw, var(--space-16));
+  }
+  .pitch-chapter-intro {
+    margin-bottom: var(--space-6);
+    max-width: 700px;
+  }
+  .pitch-chapter-intro p {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-navy);
+    font-size: clamp(var(--text-xl), 2.2vw, 1.75rem);
+    line-height: 1.3;
+    margin: var(--space-2) 0 0;
+    letter-spacing: -0.005em;
+  }
+
+  /* Feature (full-bleed photo) */
+  .pitch-feature {
+    margin: 0;
+    width: 100%;
+    overflow: hidden;
+  }
+  .pitch-feature :global(img) {
+    width: 100%;
+    height: clamp(420px, 64vh, 720px);
+    object-fit: cover;
+    display: block;
+    transition: transform 1.8s cubic-bezier(0.2, 0.6, 0.2, 1);
+  }
+  .pitch-feature:hover :global(img) { transform: scale(1.02); }
+
+  /* Triptych — 3 images side-by-side */
+  .pitch-triptych {
+    margin-top: var(--space-4);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  @media (min-width: 900px) {
+    .pitch-triptych {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+  .pitch-triptych :global(img) {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Pair — 2 images side-by-side (used in residential) */
+  .pitch-pair {
+    margin-top: var(--space-4);
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+  }
+  @media (min-width: 900px) {
+    .pitch-pair {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+  .pitch-pair :global(img) {
+    width: 100%;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    display: block;
+  }
+
+  /* Residential band variations: offwhite background to differentiate */
+  .pitch-sector-residential {
+    background-color: var(--color-offwhite);
+  }
+
+  /* ============================================================
+     PULL QUOTE
+     ============================================================ */
+  .pitch-pull {
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    padding-top: clamp(var(--space-12), 10vw, var(--space-16));
+    padding-bottom: clamp(var(--space-12), 10vw, var(--space-16));
+    text-align: center;
+  }
+  .pitch-pull-quote {
+    color: var(--color-white);
+    font-size: clamp(1.75rem, 4.5vw, 3.25rem);
+    line-height: 1.18;
+    font-weight: 300;
+    letter-spacing: -0.012em;
+    margin: 0 auto var(--space-3);
+    max-width: 24ch;
+  }
+  .pitch-pull-attr {
+    color: var(--color-gold);
+    letter-spacing: 0.32em;
+  }
+
+  /* ============================================================
+     CTA
+     ============================================================ */
+  .pitch-cta {
+    background-color: var(--color-white);
+    text-align: center;
+    padding-top: clamp(var(--space-16), 12vw, 9rem);
+    padding-bottom: clamp(var(--space-16), 12vw, 9rem);
+  }
+  .pitch-cta-headline {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    color: var(--color-navy);
+    margin: var(--space-3) 0;
+    font-weight: 400;
+    line-height: 1.05;
+  }
+  .pitch-cta-body {
+    color: var(--color-body);
+    margin: var(--space-4) auto var(--space-6);
+    max-width: 50ch;
+    font-weight: 300;
+  }
+  .pitch-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    justify-content: center;
+  }
+  .pitch-cta-btn {
+    padding: 16px 36px;
+    letter-spacing: 0.14em;
+  }
+
+  /* ============================================================
+     RESPONSIVE — small screens
+     ============================================================ */
+  @media (max-width: 720px) {
+    .pitch-tags li {
+      padding: var(--space-1) var(--space-2);
+      border-right: none;
+      border-bottom: 1px solid var(--color-gold);
+    }
+    .pitch-tags li:last-child { border-bottom: none; }
+    .pitch-numeral {
+      font-size: 9rem;
+      opacity: 0.12;
+      top: -0.2em;
+      right: -0.1em;
+    }
+  }
+</style>
