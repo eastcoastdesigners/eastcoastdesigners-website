@@ -1,0 +1,312 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GoldRule from '../components/GoldRule.astro';
+import PhoneLink from '../components/PhoneLink.astro';
+import TextLink from '../components/TextLink.astro';
+
+import diningElegant from '../assets/images/dining-elegant.jpg';
+import livingFireplace from '../assets/images/living-fireplace.jpg';
+import commercialReceptionWood from '../assets/images/commercial-reception-wood.jpg';
+import kitchenMarble from '../assets/images/kitchen-marble.jpg';
+
+const title = 'Journal | East Coast Designers';
+const description = 'Notes from the practice — design philosophy, process, and thinking on residential, commercial, and hospitality interiors.';
+
+const posts = [
+  {
+    eyebrow: 'Design Philosophy',
+    title: 'The Case for Classic',
+    excerpt: 'Trends come and go. The rooms that hold up over decades share a few quiet rules — proportion, light, restraint, and materials that age well.',
+    image: diningElegant,
+    imageAlt: 'Elegant dining interior',
+    chapter: 'I',
+  },
+  {
+    eyebrow: 'Process',
+    title: 'From Floor Plan to Rendering: Why You Should See It Before You Build It',
+    excerpt: 'A two-dimensional drawing tells you what fits. A three-dimensional rendering tells you what it will feel like to walk in. Both matter — and one is much harder to fix after construction.',
+    image: livingFireplace,
+    imageAlt: 'Living room with fireplace',
+    chapter: 'II',
+  },
+  {
+    eyebrow: 'Commercial',
+    title: 'Designing a Commercial Space That Earns Its Square Footage',
+    excerpt: 'Residential design serves a family. Commercial design serves a business model. The brief is different — the standard of craft is the same.',
+    image: commercialReceptionWood,
+    imageAlt: 'Commercial reception interior',
+    chapter: 'III',
+  },
+];
+---
+<BaseLayout title={title} description={description}>
+
+  <section class="journal-hero">
+    <Image
+      src={kitchenMarble}
+      alt="Kitchen interior"
+      widths={[1200, 1800, 2400]}
+      sizes="100vw"
+      loading="eager"
+      class="journal-hero-bg"
+    />
+    <div class="journal-hero-overlay"></div>
+    <div class="container journal-hero-inner reveal">
+      <span class="eyebrow journal-hero-eyebrow">The Journal</span>
+      <h1 class="display display-italic journal-hero-headline">
+        Notes from <em>the practice</em>.
+      </h1>
+      <GoldRule width="80px" />
+      <p class="journal-hero-subhead">
+        Thinking on design, process, materials, and the quiet decisions that make
+        a space feel right.
+      </p>
+    </div>
+  </section>
+
+  <section class="section journal-list-section">
+    <div class="container">
+      <ol class="journal-list">
+        {posts.map((post) => (
+          <li class="journal-entry reveal">
+            <div class="journal-entry-image">
+              <Image
+                src={post.image}
+                alt={post.imageAlt}
+                widths={[600, 900, 1200]}
+                sizes="(min-width: 768px) 50vw, 100vw"
+                loading="lazy"
+              />
+            </div>
+            <div class="journal-entry-body">
+              <span class="journal-chapter">{post.chapter}</span>
+              <span class="eyebrow journal-entry-eyebrow">{post.eyebrow}</span>
+              <h2 class="display display-italic journal-entry-title">{post.title}</h2>
+              <GoldRule width="48px" />
+              <p class="journal-entry-excerpt">{post.excerpt}</p>
+              <span class="journal-entry-link">Read &mdash; Coming Soon</span>
+            </div>
+          </li>
+        ))}
+      </ol>
+    </div>
+  </section>
+
+  <section class="journal-cta">
+    <div class="container content">
+      <span class="eyebrow">In the meantime</span>
+      <h2 class="display display-italic journal-cta-headline">
+        Have a project in mind?
+      </h2>
+      <GoldRule width="56px" align="center" />
+      <p class="journal-cta-body">
+        We're glad to come walk through it. Call or send a request &mdash; we'll get
+        back to you the same day.
+      </p>
+      <div class="journal-cta-row">
+        <PhoneLink class="btn btn-primary journal-cta-btn" prefix="Call " />
+        <TextLink class="btn btn-secondary journal-cta-btn" label="Request a consultation" />
+      </div>
+    </div>
+  </section>
+
+  <script>
+    const reveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && reveals.length > 0) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -60px 0px' });
+      reveals.forEach((el) => observer.observe(el));
+    } else {
+      reveals.forEach((el) => el.classList.add('is-visible'));
+    }
+  </script>
+
+</BaseLayout>
+
+<style>
+  /* ----- JOURNAL HERO ----- */
+  .journal-hero {
+    position: relative;
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    color: var(--color-white);
+    padding-top: var(--space-12);
+    padding-bottom: var(--space-12);
+  }
+  .journal-hero-bg {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: 0;
+    opacity: 0.5;
+  }
+  .journal-hero-overlay {
+    position: absolute;
+    inset: 0;
+    background:
+      linear-gradient(180deg, rgba(15,42,68,0.55) 0%, rgba(15,42,68,0.75) 100%);
+    z-index: 1;
+  }
+  .journal-hero-inner {
+    position: relative;
+    z-index: 2;
+    max-width: 800px;
+  }
+  .journal-hero-eyebrow {
+    color: var(--color-gold);
+    letter-spacing: 0.32em;
+  }
+  .journal-hero-headline {
+    color: var(--color-white);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
+    line-height: 1.02;
+    letter-spacing: -0.018em;
+    margin-bottom: var(--space-3);
+  }
+  .journal-hero-headline em { font-style: italic; color: var(--color-white); }
+  .journal-hero-subhead {
+    color: var(--color-white);
+    opacity: 0.92;
+    font-size: clamp(var(--text-base), 1.4vw, var(--text-xl));
+    margin-top: var(--space-4);
+    max-width: 50ch;
+    font-weight: 300;
+    line-height: 1.65;
+  }
+
+  /* ----- JOURNAL LIST ----- */
+  .journal-list-section {
+    padding-top: clamp(var(--space-16), 12vw, 9rem);
+    padding-bottom: clamp(var(--space-16), 12vw, 9rem);
+    background-color: var(--color-white);
+  }
+  .journal-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: clamp(var(--space-12), 10vw, var(--space-16));
+  }
+  .journal-entry {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-6);
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .journal-entry {
+      grid-template-columns: 5fr 6fr;
+      gap: var(--space-12);
+    }
+    .journal-entry:nth-child(even) .journal-entry-image { order: 2; }
+    .journal-entry:nth-child(even) .journal-entry-body { order: 1; }
+  }
+  .journal-entry-image {
+    aspect-ratio: 5 / 4;
+    overflow: hidden;
+  }
+  .journal-entry-image :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 1.4s cubic-bezier(0.2, 0.6, 0.2, 1);
+  }
+  .journal-entry:hover .journal-entry-image :global(img) { transform: scale(1.03); }
+  .journal-entry-body {
+    position: relative;
+    padding-left: clamp(0px, 4vw, var(--space-8));
+  }
+  .journal-chapter {
+    position: absolute;
+    top: -0.5em;
+    left: -0.1em;
+    font-family: var(--font-heading);
+    font-style: italic;
+    font-size: clamp(5rem, 12vw, 9rem);
+    color: var(--color-gold);
+    opacity: 0.12;
+    line-height: 1;
+    letter-spacing: -0.02em;
+    pointer-events: none;
+    font-weight: 400;
+  }
+  .journal-entry-eyebrow {
+    color: var(--color-gold);
+    letter-spacing: 0.28em;
+    position: relative;
+    z-index: 1;
+  }
+  .journal-entry-title {
+    font-size: clamp(var(--text-2xl), 3.6vw, 2.75rem);
+    line-height: 1.1;
+    color: var(--color-navy);
+    margin: var(--space-2) 0 var(--space-3);
+    font-weight: 400;
+    letter-spacing: -0.015em;
+    position: relative;
+    z-index: 1;
+  }
+  .journal-entry-excerpt {
+    font-size: var(--text-lg);
+    line-height: 1.75;
+    color: var(--color-body);
+    margin: var(--space-4) 0 var(--space-4);
+    max-width: 56ch;
+    font-weight: 300;
+    position: relative;
+    z-index: 1;
+  }
+  .journal-entry-link {
+    font-family: var(--font-label);
+    font-size: var(--text-sm);
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    border-bottom: 1px solid var(--color-gold);
+    padding-bottom: 3px;
+    display: inline-block;
+    font-weight: 500;
+  }
+
+  /* ----- JOURNAL CTA ----- */
+  .journal-cta {
+    background-color: var(--color-offwhite);
+    text-align: center;
+    padding-top: clamp(var(--space-16), 12vw, 9rem);
+    padding-bottom: clamp(var(--space-16), 12vw, 9rem);
+  }
+  .journal-cta-headline {
+    font-size: clamp(2rem, 4.5vw, 3rem);
+    color: var(--color-navy);
+    margin: var(--space-3) 0;
+    font-weight: 400;
+    line-height: 1.05;
+  }
+  .journal-cta-body {
+    color: var(--color-body);
+    margin: var(--space-4) auto var(--space-6);
+    max-width: 50ch;
+    font-weight: 300;
+  }
+  .journal-cta-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    justify-content: center;
+  }
+  .journal-cta-btn {
+    padding: 16px 36px;
+    letter-spacing: 0.14em;
+  }
+</style>
