@@ -1,11 +1,11 @@
 ---
 import { Image } from 'astro:assets';
 import PhoneLink from './PhoneLink.astro';
-import logoMetallic from '../assets/logos/logo-metallic.png';
+import logoNavy from '../assets/logos/logo-navy.png';
 
 const navLinks = [
-  { href: '/construction', label: 'Construction' },
   { href: '/interior-design', label: 'Interior Design' },
+  { href: '/construction', label: 'Construction' },
   { href: '/contact', label: 'Contact' },
 ];
 
@@ -15,7 +15,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
   <div class="container header-inner">
     <a href="/" class="logo-link" aria-label="East Coast Designers — home">
       <Image
-        src={logoMetallic}
+        src={logoNavy}
         alt="East Coast Designers"
         widths={[260, 400, 600]}
         sizes="(min-width: 768px) 260px, 180px"
@@ -45,9 +45,9 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
 
 <style>
   .site-header {
-    background-color: var(--color-navy);
-    color: var(--color-white);
-    border-bottom: 1px solid rgba(201, 169, 97, 0.15);
+    background-color: var(--color-white);
+    color: var(--color-navy);
+    border-bottom: 1px solid rgba(15, 42, 68, 0.08);
   }
   .header-inner {
     display: flex;
@@ -80,7 +80,7 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
     letter-spacing: 0.12em;
     text-transform: uppercase;
     text-decoration: none;
-    color: var(--color-white);
+    color: var(--color-navy);
     padding: var(--space-1) 0;
     border-bottom: 1px solid transparent;
     transition: color 0.15s, border-color 0.15s;
@@ -95,11 +95,11 @@ const currentPath = Astro.url.pathname.replace(/\/$/, '') || '/';
     font-size: var(--text-sm);
     font-weight: 600;
     letter-spacing: 0.08em;
-    color: var(--color-gold);
+    color: var(--color-navy);
     text-decoration: none;
     margin-left: var(--space-2);
   }
-  .header-phone:hover { color: var(--color-white); }
+  .header-phone:hover { color: var(--color-gold); }
 
   @media (max-width: 720px) {
     .header-inner { gap: var(--space-2); }

@@ -5,10 +5,11 @@ import PhoneLink from '../components/PhoneLink.astro';
 import TextLink from '../components/TextLink.astro';
 import GoldRule from '../components/GoldRule.astro';
 
-import heroLiving from '../assets/images/hero-living.jpg';
+import commercialLobbyMarble from '../assets/images/commercial-lobby-marble.jpg';
+import hospitalityArtLobby from '../assets/images/hospitality-art-lobby.jpg';
+import commercialReceptionWood from '../assets/images/commercial-reception-wood.jpg';
 import kitchenMarble from '../assets/images/kitchen-marble.jpg';
 import bathMarble from '../assets/images/bath-marble.jpg';
-import diningElegant from '../assets/images/dining-elegant.jpg';
 import livingWarm from '../assets/images/living-warm.jpg';
 import exteriorTraditional from '../assets/images/exterior-traditional.jpg';
 
@@ -19,8 +20,8 @@ const description = 'East Coast Designers is a design and construction practice 
 
   <section class="hero">
     <Image
-      src={heroLiving}
-      alt="Residential interior"
+      src={commercialLobbyMarble}
+      alt="Commercial lobby interior"
       widths={[1200, 1800, 2400]}
       sizes="100vw"
       loading="eager"
@@ -61,12 +62,45 @@ const description = 'East Coast Designers is a design and construction practice 
         use it. Based in Connecticut. We work the tri-state area regularly and take on
         select projects nationwide.
       </p>
+      <p class="bio-body bio-team">
+        Owner-operated. Cristina leads every project as designer and general contractor,
+        working with a vetted network of trusted trade partners — and collaborating with
+        other designers, architects, and GCs when scope requires. The result is one
+        point of contact, one accountable lead, and a single team that handles design,
+        coordination, and build from start to finish.
+      </p>
+      <p class="bio-body bio-current">
+        Currently engaged on an active commercial proposal in the multi-million-dollar
+        range. Available for additional residential and commercial inquiries.
+      </p>
     </div>
   </section>
 
   <section class="section section-bleed-offwhite services-pair">
     <div class="container">
       <div class="pair-grid">
+        <a href="/interior-design" class="pair-card">
+          <div class="pair-image">
+            <Image
+              src={hospitalityArtLobby}
+              alt="Commercial interior"
+              widths={[600, 900, 1200]}
+              sizes="(min-width: 768px) 50vw, 100vw"
+              loading="lazy"
+            />
+          </div>
+          <div class="pair-body">
+            <span class="eyebrow pair-eyebrow">01 — Service</span>
+            <h3>Interior Design</h3>
+            <p>
+              Full interior design for residential and commercial. 2D and 3D renderings,
+              finish and material selection, furniture and fixtures sourcing, project
+              delivery from concept through install.
+            </p>
+            <span class="pair-link">See interior design →</span>
+          </div>
+        </a>
+
         <a href="/construction" class="pair-card">
           <div class="pair-image">
             <Image
@@ -78,34 +112,13 @@ const description = 'East Coast Designers is a design and construction practice 
             />
           </div>
           <div class="pair-body">
-            <span class="eyebrow pair-eyebrow">01 — Service</span>
+            <span class="eyebrow pair-eyebrow">02 — Service</span>
             <h3>Construction</h3>
             <p>
               Additions, ground-up new construction, whole-home renovations, and commercial
-              buildouts. Residential and commercial.
+              buildouts. We build what we design.
             </p>
             <span class="pair-link">See construction →</span>
-          </div>
-        </a>
-
-        <a href="/interior-design" class="pair-card">
-          <div class="pair-image">
-            <Image
-              src={kitchenMarble}
-              alt="Residential interior"
-              widths={[600, 900, 1200]}
-              sizes="(min-width: 768px) 50vw, 100vw"
-              loading="lazy"
-            />
-          </div>
-          <div class="pair-body">
-            <span class="eyebrow pair-eyebrow">02 — Service</span>
-            <h3>Interior Design</h3>
-            <p>
-              Full interior design, 2D and 3D renderings, finish and material selection,
-              and furniture and fixtures sourcing.
-            </p>
-            <span class="pair-link">See interior design →</span>
           </div>
         </a>
       </div>
@@ -154,13 +167,13 @@ const description = 'East Coast Designers is a design and construction practice 
         </figure>
         <figure class="teaser-tile">
           <Image
-            src={diningElegant}
-            alt="Dining room"
+            src={commercialReceptionWood}
+            alt="Office reception interior"
             widths={[600, 900]}
             sizes="(min-width: 960px) 33vw, 100vw"
             loading="lazy"
           />
-          <figcaption>Dining room design</figcaption>
+          <figcaption>Office Reception</figcaption>
         </figure>
       </div>
     </div>

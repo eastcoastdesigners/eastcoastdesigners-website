@@ -5,8 +5,11 @@ import PhoneLink from '../components/PhoneLink.astro';
 import TextLink from '../components/TextLink.astro';
 import GoldRule from '../components/GoldRule.astro';
 
-import idHero from '../assets/images/dining-chandelier.jpg';
-import livingHero from '../assets/images/hero-living.jpg';
+import idHero from '../assets/images/hospitality-art-lobby.jpg';
+import commercialLobbyMarble from '../assets/images/commercial-lobby-marble.jpg';
+import commercialReceptionWood from '../assets/images/commercial-reception-wood.jpg';
+import hospitalityHotelLobby from '../assets/images/hospitality-hotel-lobby.jpg';
+import hospitalityLounge from '../assets/images/hospitality-lounge.jpg';
 import livingFireplace from '../assets/images/living-fireplace.jpg';
 import livingWarm from '../assets/images/living-warm.jpg';
 import bathMarble from '../assets/images/bath-marble.jpg';
@@ -21,7 +24,7 @@ const description = 'Full interior design. 2D and 3D renderings, finish and mate
   <section class="page-hero">
     <Image
       src={idHero}
-      alt="Dining room"
+      alt="Commercial interior"
       widths={[1200, 1800, 2400]}
       sizes="100vw"
       loading="eager"
@@ -117,23 +120,43 @@ const description = 'Full interior design. 2D and 3D renderings, finish and mate
       <div class="portfolio-grid">
         <figure class="portfolio-tile">
           <Image
-            src={livingHero}
-            alt="Living room"
+            src={commercialLobbyMarble}
+            alt="Commercial lobby interior"
             widths={[600, 900, 1200]}
             sizes="(min-width: 960px) 50vw, 100vw"
             loading="lazy"
           />
-          <figcaption>Riverlight Living</figcaption>
+          <figcaption>Marble + Brass Lobby</figcaption>
         </figure>
         <figure class="portfolio-tile">
           <Image
-            src={diningElegant}
-            alt="Dining room"
+            src={hospitalityHotelLobby}
+            alt="Hospitality lobby interior"
             widths={[600, 900, 1200]}
             sizes="(min-width: 960px) 50vw, 100vw"
             loading="lazy"
           />
-          <figcaption>Soft Classical Dining</figcaption>
+          <figcaption>Hospitality Lounge</figcaption>
+        </figure>
+        <figure class="portfolio-tile">
+          <Image
+            src={commercialReceptionWood}
+            alt="Office reception interior"
+            widths={[600, 900, 1200]}
+            sizes="(min-width: 960px) 50vw, 100vw"
+            loading="lazy"
+          />
+          <figcaption>Office Reception</figcaption>
+        </figure>
+        <figure class="portfolio-tile">
+          <Image
+            src={hospitalityLounge}
+            alt="Lounge interior"
+            widths={[600, 900, 1200]}
+            sizes="(min-width: 960px) 50vw, 100vw"
+            loading="lazy"
+          />
+          <figcaption>Velvet Lounge Bar</figcaption>
         </figure>
         <figure class="portfolio-tile">
           <Image
@@ -144,16 +167,6 @@ const description = 'Full interior design. 2D and 3D renderings, finish and mate
             loading="lazy"
           />
           <figcaption>Statement Marble Kitchen</figcaption>
-        </figure>
-        <figure class="portfolio-tile">
-          <Image
-            src={livingFireplace}
-            alt="Living room"
-            widths={[600, 900, 1200]}
-            sizes="(min-width: 960px) 50vw, 100vw"
-            loading="lazy"
-          />
-          <figcaption>Bay Window Salon</figcaption>
         </figure>
         <figure class="portfolio-tile">
           <Image
@@ -174,6 +187,26 @@ const description = 'Full interior design. 2D and 3D renderings, finish and mate
             loading="lazy"
           />
           <figcaption>Modern Estate</figcaption>
+        </figure>
+        <figure class="portfolio-tile">
+          <Image
+            src={livingFireplace}
+            alt="Living room"
+            widths={[600, 900, 1200]}
+            sizes="(min-width: 960px) 50vw, 100vw"
+            loading="lazy"
+          />
+          <figcaption>Bay Window Salon</figcaption>
+        </figure>
+        <figure class="portfolio-tile">
+          <Image
+            src={diningElegant}
+            alt="Dining room"
+            widths={[600, 900, 1200]}
+            sizes="(min-width: 960px) 50vw, 100vw"
+            loading="lazy"
+          />
+          <figcaption>Soft Classical Dining</figcaption>
         </figure>
       </div>
     </div>
