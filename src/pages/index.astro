@@ -7,11 +7,19 @@ import GoldRule from '../components/GoldRule.astro';
 
 import commercialLobbyMarble from '../assets/images/commercial-lobby-marble.jpg';
 import hospitalityArtLobby from '../assets/images/hospitality-art-lobby.jpg';
+import hospitalityLounge from '../assets/images/hospitality-lounge.jpg';
 import commercialReceptionWood from '../assets/images/commercial-reception-wood.jpg';
 import kitchenMarble from '../assets/images/kitchen-marble.jpg';
 import bathMarble from '../assets/images/bath-marble.jpg';
 import livingWarm from '../assets/images/living-warm.jpg';
 import exteriorTraditional from '../assets/images/exterior-traditional.jpg';
+
+const heroPhotos = [
+  { src: commercialLobbyMarble, alt: 'Commercial lobby interior' },
+  { src: hospitalityArtLobby, alt: 'Hospitality atrium' },
+  { src: kitchenMarble, alt: 'Kitchen renovation' },
+  { src: hospitalityLounge, alt: 'Hospitality lounge' },
+];
 
 const title = 'Design + Build | East Coast Designers';
 const description = 'East Coast Designers is a design and construction practice — full interior design, 2D and 3D renderings, and ground-up construction. Residential and commercial. Based in Connecticut, working tri-state and select projects nationwide.';
@@ -19,29 +27,50 @@ const description = 'East Coast Designers is a design and construction practice 
 <BaseLayout title={title} description={description}>
 
   <section class="hero">
-    <Image
-      src={commercialLobbyMarble}
-      alt="Commercial lobby interior"
-      widths={[1200, 1800, 2400]}
-      sizes="100vw"
-      loading="eager"
-      class="hero-photo"
-    />
+    <div class="hero-photos" data-hero-rotator>
+      {heroPhotos.map((photo, i) => (
+        <Image
+          src={photo.src}
+          alt={photo.alt}
+          widths={[1200, 1800, 2400]}
+          sizes="100vw"
+          loading={i === 0 ? 'eager' : 'lazy'}
+          class={`hero-photo ${i === 0 ? 'is-active' : ''}`}
+        />
+      ))}
+    </div>
     <div class="hero-overlay"></div>
     <div class="container hero-inner">
-      <span class="eyebrow hero-eyebrow">Design + Build</span>
-      <h1>Design and construction,<br/>under one roof.</h1>
-      <GoldRule width="64px" />
-      <p class="hero-subhead">
-        Interior design, renderings, and ground-up construction. Residential and commercial.
-        Based in Connecticut, working tri-state and select projects nationwide.
-      </p>
-      <div class="hero-cta-row">
-        <PhoneLink class="btn btn-primary hero-cta" prefix="Call " />
-        <TextLink class="btn btn-ghost hero-cta-ghost" label="Request a consultation" />
+      <div class="hero-text-panel">
+        <span class="eyebrow hero-eyebrow">Design + Build</span>
+        <h1>Design and construction,<br/>under one roof.</h1>
+        <GoldRule width="64px" />
+        <p class="hero-subhead">
+          Interior design, renderings, and ground-up construction. Residential and commercial.
+          Based in Connecticut, working tri-state and select projects nationwide.
+        </p>
+        <div class="hero-cta-row">
+          <PhoneLink class="btn btn-primary hero-cta" prefix="Call " />
+          <TextLink class="btn btn-ghost hero-cta-ghost" label="Request a consultation" />
+        </div>
       </div>
     </div>
   </section>
+
+  <script>
+    const rotator = document.querySelector('[data-hero-rotator]');
+    if (rotator) {
+      const photos = Array.from(rotator.querySelectorAll('.hero-photo'));
+      if (photos.length > 1) {
+        let current = 0;
+        setInterval(() => {
+          photos[current].classList.remove('is-active');
+          current = (current + 1) % photos.length;
+          photos[current].classList.add('is-active');
+        }, 6000);
+      }
+    }
+  </script>
 
   <section class="section bio-section">
     <div class="container content">
@@ -68,10 +97,6 @@ const description = 'East Coast Designers is a design and construction practice 
         other designers, architects, and GCs when scope requires. The result is one
         point of contact, one accountable lead, and a single team that handles design,
         coordination, and build from start to finish.
-      </p>
-      <p class="bio-body bio-current">
-        Currently engaged on an active commercial proposal in the multi-million-dollar
-        range. Available for additional residential and commercial inquiries.
       </p>
     </div>
   </section>
@@ -196,11 +221,16 @@ const description = 'East Coast Designers is a design and construction practice 
   /* ----- HERO ----- */
   .hero {
     position: relative;
-    min-height: 88vh;
+    min-height: 92vh;
     display: flex;
     align-items: center;
     overflow: hidden;
     color: var(--color-white);
+  }
+  .hero-photos {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
   }
   .hero-photo {
     position: absolute;
@@ -208,12 +238,14 @@ const description = 'East Coast Designers is a design and construction practice 
     width: 100%;
     height: 100%;
     object-fit: cover;
-    z-index: 0;
+    opacity: 0;
+    transition: opacity 1.4s ease-in-out;
   }
+  .hero-photo.is-active { opacity: 1; }
   .hero-overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(180deg, rgba(15,42,68,0.35) 0%, rgba(15,42,68,0.78) 100%);
+    background: linear-gradient(90deg, rgba(15,42,68,0.55) 0%, rgba(15,42,68,0.25) 60%, rgba(15,42,68,0.1) 100%);
     z-index: 1;
   }
   .hero-inner {
@@ -221,22 +253,37 @@ const description = 'East Coast Designers is a design and construction practice 
     z-index: 2;
     padding-top: var(--space-16);
     padding-bottom: var(--space-16);
-    max-width: 920px;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    width: 100%;
+  }
+  .hero-text-panel {
+    background-color: rgba(15, 42, 68, 0.55);
+    -webkit-backdrop-filter: blur(18px) saturate(140%);
+    backdrop-filter: blur(18px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    padding: clamp(var(--space-6), 5vw, var(--space-12));
+    max-width: 640px;
+    width: 100%;
+  }
+  @media (min-width: 1280px) {
+    .hero-text-panel { max-width: 720px; }
   }
   .hero-eyebrow { color: var(--color-gold); margin-bottom: var(--space-3); }
   .hero h1 {
     color: var(--color-white);
-    font-size: clamp(2.75rem, 7vw, 5.5rem);
-    line-height: 1.02;
+    font-size: clamp(2.5rem, 5.5vw, 4.25rem);
+    line-height: 1.04;
     letter-spacing: -0.015em;
     margin-bottom: var(--space-3);
   }
   .hero-subhead {
     color: var(--color-white);
-    opacity: 0.94;
+    opacity: 0.96;
     margin-top: var(--space-3);
     margin-bottom: var(--space-6);
-    font-size: clamp(var(--text-lg), 1.8vw, var(--text-xl));
+    font-size: clamp(var(--text-lg), 1.6vw, var(--text-xl));
     max-width: 56ch;
     line-height: 1.55;
   }
@@ -271,6 +318,10 @@ const description = 'East Coast Designers is a design and construction practice 
     background-color: transparent;
     color: var(--color-gold);
     border-color: var(--color-gold);
+  }
+  @media (max-width: 720px) {
+    .hero-inner { justify-content: center; }
+    .hero-text-panel { padding: var(--space-6); }
   }
 
   /* ----- BIO ----- */
