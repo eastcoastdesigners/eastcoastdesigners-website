@@ -5,7 +5,7 @@ import { type Page, expect } from '@playwright/test';
  * /construction and /interior-design replace the old single /services page. /about folded
  * into Home. /projects remains as unlisted placeholder (not in primary nav).
  */
-export const PAGES = ['/', '/construction', '/interior-design', '/contact', '/projects', '/journal', '/pitch'] as const;
+export const PAGES = ['/', '/construction', '/interior-design', '/contact', '/projects', '/journal', '/our-work'] as const;
 
 /**
  * Phone number in tel: format. Single source of truth for assertions.
