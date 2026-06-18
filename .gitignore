@@ -34,3 +34,7 @@ playwright/.cache/
 .env
 .env.local
 .env.*.local
+
+# Source folders for asset import (photos copied into src/assets/images/ on use)
+Google Business Pictures/
+Emirites/

@@ -40,6 +40,16 @@ import residentialAdditionClassic from '../assets/images/residential-addition-cl
 import residentialSunroomCathedral from '../assets/images/residential-sunroom-cathedral.jpg';
 import residentialBathTraditional from '../assets/images/residential-bath-traditional.jpg';
 import residentialKitchenGreenwich from '../assets/images/residential-kitchen-greenwich.jpg';
+// Real project photography (East Coast Designers commissions)
+import realBathSputnik from '../assets/images/real-bath-sputnik.jpg';
+import realKitchenCopper from '../assets/images/real-kitchen-copper.jpg';
+import realBathVaultedRustic from '../assets/images/real-bath-vaulted-rustic.jpg';
+import realBathSeafoam from '../assets/images/real-bath-seafoam.jpg';
+import realKitchenGlobe from '../assets/images/real-kitchen-globe.jpg';
+import realLivingOpen from '../assets/images/real-living-open.jpg';
+import realBathModernStone from '../assets/images/real-bath-modern-stone.jpg';
+import realBathMarbleShower from '../assets/images/real-bath-marble-shower.jpg';
+import realBathSpaStone from '../assets/images/real-bath-spa-stone.jpg';
 
 const heroPhotos = [
   { src: commercialBoardroomModern, alt: 'Modern boardroom interior' },
@@ -52,6 +62,17 @@ const heroPhotos = [
 ];
 
 const residentialPhotos = [
+  // Real ECD project photography — these lead the rotator
+  { src: realBathSputnik, alt: 'Designer primary bath with sputnik chandelier and clawfoot tub' },
+  { src: realKitchenCopper, alt: 'Open-plan kitchen with copper pendant lights and fireplace' },
+  { src: realBathVaultedRustic, alt: 'Rustic luxury bath with vaulted reclaimed wood ceiling and stone tub' },
+  { src: realBathSeafoam, alt: 'Designer bath with seafoam herringbone tile and vintage clawfoot' },
+  { src: realKitchenGlobe, alt: 'Family kitchen with glass globe pendant lights' },
+  { src: realLivingOpen, alt: 'Open-plan kitchen, dining, and living room' },
+  { src: realBathModernStone, alt: 'Modern bath with stacked stone wall and freestanding tub' },
+  { src: realBathMarbleShower, alt: 'Marble shower with cascading plants' },
+  { src: realBathSpaStone, alt: 'Minimalist spa-style bath with stone tub' },
+  // AI-generated supporting photography (additions, sunrooms, traditional)
   { src: residentialKitchenGreenwich, alt: 'Greenwich-style family kitchen with marble island and brass hardware' },
   { src: residentialSunroomCathedral, alt: 'Sunroom addition with cathedral ceiling and garden view' },
   { src: residentialBathTraditional, alt: 'Traditional luxury bath with marble and clawfoot tub' },
@@ -184,8 +205,8 @@ const description = 'East Coast Designers is a design and construction practice 
 
   <section class="bio-section">
     <Image
-      src={heroLiving}
-      alt="Residential interior"
+      src={realLivingOpen}
+      alt="East Coast Designers residential project — open-plan kitchen, dining, and living"
       widths={[1200, 1800, 2400]}
       sizes="100vw"
       loading="lazy"
