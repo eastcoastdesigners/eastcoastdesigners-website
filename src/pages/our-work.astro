@@ -31,21 +31,8 @@ import commercialLightingPendant from '../assets/images/commercial-lighting-pend
 import commercialFlooringTerrazzo from '../assets/images/commercial-flooring-terrazzo.jpg';
 import commercialFlooringConcrete from '../assets/images/commercial-flooring-concrete.jpg';
 
-// Residential photography
-import bathMarble from '../assets/images/bath-marble.jpg';
-import bathModern from '../assets/images/bath-modern.jpg';
-import kitchenHero from '../assets/images/kitchen-hero.jpg';
-import kitchenMarble from '../assets/images/kitchen-marble.jpg';
-import kitchenDetail from '../assets/images/kitchen-detail.jpg';
-import exteriorTraditional from '../assets/images/exterior-traditional.jpg';
-import exteriorModern from '../assets/images/exterior-modern.jpg';
-import diningElegant from '../assets/images/dining-elegant.jpg';
-import livingFireplace from '../assets/images/living-fireplace.jpg';
-import livingWarm from '../assets/images/living-warm.jpg';
-import heroLiving from '../assets/images/hero-living.jpg';
-
-const title = 'Our Work — Commercial & Residential | East Coast Designers';
-const description = 'Selected commercial and residential commissions from East Coast Designers — architecture, interiors, and the standard of an AD100 firm.';
+const title = 'Our Work — Commercial Portfolio | East Coast Designers';
+const description = 'Selected commercial commissions from East Coast Designers — architecture, interiors, storefronts, and the standard of an AD100 firm.';
 ---
 <BaseLayout title={title} description={description} noindex={true}>
 
@@ -69,8 +56,8 @@ const description = 'Selected commercial and residential commissions from East C
       </h1>
       <GoldRule width="80px" />
       <p class="ow-hero-subhead">
-        Selected commercial and residential commissions. Each space a single,
-        considered work of art &mdash; client references given on private inquiry only.
+        Selected commercial commissions &mdash; architecture, interiors, storefronts, and
+        the trades that build them. Client references given on private inquiry only.
       </p>
     </div>
   </section>
@@ -82,7 +69,7 @@ const description = 'Selected commercial and residential commissions from East C
     <div class="container content reveal">
       <span class="eyebrow">The Practice</span>
       <h2 class="display display-italic ow-intro-headline">
-        Museum-grade craft, commercial and residential.
+        Museum-grade craft for commercial spaces.
       </h2>
       <p>
         We design and build to the standard of an AD100 firm. Material specification
@@ -306,140 +293,6 @@ const description = 'Selected commercial and residential commissions from East C
     </div>
   </section>
 
-  {/* ============================================================
-       SECTOR II — RESIDENTIAL
-       ============================================================ */}
-  <section class="ow-sector ow-sector-residential">
-    <div class="container ow-sector-header reveal">
-      <span class="ow-numeral" aria-hidden="true">II</span>
-      <span class="eyebrow">Sector II &mdash; Residential</span>
-      <h2 class="display display-italic ow-sector-headline">
-        Private homes <em>as private galleries</em>.
-      </h2>
-      <GoldRule width="64px" />
-      <p class="ow-sector-lede">
-        Bathrooms detailed like cathedrals. Kitchens that earn their place at the
-        center of the house. Additions that read as if they were original to the
-        building.
-      </p>
-      <ul class="ow-tags">
-        <li>Bathrooms</li>
-        <li>Kitchens</li>
-        <li>Additions</li>
-        <li>Architecture &amp; Exteriors</li>
-        <li>Private Studies</li>
-      </ul>
-    </div>
-
-    {/* Chapter 1 — Bathrooms */}
-    <div class="ow-chapter">
-      <div class="container ow-chapter-intro reveal">
-        <div class="ow-chapter-text">
-          <span class="eyebrow">Bathrooms</span>
-          <p>Stone, brass, and light &mdash; composed.</p>
-        </div>
-        <aside class="ow-client-card">
-          <span class="eyebrow ow-client-eyebrow">Recent Commission</span>
-          <p class="ow-client-brief">Primary bath renovation &mdash; second residence.</p>
-          <dl class="ow-client-details">
-            <div><dt>Sector</dt><dd>Coastal second residence</dd></div>
-            <div><dt>Location</dt><dd>Coastal Connecticut</dd></div>
-            <div><dt>Scope</dt><dd>Marble surfaces, freestanding tub, brushed-brass fixtures, custom millwork vanity</dd></div>
-            <div><dt>Client brief</dt><dd>&ldquo;Spa quietude &mdash; no chrome.&rdquo;</dd></div>
-          </dl>
-          <p class="ow-client-foot">References given on private inquiry only.</p>
-        </aside>
-      </div>
-      <div class="container ow-pair reveal">
-        <Image src={bathMarble} alt="Primary bath with marble surfaces" widths={[600, 900, 1200]} sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
-        <Image src={bathModern} alt="Modern primary bath with custom vanity" widths={[600, 900, 1200]} sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
-      </div>
-    </div>
-
-    {/* Chapter 2 — Kitchens */}
-    <div class="ow-chapter">
-      <div class="container ow-chapter-intro reveal">
-        <div class="ow-chapter-text">
-          <span class="eyebrow">Kitchens</span>
-          <p>The room at the center of the house, treated as such.</p>
-        </div>
-        <aside class="ow-client-card">
-          <span class="eyebrow ow-client-eyebrow">Recent Commission</span>
-          <p class="ow-client-brief">Family kitchen renovation &mdash; open-plan main residence.</p>
-          <dl class="ow-client-details">
-            <div><dt>Sector</dt><dd>Multi-generational primary residence</dd></div>
-            <div><dt>Location</dt><dd>Fairfield County, CT</dd></div>
-            <div><dt>Scope</dt><dd>Custom millwork, marble island, integrated appliances, hand-finished walnut floors</dd></div>
-            <div><dt>Client brief</dt><dd>&ldquo;The room the family lives in &mdash; durable surfaces, warm lamps, no glare on the marble.&rdquo;</dd></div>
-          </dl>
-          <p class="ow-client-foot">References given on private inquiry only.</p>
-        </aside>
-      </div>
-      <figure class="ow-feature reveal">
-        <Image src={kitchenHero} alt="Custom kitchen with island and pendant lighting" widths={[1200, 1800, 2400]} sizes="100vw" loading="lazy" />
-      </figure>
-      <div class="container ow-pair reveal">
-        <Image src={kitchenDetail} alt="Kitchen millwork and brass hardware detail" widths={[600, 900, 1200]} sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
-        <Image src={kitchenMarble} alt="Marble island detail with veined Calacatta" widths={[600, 900, 1200]} sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
-      </div>
-    </div>
-
-    {/* Chapter 3 — Architecture & Additions */}
-    <div class="ow-chapter">
-      <div class="container ow-chapter-intro reveal">
-        <div class="ow-chapter-text">
-          <span class="eyebrow">Architecture &amp; Additions</span>
-          <p>New work that reads as original to the house.</p>
-        </div>
-        <aside class="ow-client-card">
-          <span class="eyebrow ow-client-eyebrow">Recent Commission</span>
-          <p class="ow-client-brief">Primary residence addition &mdash; formal dining and sunroom.</p>
-          <dl class="ow-client-details">
-            <div><dt>Sector</dt><dd>1920s residence restoration &amp; addition</dd></div>
-            <div><dt>Location</dt><dd>Tri-state area</dd></div>
-            <div><dt>Scope</dt><dd>Matched original limestone, slate roof, restored cornice profile, custom millwork interior</dd></div>
-            <div><dt>Client brief</dt><dd>&ldquo;Specified to read as original to the building.&rdquo;</dd></div>
-          </dl>
-          <p class="ow-client-foot">References given on private inquiry only.</p>
-        </aside>
-      </div>
-      <figure class="ow-feature reveal">
-        <Image src={exteriorTraditional} alt="Traditional residential architecture with restored details" widths={[1200, 1800, 2400]} sizes="100vw" loading="lazy" />
-      </figure>
-      <div class="container ow-pair reveal">
-        <Image src={exteriorModern} alt="Contemporary residential exterior" widths={[600, 900, 1200]} sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
-        <Image src={diningElegant} alt="Formal dining addition interior" widths={[600, 900, 1200]} sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
-      </div>
-    </div>
-
-    {/* Chapter 4 — Private Studies & Living */}
-    <div class="ow-chapter">
-      <div class="container ow-chapter-intro reveal">
-        <div class="ow-chapter-text">
-          <span class="eyebrow">Private Studies &amp; Living</span>
-          <p>Rooms made for reading, working, and the rest of the day.</p>
-        </div>
-        <aside class="ow-client-card">
-          <span class="eyebrow ow-client-eyebrow">Recent Commission</span>
-          <p class="ow-client-brief">Private library &amp; study.</p>
-          <dl class="ow-client-details">
-            <div><dt>Sector</dt><dd>Principal residence</dd></div>
-            <div><dt>Location</dt><dd>Connecticut</dd></div>
-            <div><dt>Scope</dt><dd>Floor-to-ceiling walnut millwork, custom desk, fireplace surround, leather upholstery</dd></div>
-            <div><dt>Client brief</dt><dd>&ldquo;Designed for the evening &mdash; warm lamps, dark oak, no overhead light.&rdquo;</dd></div>
-          </dl>
-          <p class="ow-client-foot">References given on private inquiry only.</p>
-        </aside>
-      </div>
-      <figure class="ow-feature reveal">
-        <Image src={livingFireplace} alt="Living room with fireplace and walnut millwork" widths={[1200, 1800, 2400]} sizes="100vw" loading="lazy" />
-      </figure>
-      <div class="container ow-pair reveal">
-        <Image src={livingWarm} alt="Warm living room interior" widths={[600, 900, 1200]} sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
-        <Image src={heroLiving} alt="Living room with editorial styling" widths={[600, 900, 1200]} sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
-      </div>
-    </div>
-  </section>
 
   {/* ============================================================
        CTA
