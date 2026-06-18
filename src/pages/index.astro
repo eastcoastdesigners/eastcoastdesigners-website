@@ -36,6 +36,10 @@ import diningChandelier from '../assets/images/dining-chandelier.jpg';
 import heroLiving from '../assets/images/hero-living.jpg';
 import exteriorModern from '../assets/images/exterior-modern.jpg';
 import exteriorTraditional from '../assets/images/exterior-traditional.jpg';
+import residentialAdditionClassic from '../assets/images/residential-addition-classic.jpg';
+import residentialSunroomCathedral from '../assets/images/residential-sunroom-cathedral.jpg';
+import residentialBathTraditional from '../assets/images/residential-bath-traditional.jpg';
+import residentialKitchenGreenwich from '../assets/images/residential-kitchen-greenwich.jpg';
 
 const heroPhotos = [
   { src: commercialBoardroomModern, alt: 'Modern boardroom interior' },
@@ -48,6 +52,10 @@ const heroPhotos = [
 ];
 
 const residentialPhotos = [
+  { src: residentialKitchenGreenwich, alt: 'Greenwich-style family kitchen with marble island and brass hardware' },
+  { src: residentialSunroomCathedral, alt: 'Sunroom addition with cathedral ceiling and garden view' },
+  { src: residentialBathTraditional, alt: 'Traditional luxury bath with marble and clawfoot tub' },
+  { src: residentialAdditionClassic, alt: 'Shingle-style residential addition with slate roof' },
   { src: kitchenMarble, alt: 'Marble kitchen' },
   { src: livingFireplace, alt: 'Living room with fireplace' },
   { src: bathMarble, alt: 'Marble bathroom' },
@@ -352,8 +360,9 @@ const description = 'East Coast Designers is a design and construction practice 
         <ul class="sector-list">
           <li>Kitchens</li>
           <li>Bathrooms</li>
-          <li>Whole-Home Renovations</li>
           <li>Additions</li>
+          <li>Sunrooms</li>
+          <li>Whole-Home Renovations</li>
           <li>New Construction</li>
         </ul>
       </div>
@@ -427,6 +436,22 @@ const description = 'East Coast Designers is a design and construction practice 
           <li>Boutique Hospitality</li>
         </ul>
       </div>
+    </div>
+  </section>
+
+  <section class="our-work-band">
+    <div class="container content our-work-inner reveal">
+      <span class="eyebrow our-work-eyebrow">Our Work</span>
+      <h2 class="display display-italic our-work-headline">
+        A focused <em>commercial portfolio</em>.
+      </h2>
+      <GoldRule width="64px" align="center" />
+      <p class="our-work-body">
+        Selected commercial commissions &mdash; storefronts, lobbies, executive
+        suites, and the trades that build them. Client references on private
+        inquiry only.
+      </p>
+      <a href="/our-work" class="btn btn-primary our-work-cta">Explore the portfolio &rarr;</a>
     </div>
   </section>
 
@@ -1111,6 +1136,51 @@ const description = 'East Coast Designers is a design and construction practice 
     color: var(--color-gold);
     opacity: 0.88;
     margin: var(--space-3) 0 0 0;
+  }
+
+  /* ----- OUR WORK BAND ----- */
+  .our-work-band {
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    text-align: center;
+    padding-top: clamp(var(--space-12), 10vw, var(--space-16));
+    padding-bottom: clamp(var(--space-12), 10vw, var(--space-16));
+  }
+  .our-work-inner {
+    max-width: 720px;
+  }
+  .our-work-eyebrow {
+    color: var(--color-gold);
+    letter-spacing: 0.32em;
+  }
+  .our-work-headline {
+    color: var(--color-white);
+    font-size: clamp(2rem, 4.8vw, 3.25rem);
+    line-height: 1.05;
+    margin: var(--space-3) 0;
+    font-weight: 400;
+    letter-spacing: -0.018em;
+  }
+  .our-work-headline em { font-style: italic; color: var(--color-white); }
+  .our-work-body {
+    color: var(--color-white);
+    opacity: 0.92;
+    font-weight: 300;
+    margin: var(--space-4) auto var(--space-6);
+    max-width: 56ch;
+    line-height: 1.7;
+  }
+  .our-work-cta {
+    padding: 16px 36px;
+    letter-spacing: 0.14em;
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+    border-color: var(--color-gold);
+  }
+  .our-work-cta:hover {
+    background-color: var(--color-white);
+    color: var(--color-navy);
+    border-color: var(--color-white);
   }
 
   /* ----- CLOSING ----- */
