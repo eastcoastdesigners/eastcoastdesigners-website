@@ -33,8 +33,52 @@ import commercialFlooringConcrete from '../assets/images/commercial-flooring-con
 
 const title = 'Our Work â€” Commercial Portfolio | East Coast Designers';
 const description = 'Selected commercial commissions from East Coast Designers â€” architecture, interiors, storefronts, and the standard of an AD100 firm.';
+
+// SHA-256 of the access code. To change the password: compute a new hash with
+// `echo -n "your-new-password" | shasum -a 256 | awk '{print $1}'` and replace
+// the string below. The plaintext password is never committed.
+const PASSWORD_HASH = '86019bc986aded97365e6dfbf9623456eb4efe612efeaeef7c703ea116fa081b';
 ---
 <BaseLayout title={title} description={description} noindex={true}>
+
+  {/* ============================================================
+       JS PASSWORD GATE
+       Visible by default; removed once the visitor enters the
+       correct access code. Hash is committed; password is not.
+       ============================================================ */}
+  <div id="ow-gate" class="ow-gate" role="dialog" aria-modal="true" aria-labelledby="ow-gate-title">
+    <div class="ow-gate-card">
+      <span class="eyebrow ow-gate-eyebrow">Private Portfolio</span>
+      <h2 id="ow-gate-title" class="display display-italic ow-gate-headline">
+        East Coast Designers
+      </h2>
+      <p class="ow-gate-blurb">
+        This portfolio is shared by private invitation. Please enter the access
+        code provided to you.
+      </p>
+      <form id="ow-gate-form" autocomplete="off">
+        <input
+          type="password"
+          id="ow-gate-input"
+          name="passcode"
+          placeholder="Access code"
+          autocomplete="off"
+          required
+          aria-label="Access code"
+        />
+        <button type="submit" class="btn btn-primary ow-gate-submit">Enter</button>
+      </form>
+      <p id="ow-gate-error" class="ow-gate-error" hidden>
+        Incorrect access code. Please try again.
+      </p>
+      <p class="ow-gate-foot">
+        Shared by private invitation only. Not for redistribution.
+        &copy; East Coast Designers &mdash; all rights reserved.
+      </p>
+    </div>
+  </div>
+
+  <div id="ow-content">
 
   {/* ============================================================
        PRIVATE PORTFOLIO NOTICE
@@ -332,6 +376,69 @@ const description = 'Selected commercial commissions from East Coast Designers â
     </div>
   </section>
 
+  </div> {/* close #ow-content */}
+
+  <script is:inline define:vars={{ HASH: PASSWORD_HASH }}>
+    (function () {
+      const SESSION_KEY = 'ecd_ow_unlocked';
+      const gate = document.getElementById('ow-gate');
+      const content = document.getElementById('ow-content');
+      const form = document.getElementById('ow-gate-form');
+      const input = document.getElementById('ow-gate-input');
+      const errorEl = document.getElementById('ow-gate-error');
+
+      function unlock() {
+        if (gate) gate.style.display = 'none';
+        if (content) content.style.display = '';
+        document.body.style.overflow = '';
+      }
+
+      function lock() {
+        if (gate) gate.style.display = '';
+        if (content) content.style.display = 'none';
+        document.body.style.overflow = 'hidden';
+        if (input) setTimeout(() => input.focus(), 30);
+      }
+
+      // Initial state
+      if (sessionStorage.getItem(SESSION_KEY) === '1') {
+        unlock();
+      } else {
+        lock();
+      }
+
+      async function sha256(str) {
+        const buf = new TextEncoder().encode(str);
+        const hash = await crypto.subtle.digest('SHA-256', buf);
+        return Array.from(new Uint8Array(hash))
+          .map((b) => b.toString(16).padStart(2, '0'))
+          .join('');
+      }
+
+      if (form) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          errorEl.hidden = true;
+          const val = input.value.trim();
+          if (!val) return;
+          try {
+            const h = await sha256(val);
+            if (h === HASH) {
+              sessionStorage.setItem(SESSION_KEY, '1');
+              unlock();
+            } else {
+              errorEl.hidden = false;
+              input.value = '';
+              input.focus();
+            }
+          } catch (err) {
+            errorEl.hidden = false;
+          }
+        });
+      }
+    })();
+  </script>
+
   <script>
     const reveals = document.querySelectorAll('.reveal');
     if ('IntersectionObserver' in window && reveals.length > 0) {
@@ -352,6 +459,109 @@ const description = 'Selected commercial commissions from East Coast Designers â
 </BaseLayout>
 
 <style>
+  /* PASSWORD GATE â€” full-screen overlay */
+  .ow-gate {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--space-4);
+    overflow-y: auto;
+  }
+  .ow-gate-card {
+    width: 100%;
+    max-width: 480px;
+    text-align: center;
+    padding: clamp(var(--space-6), 5vw, var(--space-8));
+  }
+  .ow-gate-eyebrow {
+    color: var(--color-gold);
+    letter-spacing: 0.32em;
+  }
+  .ow-gate-headline {
+    color: var(--color-white);
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    line-height: 1.1;
+    font-weight: 400;
+    letter-spacing: -0.018em;
+    margin: var(--space-3) 0 var(--space-4);
+  }
+  .ow-gate-blurb {
+    color: var(--color-white);
+    opacity: 0.88;
+    font-size: var(--text-base);
+    font-weight: 300;
+    line-height: 1.65;
+    margin-bottom: var(--space-6);
+    max-width: 40ch;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  #ow-gate-form {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+  }
+  #ow-gate-input {
+    width: 100%;
+    padding: 14px 18px;
+    font-size: var(--text-base);
+    font-family: var(--font-body);
+    background-color: rgba(255, 255, 255, 0.06);
+    border: 1px solid rgba(201, 169, 97, 0.4);
+    color: var(--color-white);
+    border-radius: 2px;
+    letter-spacing: 0.02em;
+    transition: border-color 0.15s, background-color 0.15s;
+  }
+  #ow-gate-input::placeholder {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  #ow-gate-input:focus {
+    outline: none;
+    background-color: rgba(255, 255, 255, 0.1);
+    border-color: var(--color-gold);
+  }
+  .ow-gate-submit {
+    width: 100%;
+    padding: 14px 24px;
+    background-color: var(--color-gold);
+    color: var(--color-navy);
+    border-color: var(--color-gold);
+    letter-spacing: 0.16em;
+  }
+  .ow-gate-submit:hover {
+    background-color: var(--color-white);
+    color: var(--color-navy);
+    border-color: var(--color-white);
+  }
+  .ow-gate-error {
+    color: #d77a7a;
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    font-weight: 500;
+    margin: var(--space-3) 0;
+  }
+  .ow-gate-foot {
+    margin-top: var(--space-6);
+    padding-top: var(--space-3);
+    border-top: 1px solid rgba(201, 169, 97, 0.3);
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(255, 255, 255, 0.55);
+    font-weight: 500;
+    line-height: 1.6;
+  }
+
   /* PRIVATE NOTICE BAR */
   .ow-private-notice {
     background-color: var(--color-navy);

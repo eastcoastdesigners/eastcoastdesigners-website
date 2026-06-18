@@ -37,6 +37,11 @@ const expectedTitles: Record<string, string> = {
 for (const path of PAGES) {
   test.describe(`page ${path}`, () => {
     test.beforeEach(async ({ page }) => {
+      // /our-work has a client-side password gate. Pre-seed the unlocked
+      // session flag so tests can assert on the actual page content.
+      await page.addInitScript(() => {
+        sessionStorage.setItem('ecd_ow_unlocked', '1');
+      });
       await page.goto(path);
     });
 
