@@ -37,6 +37,19 @@ const description = 'Selected commercial commissions from East Coast Designers â
 <BaseLayout title={title} description={description} noindex={true}>
 
   {/* ============================================================
+       PRIVATE PORTFOLIO NOTICE
+       ============================================================ */}
+  <aside class="ow-private-notice" role="note" aria-label="Private portfolio notice">
+    <div class="container ow-private-notice-inner">
+      <span class="ow-private-notice-tag">Private &amp; Confidential</span>
+      <span class="ow-private-notice-text">
+        Shared by private invitation only. Please do not forward or redistribute
+        without written request. All rights reserved.
+      </span>
+    </div>
+  </aside>
+
+  {/* ============================================================
        HERO
        ============================================================ */}
   <section class="ow-hero">
@@ -312,6 +325,10 @@ const description = 'Selected commercial commissions from East Coast Designers â
         <PhoneLink class="btn btn-primary ow-cta-btn" prefix="Call " />
         <TextLink class="btn btn-secondary ow-cta-btn" label="Request a consultation" />
       </div>
+      <p class="ow-cta-confidential">
+        This portfolio is shared privately by invitation. Not for redistribution.
+        &copy; East Coast Designers &mdash; all rights reserved.
+      </p>
     </div>
   </section>
 
@@ -335,6 +352,54 @@ const description = 'Selected commercial commissions from East Coast Designers â
 </BaseLayout>
 
 <style>
+  /* PRIVATE NOTICE BAR */
+  .ow-private-notice {
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    border-bottom: 1px solid var(--color-gold);
+    padding-top: var(--space-2);
+    padding-bottom: var(--space-2);
+  }
+  .ow-private-notice-inner {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: center;
+    gap: var(--space-3);
+    text-align: center;
+  }
+  .ow-private-notice-tag {
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    font-weight: 600;
+    white-space: nowrap;
+  }
+  .ow-private-notice-text {
+    font-size: var(--text-sm);
+    color: var(--color-white);
+    opacity: 0.88;
+    font-weight: 300;
+    line-height: 1.5;
+    max-width: 70ch;
+  }
+  .ow-cta-confidential {
+    margin-top: var(--space-6);
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    font-weight: 500;
+    max-width: 56ch;
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: var(--space-3);
+    border-top: 1px solid rgba(201, 169, 97, 0.3);
+  }
+
   /* HERO */
   .ow-hero {
     position: relative;
