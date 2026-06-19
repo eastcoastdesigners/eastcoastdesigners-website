@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37 37" shape-rendering="crispEdges">
+  <!-- White page background -->
+  <path fill="#ffffff" d="M0 0h37v37H0z"/>
+  <!-- QR code modules in navy -->
+  <path stroke="#0F2A44" d="M4 4.5h7m1 0h1m2 0h1m1 0h3m2 0h3m1 0h7M4 5.5h1m5 0h1m1 0h2m1 0h3m2 0h3m1 0h1m1 0h1m5 0h1M4 6.5h1m1 0h3m1 0h1m3 0h2m4 0h1m1 0h3m1 0h1m1 0h3m1 0h1M4 7.5h1m1 0h3m1 0h1m1 0h1m2 0h1m2 0h2m1 0h1m4 0h1m1 0h3m1 0h1M4 8.5h1m1 0h3m1 0h1m2 0h2m1 0h1m1 0h1m1 0h4m2 0h1m1 0h3m1 0h1M4 9.5h1m5 0h1m2 0h3m1 0h1m1 0h3m1 0h1m2 0h1m5 0h1M4 10.5h7m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h1m1 0h7M12 11.5h1m3 0h1m2 0h4M4 12.5h1m1 0h2m1 0h3m1 0h1m2 0h2m1 0h6m1 0h1m2 0h1m1 0h2M6 13.5h1m5 0h2m3 0h3m1 0h8m3 0h1M4 14.5h2m1 0h1m1 0h5m1 0h1m1 0h1m2 0h2m3 0h1m1 0h2m1 0h2M6 15.5h1m2 0h1m1 0h2m9 0h1m2 0h4m3 0h1M5 16.5h2m3 0h2m4 0h1m1 0h1m2 0h1m2 0h1m4 0h2M9 17.5h1m1 0h2m1 0h2m2 0h4m1 0h1m2 0h2m2 0h3M4 18.5h5m1 0h1m1 0h1m1 0h2m1 0h1m3 0h4m1 0h3m1 0h3M6 19.5h2m1 0h1m4 0h1m3 0h1m1 0h1m6 0h2m2 0h1M8 20.5h1m1 0h1m1 0h3m3 0h2m2 0h1m1 0h2m2 0h2m1 0h1M5 21.5h1m3 0h1m2 0h3m1 0h1m1 0h2m1 0h1m2 0h2m1 0h1m1 0h3M4 22.5h1m2 0h2m1 0h4m3 0h5m2 0h2m1 0h1m2 0h1M6 23.5h3m2 0h2m2 0h1m1 0h3m1 0h1m1 0h1m1 0h2m3 0h1M5 24.5h1m1 0h1m2 0h1m3 0h5m1 0h3m1 0h7M12 25.5h2m1 0h2m3 0h1m1 0h1m1 0h1m3 0h5M4 26.5h7m1 0h3m1 0h1m1 0h1m2 0h4m1 0h1m1 0h2m1 0h1M4 27.5h1m5 0h1m1 0h1m1 0h1m2 0h3m2 0h1m1 0h1m3 0h2M4 28.5h1m1 0h3m1 0h1m3 0h2m5 0h1m2 0h5m1 0h2M4 29.5h1m1 0h3m1 0h1m1 0h1m3 0h1m2 0h1m1 0h3m1 0h1m2 0h2m2 0h1M4 30.5h1m1 0h3m1 0h1m1 0h1m1 0h1m6 0h1m1 0h1m1 0h1m1 0h1m2 0h1m1 0h1M4 31.5h1m5 0h1m2 0h2m7 0h1m1 0h1m2 0h1m1 0h1m1 0h1M4 32.5h7m1 0h4m4 0h1m1 0h3m4 0h1m1 0h1"/>
+
+  <!-- Chair logo overlay — white mask + navy line-art armchair matching brand logo -->
+  <rect x="13.5" y="13.5" width="10" height="10" fill="#ffffff"/>
+  <g fill="none" stroke="#0F2A44" stroke-width="0.32" stroke-linecap="round" stroke-linejoin="round">
+    <!-- Chair back/sides — rounded armchair silhouette -->
+    <path d="M 15.5 19.5
+             L 15.5 17.5
+             Q 15.5 16 17 16
+             L 20 16
+             Q 21.5 16 21.5 17.5
+             L 21.5 19.5 Z"/>
+    <!-- Inner seat back curve -->
+    <path d="M 16.8 19.5
+             L 16.8 18
+             Q 16.8 17.2 17.5 17.2
+             L 19.5 17.2
+             Q 20.2 17.2 20.2 18
+             L 20.2 19.5"/>
+    <!-- Two angled front legs -->
+    <line x1="16.4" y1="19.5" x2="16.0" y2="20.6"/>
+    <line x1="20.6" y1="19.5" x2="21.0" y2="20.6"/>
+  </g>
+</svg>

@@ -32,6 +32,7 @@ const expectedTitles: Record<string, string> = {
   '/projects': 'Recent Projects | East Coast Designers',
   '/journal': 'Journal | East Coast Designers',
   '/our-work': 'Our Work — Commercial Portfolio | East Coast Designers',
+  '/card': 'Cristina — East Coast Designers',
 };
 
 for (const path of PAGES) {
