@@ -113,8 +113,9 @@ const PASSWORD_HASH = 'd4be9857c495efcc30655f835072f6ea9d2a4574838b47a3d3c262899
       </h1>
       <GoldRule width="80px" />
       <p class="ow-hero-subhead">
-        Selected commercial commissions &mdash; architecture, interiors, storefronts, and
-        the trades that build them. Client references given on private inquiry only.
+        Selected commercial commissions &mdash; architecture, interiors, brand
+        flagships, and the trades that build them. Delivered from our New York and
+        Connecticut studios. Client references given on private inquiry only.
       </p>
     </div>
   </section>
@@ -139,6 +140,59 @@ const PASSWORD_HASH = 'd4be9857c495efcc30655f835072f6ea9d2a4574838b47a3d3c262899
   </section>
 
   {/* ============================================================
+       CAPACITY & OPERATIONS
+       ============================================================ */}
+  <section class="section ow-capacity">
+    <div class="container ow-capacity-grid reveal">
+      <div class="ow-capacity-header">
+        <span class="eyebrow">Capacity &amp; Operations</span>
+        <h2 class="display display-italic ow-capacity-headline">
+          Vetted trades. Controlled fabrication. <em>One accountable lead.</em>
+        </h2>
+        <GoldRule width="56px" />
+      </div>
+
+      <dl class="ow-capacity-list">
+        <div class="ow-capacity-row">
+          <dt>Studios</dt>
+          <dd>New York and Connecticut. Tri-state delivery; select projects nationwide.</dd>
+        </div>
+        <div class="ow-capacity-row">
+          <dt>Model</dt>
+          <dd>
+            Design and construction under one roof, owner-led. Cristina runs every
+            project as designer and general contractor, with a single accountable
+            point of contact from concept through punch list.
+          </dd>
+        </div>
+        <div class="ow-capacity-row">
+          <dt>Trades &amp; Specialties</dt>
+          <dd>
+            Drywall, electrical, millwork, joinery, stone, metalwork, lighting,
+            and finish-grade carpentry &mdash; coordinated end-to-end. Long-standing
+            relationships with specialty shops for custom fabrication; in-house
+            and partner facilities used as the program demands.
+          </dd>
+        </div>
+        <div class="ow-capacity-row">
+          <dt>Quality Control</dt>
+          <dd>
+            Reviewed at every phase against the specification, not against the
+            budget line. Day-and-night crews when the schedule requires.
+          </dd>
+        </div>
+        <div class="ow-capacity-row">
+          <dt>Scale</dt>
+          <dd>
+            Comfortable from a single boutique buildout to multi-million corporate
+            plaza fit-outs. Team, network, and process scale with the brief.
+          </dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  {/* ============================================================
        SECTOR I — COMMERCIAL
        ============================================================ */}
   <section class="ow-sector ow-sector-commercial">
@@ -154,7 +208,7 @@ const PASSWORD_HASH = 'd4be9857c495efcc30655f835072f6ea9d2a4574838b47a3d3c262899
         every surface specified to a single editorial standard.
       </p>
       <ul class="ow-tags">
-        <li>Storefronts &amp; Retail</li>
+        <li>Brand Flagships &amp; Retail</li>
         <li>Architecture</li>
         <li>Lobbies &amp; Reception</li>
         <li>Office Suites</li>
@@ -164,12 +218,12 @@ const PASSWORD_HASH = 'd4be9857c495efcc30655f835072f6ea9d2a4574838b47a3d3c262899
       </ul>
     </div>
 
-    {/* Chapter 1 — Storefronts & Retail (lead with this — partner ask) */}
+    {/* Chapter 1 — Brand Flagships & Retail (lead with this — partner ask) */}
     <div class="ow-chapter">
       <div class="container ow-chapter-intro reveal">
         <div class="ow-chapter-text">
-          <span class="eyebrow">Storefronts &amp; Retail</span>
-          <p>Retail environments treated as exhibition spaces.</p>
+          <span class="eyebrow">Brand Flagships &amp; Retail</span>
+          <p>Luxury brand buildouts treated as exhibition spaces.</p>
         </div>
         <aside class="ow-client-card">
           <span class="eyebrow ow-client-eyebrow">Recent Commission</span>
@@ -704,6 +758,84 @@ const PASSWORD_HASH = 'd4be9857c495efcc30655f835072f6ea9d2a4574838b47a3d3c262899
     font-weight: 300;
     max-width: 68ch;
     margin: 0 auto;
+  }
+
+  /* CAPACITY & OPERATIONS */
+  .ow-capacity {
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    padding-top: clamp(var(--space-12), 10vw, var(--space-16));
+    padding-bottom: clamp(var(--space-12), 10vw, var(--space-16));
+  }
+  .ow-capacity-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: clamp(var(--space-6), 6vw, var(--space-12));
+  }
+  @media (min-width: 900px) {
+    .ow-capacity-grid {
+      grid-template-columns: 5fr 7fr;
+      gap: clamp(var(--space-8), 8vw, var(--space-16));
+      align-items: start;
+    }
+  }
+  .ow-capacity-header .eyebrow {
+    color: var(--color-gold);
+    letter-spacing: 0.32em;
+  }
+  .ow-capacity-headline {
+    color: var(--color-white);
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    line-height: 1.08;
+    margin: var(--space-2) 0 var(--space-3);
+    font-weight: 400;
+    letter-spacing: -0.012em;
+  }
+  .ow-capacity-headline em {
+    font-style: italic;
+    color: var(--color-gold);
+  }
+  .ow-capacity-list {
+    margin: 0;
+    padding: 0;
+    display: grid;
+    gap: var(--space-5);
+  }
+  .ow-capacity-row {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: var(--space-1);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid rgba(201, 169, 97, 0.18);
+  }
+  @media (min-width: 600px) {
+    .ow-capacity-row {
+      grid-template-columns: 180px 1fr;
+      gap: var(--space-4);
+      align-items: baseline;
+    }
+  }
+  .ow-capacity-row:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .ow-capacity-row dt {
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    font-weight: 600;
+    margin: 0;
+  }
+  .ow-capacity-row dd {
+    margin: 0;
+    color: var(--color-white);
+    opacity: 0.92;
+    font-size: var(--text-base);
+    line-height: 1.65;
+    font-weight: 300;
+    max-width: 56ch;
   }
 
   /* SECTOR HEADER */

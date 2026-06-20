@@ -3,14 +3,13 @@ const schema = {
   "@context": "https://schema.org",
   "@type": ["InteriorDesignService", "GeneralContractor"],
   "name": "East Coast Designers",
-  "description": "Design and construction firm based in Connecticut. Full interior design, 2D and 3D renderings, and ground-up construction — residential and commercial, tri-state and select projects nationwide.",
+  "description": "Design and construction firm with offices in New York and Connecticut. Full interior design, 2D and 3D renderings, and ground-up construction — residential and commercial, tri-state and select projects nationwide.",
   "telephone": "+1-203-228-9197",
   "url": "https://www.eastcoastdesigners.com",
-  "address": {
-    "@type": "PostalAddress",
-    "addressRegion": "CT",
-    "addressCountry": "US"
-  },
+  "address": [
+    { "@type": "PostalAddress", "addressRegion": "NY", "addressCountry": "US" },
+    { "@type": "PostalAddress", "addressRegion": "CT", "addressCountry": "US" }
+  ],
   "areaServed": {
     "@type": "Country",
     "name": "United States"
