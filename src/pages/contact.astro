@@ -37,6 +37,15 @@ const description = 'Call East Coast Designers at (203) 228-9197 to discuss a de
         </div>
         <div class="contact-row">
           <GoldRule width="40px" />
+          <dt>Email</dt>
+          <dd>
+            <a href="mailto:cristina@eastcoastdesigners.com" class="big-email">
+              cristina@eastcoastdesigners.com
+            </a>
+          </dd>
+        </div>
+        <div class="contact-row">
+          <GoldRule width="40px" />
           <dt>Service area</dt>
           <dd>Offices in New York and Connecticut. Tri-state area regularly; select projects nationwide.</dd>
         </div>
@@ -97,4 +106,16 @@ const description = 'Call East Coast Designers at (203) 228-9197 to discuss a de
     line-height: 1.1;
   }
   .big-phone:hover { color: var(--color-gold); }
+  .big-email {
+    font-family: var(--font-heading);
+    font-size: clamp(var(--text-xl), 2.6vw, var(--text-3xl));
+    font-weight: 500;
+    color: var(--color-navy);
+    text-decoration: none;
+    border-bottom: 1px solid var(--color-gold);
+    display: inline-block;
+    line-height: 1.2;
+    word-break: break-word;
+  }
+  .big-email:hover { color: var(--color-gold); }
 </style>

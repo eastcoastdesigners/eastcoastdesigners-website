@@ -59,7 +59,16 @@ export const FORBIDDEN_PII: string[] = [];
  * characters (e.g., Twitter handles, "Q&A" headings, attribute syntax). Anchored to
  * actual email syntax: local-part @ domain . tld(>=2).
  */
-export const EMAIL_REGEX = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/;
+export const EMAIL_REGEX = /[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}/g;
+
+/**
+ * Allowed business emails. Any email matching one of these is permitted on the
+ * rendered pages; any OTHER email match still fails the assertion (catches
+ * accidental leaks of personal addresses).
+ */
+export const ALLOWED_EMAILS = [
+  'cristina@eastcoastdesigners.com',
+];
 
 /**
  * Loop-and-assert one string at a time. Works around the documented Playwright bug where
@@ -83,21 +92,44 @@ export async function assertNoForbiddenStrings(
 }
 
 /**
- * No email addresses anywhere — checks rendered text + every href attribute + raw HTML
- * (to catch addresses in JSON-LD, OG tags, comments). Also confirms no mailto: hrefs.
+ * Only ALLOWED_EMAILS may appear on the rendered pages. Any other email match
+ * (in body text, raw HTML, or mailto: hrefs) fails the assertion — catches
+ * accidental leaks of personal addresses while still permitting the official
+ * business email.
  */
 export async function assertNoEmails(page: Page): Promise<void> {
   const text = await page.locator('body').innerText();
   const html = await page.content();
+  const allowed = new Set(ALLOWED_EMAILS.map((e) => e.toLowerCase()));
 
-  const textMatch = text.match(EMAIL_REGEX);
-  expect(textMatch, `email leaked into rendered text: ${textMatch?.[0]}`).toBeNull();
+  const unexpectedIn = (source: string): string[] => {
+    const matches = source.match(EMAIL_REGEX) ?? [];
+    return matches.filter((m) => !allowed.has(m.toLowerCase()));
+  };
 
-  const htmlMatch = html.match(EMAIL_REGEX);
-  expect(htmlMatch, `email leaked into raw HTML: ${htmlMatch?.[0]}`).toBeNull();
+  const textLeaks = unexpectedIn(text);
+  expect(
+    textLeaks,
+    `unauthorized email(s) in rendered text: ${textLeaks.join(', ')}`,
+  ).toEqual([]);
 
-  const mailtoCount = await page.locator('a[href^="mailto:"]').count();
-  expect(mailtoCount, 'mailto: links must not exist anywhere').toBe(0);
+  const htmlLeaks = unexpectedIn(html);
+  expect(
+    htmlLeaks,
+    `unauthorized email(s) in raw HTML: ${htmlLeaks.join(', ')}`,
+  ).toEqual([]);
+
+  const mailtoHrefs = await page.locator('a[href^="mailto:"]').evaluateAll((els) =>
+    els.map((el) => (el as HTMLAnchorElement).getAttribute('href') ?? ''),
+  );
+  const unexpectedMailtos = mailtoHrefs.filter((href) => {
+    const addr = href.replace(/^mailto:/i, '').split('?')[0].toLowerCase();
+    return !allowed.has(addr);
+  });
+  expect(
+    unexpectedMailtos,
+    `unauthorized mailto: link(s): ${unexpectedMailtos.join(', ')}`,
+  ).toEqual([]);
 }
 
 export async function assertNoKnownAddresses(page: Page): Promise<void> {
