@@ -1,19 +1,9 @@
 # Cloudflare Pages — per-path response headers.
-# Applied at the edge for static assets.
 
-# /our-work is gated by a Pages Function (functions/_middleware.js).
-# Force no-cache here too so the static HTML never gets served from the
-# edge cache without the function running first.
+# /our-work is a private portfolio; in addition to the noindex meta tag
+# on the page itself, send it as an HTTP header so crawlers respect it.
 /our-work
-  Cache-Control: no-store, private, max-age=0, must-revalidate
-  CDN-Cache-Control: no-store
-  Cloudflare-CDN-Cache-Control: no-store
-  Pragma: no-cache
   X-Robots-Tag: noindex, nofollow
 
 /our-work/*
-  Cache-Control: no-store, private, max-age=0, must-revalidate
-  CDN-Cache-Control: no-store
-  Cloudflare-CDN-Cache-Control: no-store
-  Pragma: no-cache
   X-Robots-Tag: noindex, nofollow
