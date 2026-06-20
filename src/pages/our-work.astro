@@ -386,7 +386,22 @@ const PASSWORD_HASH = 'd4be9857c495efcc30655f835072f6ea9d2a4574838b47a3d3c262899
 
   <script is:inline define:vars={{ HASH: PASSWORD_HASH }}>
     (function () {
-      const SESSION_KEY = 'ecd_ow_unlocked';
+      // Session key includes a slice of the password hash so that whenever
+      // the password is changed, existing unlocked sessions are invalidated
+      // automatically. Otherwise visitors who unlocked with the old password
+      // would keep bypassing the gate after a password rotation.
+      const SESSION_KEY = 'ecd_ow_unlocked_' + HASH.slice(0, 12);
+
+      // Clean up stale unlocked flags from prior password versions.
+      try {
+        const stale = [];
+        for (let i = 0; i < sessionStorage.length; i++) {
+          const k = sessionStorage.key(i);
+          if (k && k.startsWith('ecd_ow_unlocked') && k !== SESSION_KEY) stale.push(k);
+        }
+        stale.forEach((k) => sessionStorage.removeItem(k));
+      } catch (e) {}
+
       const gate = document.getElementById('ow-gate');
       const content = document.getElementById('ow-content');
       const form = document.getElementById('ow-gate-form');

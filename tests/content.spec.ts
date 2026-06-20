@@ -38,12 +38,19 @@ const expectedTitles: Record<string, string> = {
 for (const path of PAGES) {
   test.describe(`page ${path}`, () => {
     test.beforeEach(async ({ page }) => {
-      // /our-work has a client-side password gate. Pre-seed the unlocked
-      // session flag so tests can assert on the actual page content.
-      await page.addInitScript(() => {
-        sessionStorage.setItem('ecd_ow_unlocked', '1');
-      });
       await page.goto(path);
+      // /our-work has a client-side password gate. After navigation,
+      // manually hide the gate and reveal the content so tests can assert
+      // on it. Avoids coupling the test to the current password hash.
+      if (path === '/our-work') {
+        await page.evaluate(() => {
+          const gate = document.getElementById('ow-gate');
+          const content = document.getElementById('ow-content');
+          if (gate) gate.style.display = 'none';
+          if (content) content.style.display = '';
+          document.body.style.overflow = '';
+        });
+      }
     });
 
     test('has the exact title from the brief', async ({ page }) => {
