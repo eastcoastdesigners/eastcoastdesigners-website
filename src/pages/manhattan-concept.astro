@@ -1,0 +1,928 @@
+---
+import { Image } from 'astro:assets';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import GoldRule from '../components/GoldRule.astro';
+import PhoneLink from '../components/PhoneLink.astro';
+
+// Emirates reference photos (Dubai + London, ribbon-cutting + interiors)
+import londonRibbon from '../assets/images/emirates/london-exterior-ribbon.jpg';
+import londonCurved from '../assets/images/emirates/london-curved-exterior.jpg';
+import dubaiReception from '../assets/images/emirates/dubai-reception-red-chairs.jpg';
+import dubaiFloorWide from '../assets/images/emirates/dubai-floor-wide.jpg';
+import dubaiOverview from '../assets/images/emirates/dubai-overview.jpg';
+import dubaiDisplayNiche from '../assets/images/emirates/dubai-display-niche.jpg';
+import dubaiTreeWall from '../assets/images/emirates/dubai-tree-wall.jpg';
+import mallStorefront from '../assets/images/emirates/mall-storefront.jpg';
+
+// "Our Manhattan vision" — closest matches from existing ECD AI commercial library
+// (will be replaced with dedicated Manhattan-vision renders once kie.ai credits allow)
+import ourLightingPendant from '../assets/images/commercial-lighting-pendant.jpg';
+import ourDrywallCove from '../assets/images/commercial-drywall-cove.jpg';
+import ourLibraryClub from '../assets/images/commercial-library-club.jpg';
+import ourBathMarbleBrass from '../assets/images/commercial-bath-marble-brass.jpg';
+import ourLightingLinear from '../assets/images/commercial-lighting-linear.jpg';
+import ourFlooringTerrazzo from '../assets/images/commercial-flooring-terrazzo.jpg';
+
+const title = 'Manhattan Concept — Emirates World | East Coast Designers';
+const description = 'Concept presentation for the Manhattan Emirates World travel store. By private invitation only.';
+
+// SHA-256 of the access code. Same password as /our-work (Travertine-9248).
+const PASSWORD_HASH = 'd4be9857c495efcc30655f835072f6ea9d2a4574838b47a3d3c262899ebaee5e';
+---
+<BaseLayout title={title} description={description} noindex={true}>
+
+  {/* PASSWORD GATE */}
+  <div id="mc-gate" class="mc-gate" role="dialog" aria-modal="true" aria-labelledby="mc-gate-title">
+    <div class="mc-gate-card">
+      <span class="eyebrow mc-gate-eyebrow">Private Concept Presentation</span>
+      <h2 id="mc-gate-title" class="display display-italic mc-gate-headline">
+        East Coast Designers
+      </h2>
+      <p class="mc-gate-blurb">
+        Manhattan concept for Emirates World &mdash; by private invitation only.
+        Please enter the access code provided to you.
+      </p>
+      <form id="mc-gate-form" autocomplete="off">
+        <input
+          type="password"
+          id="mc-gate-input"
+          name="passcode"
+          placeholder="Access code"
+          autocomplete="off"
+          required
+          aria-label="Access code"
+        />
+        <button type="submit" class="btn btn-primary mc-gate-submit">Enter</button>
+      </form>
+      <p id="mc-gate-error" class="mc-gate-error" hidden>
+        Incorrect access code. Please try again.
+      </p>
+      <p class="mc-gate-foot">
+        Shared by private invitation only. Not for redistribution.
+        &copy; East Coast Designers &mdash; all rights reserved.
+      </p>
+    </div>
+  </div>
+
+  <div id="mc-content">
+
+  {/* PRIVATE NOTICE */}
+  <aside class="mc-private-notice" role="note" aria-label="Private concept presentation">
+    <div class="container mc-private-notice-inner">
+      <span class="mc-private-notice-tag">Private &amp; Confidential</span>
+      <span class="mc-private-notice-text">
+        Concept presentation, working draft. Shared by private invitation only.
+        Please do not forward or redistribute without written request.
+      </span>
+    </div>
+  </aside>
+
+  {/* HERO */}
+  <section class="mc-hero">
+    <Image
+      src={dubaiTreeWall}
+      alt="Emirates Dubai store — Ghaf Tree illuminated feature wall"
+      widths={[1200, 1800, 2400]}
+      sizes="100vw"
+      loading="eager"
+      class="mc-hero-bg"
+    />
+    <div class="mc-hero-overlay"></div>
+    <div class="container mc-hero-inner reveal">
+      <span class="eyebrow mc-hero-eyebrow">Concept Presentation</span>
+      <h1 class="display display-italic mc-hero-headline">
+        Manhattan Emirates World &mdash; <em>a concept</em>.
+      </h1>
+      <GoldRule width="80px" />
+      <p class="mc-hero-subhead">
+        A private-jet sensibility, brought downstairs and made accessible.
+      </p>
+      <button id="mc-listen" class="mc-listen-btn" type="button" aria-label="Listen to the pitch in a feminine voice">
+        <span class="mc-listen-icon" aria-hidden="true">&#9654;</span>
+        <span class="mc-listen-text">Listen to the pitch</span>
+      </button>
+      <div id="mc-listen-status" class="mc-listen-status" aria-live="polite"></div>
+    </div>
+  </section>
+
+  {/* INTRO — DESIGN INTENT */}
+  <section class="section mc-intent">
+    <div class="container content reveal">
+      <span class="eyebrow">Design Intent</span>
+      <h2 class="display display-italic mc-intent-headline">
+        Emirates does not need to remind anyone that it is luxurious.
+      </h2>
+      <p class="mc-intent-lead">
+        Emirates&rsquo; job, in this room, is to let the customer feel
+        luxurious. Most of the customers who walk into this store will never
+        fly private. The closest experience they will ever have to private
+        aviation is the moment they walk through this door. The store IS the
+        cabin upgrade.
+      </p>
+      <p>
+        Every material, every light, every chair, every detail is calibrated
+        so the customer feels that <em>they</em> are what is being showcased.
+        That is the design intent. Everything else follows from there.
+      </p>
+    </div>
+  </section>
+
+  {/* WHAT EMIRATES HAS BUILT */}
+  <section class="section mc-existing">
+    <div class="container">
+      <div class="mc-section-header reveal">
+        <span class="eyebrow">Chapter I</span>
+        <h2 class="display display-italic mc-section-headline">
+          What Emirates has built.
+        </h2>
+        <GoldRule width="64px" />
+        <p class="mc-section-lead">
+          Dubai (2022). London (2024). The DNA is clear: light, open, curved,
+          lounge-like, anchored by the Ghaf Tree. Modern light furniture, blonde
+          oak floors, vertical reeded walls, greenery as architecture. Red as
+          accent only. This works. Manhattan must honor it.
+        </p>
+      </div>
+
+      <div class="mc-gallery reveal">
+        <figure class="mc-gallery-item mc-gallery-feature">
+          <Image src={dubaiOverview} alt="Dubai store wide overview with curved white forms, blonde oak floor, red accent chairs, plants" widths={[800, 1200, 1800]} sizes="(min-width: 900px) 66vw, 100vw" loading="lazy" />
+          <figcaption>Dubai &mdash; the open-plan, lounge-like floor</figcaption>
+        </figure>
+        <figure class="mc-gallery-item">
+          <Image src={dubaiTreeWall} alt="Ghaf Tree illuminated on a brown feature wall" widths={[600, 900]} sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
+          <figcaption>Dubai &mdash; the Ghaf Tree feature wall</figcaption>
+        </figure>
+        <figure class="mc-gallery-item">
+          <Image src={dubaiReception} alt="Curved white reception pods with red swan chairs" widths={[600, 900]} sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
+          <figcaption>Dubai &mdash; curved reception pods</figcaption>
+        </figure>
+        <figure class="mc-gallery-item">
+          <Image src={dubaiFloorWide} alt="Wide Dubai floor with brass Emirates logo, oak floor, plants in white planters" widths={[600, 900]} sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
+          <figcaption>Dubai &mdash; blonde oak + brass Emirates wordmark</figcaption>
+        </figure>
+        <figure class="mc-gallery-item">
+          <Image src={dubaiDisplayNiche} alt="Display niche carved into vertical wood slat wall" widths={[600, 900]} sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
+          <figcaption>Dubai &mdash; reeded slat wall with display niche</figcaption>
+        </figure>
+        <figure class="mc-gallery-item">
+          <Image src={londonRibbon} alt="London exterior at ribbon-cutting with Emirates signage and red rose arrangements" widths={[600, 900]} sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
+          <figcaption>London &mdash; opening day, Cromwell Road</figcaption>
+        </figure>
+        <figure class="mc-gallery-item">
+          <Image src={londonCurved} alt="London exterior with curved corner facade and Emirates signage on limestone" widths={[600, 900]} sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
+          <figcaption>London &mdash; curved facade on limestone</figcaption>
+        </figure>
+        <figure class="mc-gallery-item">
+          <Image src={mallStorefront} alt="Emirates mall storefront with full-height glass and arched canopy" widths={[600, 900]} sizes="(min-width: 900px) 33vw, 100vw" loading="lazy" />
+          <figcaption>Mall storefront &mdash; full-height glass entrance</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+
+  {/* OUR MANHATTAN EVOLUTION — comparison cards */}
+  <section class="section mc-evolution">
+    <div class="container">
+      <div class="mc-section-header reveal">
+        <span class="eyebrow">Chapter II</span>
+        <h2 class="display display-italic mc-section-headline">
+          Our Manhattan evolution.
+        </h2>
+        <GoldRule width="64px" />
+        <p class="mc-section-lead">
+          We honor every Emirates DNA element. Then we layer in the New York.
+          Pre-war architecture. Historic preservation. Refined materials.
+          Warmer, dimmer light. A sculpted gold tree-branch chandelier where
+          the wall tree once was. The sensory upgrade that turns a retail
+          floor into a private cabin.
+        </p>
+      </div>
+
+      {/* Comparison 1 — Tree wall → Tree branch chandelier */}
+      <div class="mc-compare reveal">
+        <div class="mc-compare-side">
+          <span class="mc-compare-tag">Currently</span>
+          <Image src={dubaiTreeWall} alt="Dubai Ghaf Tree illuminated on the wall" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
+          <p class="mc-compare-caption">Wall-mounted illuminated Ghaf Tree on a brown accent wall.</p>
+        </div>
+        <div class="mc-compare-arrow" aria-hidden="true">&#10142;</div>
+        <div class="mc-compare-side">
+          <span class="mc-compare-tag mc-compare-tag-our">Our Manhattan Evolution</span>
+          <Image src={ourLightingPendant} alt="Sculptural brass pendant cluster as a chandelier centerpiece" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
+          <p class="mc-compare-caption">A sculpted <strong>tree-branch chandelier in gold</strong> &mdash; the Ghaf Tree reimagined as a three-dimensional ceiling centerpiece, drawing the eye upward into a NYC pre-war proportion.</p>
+        </div>
+      </div>
+
+      {/* Comparison 2 — LED dots → warm dim spot lighting */}
+      <div class="mc-compare reveal">
+        <div class="mc-compare-side">
+          <span class="mc-compare-tag">Currently</span>
+          <Image src={dubaiOverview} alt="Bright LED-lit Dubai floor with white surfaces" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
+          <p class="mc-compare-caption">Bright LED downlighting throughout. High lumens. Even, clinical brightness.</p>
+        </div>
+        <div class="mc-compare-arrow" aria-hidden="true">&#10142;</div>
+        <div class="mc-compare-side">
+          <span class="mc-compare-tag mc-compare-tag-our">Our Manhattan Evolution</span>
+          <Image src={ourLightingLinear} alt="Warm dim cove and spot lighting in a wood-paneled commercial room" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
+          <p class="mc-compare-caption"><strong>Dimmer, warmer spot lighting.</strong> Layered pools of light over key surfaces; soft cove washes on the walls. Closer to a hotel suite than a retail store. The customer is bathed in flattering light.</p>
+        </div>
+      </div>
+
+      {/* Comparison 3 — bright white curved → curved + limewashed plaster */}
+      <div class="mc-compare reveal">
+        <div class="mc-compare-side">
+          <span class="mc-compare-tag">Currently</span>
+          <Image src={dubaiReception} alt="Bright white curved reception pod" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
+          <p class="mc-compare-caption">Bright white curved reception forms. Modern, clean, slightly clinical.</p>
+        </div>
+        <div class="mc-compare-arrow" aria-hidden="true">&#10142;</div>
+        <div class="mc-compare-side">
+          <span class="mc-compare-tag mc-compare-tag-our">Our Manhattan Evolution</span>
+          <Image src={ourDrywallCove} alt="Hand-finished curved limewashed walls with integrated cove lighting" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
+          <p class="mc-compare-caption">Same curved geometry, but in <strong>hand-troweled limewashed plaster</strong> with subtle warm tonality. References New York pre-war architecture. The same curve, but with texture, history, and depth.</p>
+        </div>
+      </div>
+
+      {/* Comparison 4 — modern light furniture → leather, bouclé, refined */}
+      <div class="mc-compare reveal">
+        <div class="mc-compare-side">
+          <span class="mc-compare-tag">Currently</span>
+          <Image src={dubaiFloorWide} alt="Light modern furniture in beige and red on blonde oak" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
+          <p class="mc-compare-caption">Light modern furniture &mdash; tan upholstery, red accents, blonde wood.</p>
+        </div>
+        <div class="mc-compare-arrow" aria-hidden="true">&#10142;</div>
+        <div class="mc-compare-side">
+          <span class="mc-compare-tag mc-compare-tag-our">Our Manhattan Evolution</span>
+          <Image src={ourLibraryClub} alt="Refined club lounge with walnut paneling and warm leather seating" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
+          <p class="mc-compare-caption">A <strong>refined NY upgrade</strong>: chestnut leather, deep bouclé, brass-edged tables, walnut detailing. Same lounge geometry &mdash; the difference is what the customer touches.</p>
+        </div>
+      </div>
+
+      {/* Comparison 5 — generic greenery → curated NYC botanical */}
+      <div class="mc-compare reveal">
+        <div class="mc-compare-side">
+          <span class="mc-compare-tag">Currently</span>
+          <Image src={dubaiDisplayNiche} alt="Generic potted greenery in white planters" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
+          <p class="mc-compare-caption">Potted greenery in white planters as a finishing touch.</p>
+        </div>
+        <div class="mc-compare-arrow" aria-hidden="true">&#10142;</div>
+        <div class="mc-compare-side">
+          <span class="mc-compare-tag mc-compare-tag-our">Our Manhattan Evolution</span>
+          <Image src={ourFlooringTerrazzo} alt="Bright lobby with terrazzo flooring and architectural plant placement" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
+          <p class="mc-compare-caption"><strong>Curated NYC botanical.</strong> Terrariums under glass. A signature mature olive tree as the welcome moment. Moss walls. Brass-edged planters. The greenery becomes an architectural language, not an afterthought.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  {/* THE PALETTE */}
+  <section class="section mc-palette">
+    <div class="container">
+      <div class="mc-section-header reveal">
+        <span class="eyebrow">Chapter III</span>
+        <h2 class="display display-italic mc-section-headline">
+          Palette &mdash; <em>light, gold, deep accent.</em>
+        </h2>
+        <GoldRule width="64px" />
+        <p class="mc-section-lead">
+          Cream and warm white as the base &mdash; light, like the existing
+          Emirates rooms. Gold as the precious metal across hardware,
+          fixtures, and the signature tree-branch chandelier. The brand red,
+          used sparingly as accent. Deep navy and oxblood for the upholstery
+          and select walls &mdash; the &ldquo;grunge&rdquo; that grounds the
+          luxury and keeps it from feeling sterile.
+        </p>
+      </div>
+
+      <ul class="mc-swatches reveal" aria-label="Color palette">
+        <li class="mc-swatch"><span class="mc-swatch-chip" style="background:#F5F2EC"></span><span class="mc-swatch-label">Cream Base</span></li>
+        <li class="mc-swatch"><span class="mc-swatch-chip" style="background:#FFFFFF"></span><span class="mc-swatch-label">Warm White</span></li>
+        <li class="mc-swatch"><span class="mc-swatch-chip" style="background:#C9A961"></span><span class="mc-swatch-label">Signature Gold</span></li>
+        <li class="mc-swatch"><span class="mc-swatch-chip" style="background:#C0392B"></span><span class="mc-swatch-label">Emirates Red (accent)</span></li>
+        <li class="mc-swatch"><span class="mc-swatch-chip" style="background:#0F2A44"></span><span class="mc-swatch-label">Manhattan Navy</span></li>
+        <li class="mc-swatch"><span class="mc-swatch-chip" style="background:#5C2018"></span><span class="mc-swatch-label">Oxblood Accent</span></li>
+        <li class="mc-swatch"><span class="mc-swatch-chip" style="background:#3A2B1E"></span><span class="mc-swatch-label">Walnut</span></li>
+        <li class="mc-swatch"><span class="mc-swatch-chip" style="background:#2A2A2A"></span><span class="mc-swatch-label">Blackened Steel</span></li>
+      </ul>
+    </div>
+  </section>
+
+  {/* MATERIALS */}
+  <section class="section mc-materials">
+    <div class="container">
+      <div class="mc-section-header reveal">
+        <span class="eyebrow">Chapter IV</span>
+        <h2 class="display display-italic mc-section-headline">
+          Materials &amp; finishes.
+        </h2>
+        <GoldRule width="64px" />
+        <p class="mc-section-lead">
+          Every surface chosen for the same reason: a sensory upgrade that
+          makes the customer feel they are inside a private cabin.
+        </p>
+      </div>
+
+      <dl class="mc-mat-list reveal">
+        <div class="mc-mat-row">
+          <dt>Walls</dt>
+          <dd>Hand-troweled limewashed plaster in warm cream and oxblood accent panels. Selective reeded walnut paneling echoing the Emirates DNA but in deeper tone.</dd>
+        </div>
+        <div class="mc-mat-row">
+          <dt>Floors</dt>
+          <dd>Reclaimed plank flooring in warm walnut tones over a polished travertine base in transitional zones. Brass inlay strips at thresholds.</dd>
+        </div>
+        <div class="mc-mat-row">
+          <dt>Ceiling</dt>
+          <dd>Flush plaster with integrated cove lighting around the perimeter. The signature gold tree-branch chandelier as the central architectural moment.</dd>
+        </div>
+        <div class="mc-mat-row">
+          <dt>Lighting</dt>
+          <dd>Layered: warm dimmable spot lighting on key surfaces, cove washes, and the gold tree-branch chandelier as the room&rsquo;s anchor. No bright LED. Closer to incandescent warmth.</dd>
+        </div>
+        <div class="mc-mat-row">
+          <dt>Upholstery</dt>
+          <dd>Deep chestnut leather, ivory bouclé, navy mohair. Emirates red retained as a single signature accent chair per zone.</dd>
+        </div>
+        <div class="mc-mat-row">
+          <dt>Hardware</dt>
+          <dd>Unlacquered solid brass throughout &mdash; ages and patinates beautifully. Blackened steel for minimal Apple-store precision moments.</dd>
+        </div>
+        <div class="mc-mat-row">
+          <dt>Botanical</dt>
+          <dd>A signature mature olive tree at the entry. Terrariums under glass. Selected moss walls. Brass-edged planters throughout.</dd>
+        </div>
+        <div class="mc-mat-row">
+          <dt>Sensory</dt>
+          <dd>A bespoke ambient scent in the room. A curated low soundscape. Both calibrated to the time of day.</dd>
+        </div>
+      </dl>
+    </div>
+  </section>
+
+  {/* CLOSING */}
+  <section class="mc-closing">
+    <div class="container content reveal">
+      <span class="eyebrow">In Closing</span>
+      <p class="display display-italic mc-closing-line">
+        The soul of a place that needed to be captured and spread and
+        continue its legacy. <em>Because it&rsquo;s that beautiful.</em>
+      </p>
+      <GoldRule width="64px" align="center" />
+      <p class="mc-closing-body">
+        Two women, hometown veterans, on our farewell project to the area we
+        love. We are ready to translate your global design language for
+        Manhattan, and to travel for the next city after that. Choose us, and
+        you get the undivided focus of two people who actually love what
+        they do.
+      </p>
+      <div class="mc-closing-cta">
+        <PhoneLink class="btn btn-primary mc-closing-btn" prefix="Call " />
+        <a href="mailto:cristina@eastcoastdesigners.com" class="btn btn-secondary mc-closing-btn">Email Cristina</a>
+      </div>
+      <p class="mc-closing-foot">
+        Concept presentation, working draft. Shared privately by invitation only.
+        Not for redistribution. &copy; East Coast Designers &mdash; all rights reserved.
+      </p>
+    </div>
+  </section>
+
+  </div> {/* close #mc-content */}
+
+  {/* GATE SCRIPT */}
+  <script is:inline define:vars={{ HASH: PASSWORD_HASH }}>
+    (function () {
+      const SESSION_KEY = 'ecd_mc_unlocked_' + HASH.slice(0, 12);
+      try {
+        const stale = [];
+        for (let i = 0; i < sessionStorage.length; i++) {
+          const k = sessionStorage.key(i);
+          if (k && k.startsWith('ecd_mc_unlocked') && k !== SESSION_KEY) stale.push(k);
+        }
+        stale.forEach((k) => sessionStorage.removeItem(k));
+      } catch (e) {}
+
+      const gate = document.getElementById('mc-gate');
+      const content = document.getElementById('mc-content');
+      const form = document.getElementById('mc-gate-form');
+      const input = document.getElementById('mc-gate-input');
+      const errorEl = document.getElementById('mc-gate-error');
+
+      function unlock() {
+        if (gate) gate.style.display = 'none';
+        if (content) content.style.display = '';
+        document.body.style.overflow = '';
+      }
+      function lock() {
+        if (gate) gate.style.display = '';
+        if (content) content.style.display = 'none';
+        document.body.style.overflow = 'hidden';
+        if (input) setTimeout(() => input.focus(), 30);
+      }
+
+      if (sessionStorage.getItem(SESSION_KEY) === '1') unlock();
+      else lock();
+
+      async function sha256(str) {
+        const buf = new TextEncoder().encode(str);
+        const hash = await crypto.subtle.digest('SHA-256', buf);
+        return Array.from(new Uint8Array(hash))
+          .map((b) => b.toString(16).padStart(2, '0'))
+          .join('');
+      }
+
+      if (form) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          errorEl.hidden = true;
+          const val = input.value.trim();
+          if (!val) return;
+          try {
+            const h = await sha256(val);
+            if (h === HASH) {
+              sessionStorage.setItem(SESSION_KEY, '1');
+              unlock();
+            } else {
+              errorEl.hidden = false;
+              input.value = '';
+              input.focus();
+            }
+          } catch (err) {
+            errorEl.hidden = false;
+          }
+        });
+      }
+    })();
+  </script>
+
+  {/* AUDIO NARRATION (Web Speech API) */}
+  <script is:inline>
+    (function () {
+      const btn = document.getElementById('mc-listen');
+      const status = document.getElementById('mc-listen-status');
+      if (!btn || !('speechSynthesis' in window)) {
+        if (btn) btn.style.display = 'none';
+        return;
+      }
+
+      const NARRATION = [
+        "Welcome. This is the concept for the Manhattan Emirates World travel store, by East Coast Designers.",
+        "This proposal is built around one design intent: a private jet sensibility, brought downstairs and made accessible.",
+        "Emirates is showcased as a luxury airline, and most customers walking into this store will never fly private. The closest experience they will ever have to private aviation is the moment they walk through this door. The store IS the cabin upgrade. Our job is to make every material, every light, every chair, every detail feel like the customer is what's being showcased.",
+        "Emirates already created the design DNA. The Ghaf Tree. The light curved forms. The vertical wood slat walls. The greenery as architecture. That works. Our job is not to override it. Our job is to translate it into a Manhattan vernacular without losing what makes it Emirates.",
+        "What we add: deeper materials. Hand troweled limewashed walls referencing pre war New York. A signature tree branch chandelier, sculpted in gold, replacing the wall mounted tree light. Dimmer, warmer spot lighting in place of bright L E D. Reclaimed plank floors over blonde oak. Leather, bouclé, brass edged planters, terrariums under glass. A scent. A soundscape. The complete sensory upgrade.",
+        "The team is two women, design and construction veterans from this area, on our farewell project to the tri state. We are honest about that, because trust beats convenience. You get our undivided focus.",
+        "We are ready to translate your global design language for Manhattan, and to travel for the next city after that. We will deliver this with the soul of two people who actually love what they do.",
+        "The soul of a place that needed to be captured and spread and continue its legacy. Because it's that beautiful.",
+        "Thank you. We hope to hear from you soon."
+      ];
+
+      let queue = [];
+      let playing = false;
+      let paused = false;
+
+      function pickVoice() {
+        const voices = speechSynthesis.getVoices();
+        if (!voices.length) return null;
+        const preferred = [
+          'Samantha', 'Karen', 'Victoria', 'Allison', 'Ava',
+          'Google US English', 'Google UK English Female',
+          'Microsoft Aria', 'Microsoft Zira', 'Microsoft Jenny',
+        ];
+        for (const name of preferred) {
+          const v = voices.find((v) => v.name.includes(name));
+          if (v) return v;
+        }
+        const enFemale = voices.find(
+          (v) => v.lang.startsWith('en') && /female|woman|she/i.test(v.name)
+        );
+        if (enFemale) return enFemale;
+        return voices.find((v) => v.lang.startsWith('en')) || voices[0];
+      }
+
+      function setStatus(msg) {
+        if (status) status.textContent = msg;
+      }
+
+      function speakNext() {
+        if (!queue.length) {
+          playing = false;
+          btn.classList.remove('is-playing');
+          btn.querySelector('.mc-listen-icon').innerHTML = '&#9654;';
+          btn.querySelector('.mc-listen-text').textContent = 'Listen to the pitch';
+          setStatus('');
+          return;
+        }
+        const text = queue.shift();
+        const u = new SpeechSynthesisUtterance(text);
+        const v = pickVoice();
+        if (v) u.voice = v;
+        u.rate = 0.92;
+        u.pitch = 1.05;
+        u.volume = 1.0;
+        u.onend = () => {
+          if (playing && !paused) speakNext();
+        };
+        u.onerror = () => {
+          playing = false;
+          btn.classList.remove('is-playing');
+          setStatus('Audio unavailable. Please use Chrome, Safari, or Edge.');
+        };
+        speechSynthesis.speak(u);
+      }
+
+      function play() {
+        speechSynthesis.cancel();
+        queue = NARRATION.slice();
+        playing = true;
+        paused = false;
+        btn.classList.add('is-playing');
+        btn.querySelector('.mc-listen-icon').innerHTML = '&#10074;&#10074;';
+        btn.querySelector('.mc-listen-text').textContent = 'Pause narration';
+        setStatus('Narration playing...');
+        speakNext();
+      }
+
+      function pause() {
+        speechSynthesis.cancel();
+        playing = false;
+        paused = true;
+        btn.classList.remove('is-playing');
+        btn.querySelector('.mc-listen-icon').innerHTML = '&#9654;';
+        btn.querySelector('.mc-listen-text').textContent = 'Resume narration';
+        setStatus('Narration paused.');
+      }
+
+      btn.addEventListener('click', () => {
+        if (playing) {
+          pause();
+        } else {
+          play();
+        }
+      });
+
+      if (speechSynthesis.getVoices().length === 0) {
+        speechSynthesis.addEventListener('voiceschanged', () => {
+          // voices now available; future click will work
+        });
+      }
+    })();
+  </script>
+
+  {/* REVEAL ANIMATION */}
+  <script is:inline>
+    const mcReveals = document.querySelectorAll('.reveal');
+    if ('IntersectionObserver' in window && mcReveals.length > 0) {
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-visible');
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.1 });
+      mcReveals.forEach((el) => observer.observe(el));
+    } else {
+      mcReveals.forEach((el) => el.classList.add('is-visible'));
+    }
+  </script>
+
+</BaseLayout>
+
+<style>
+  /* GATE */
+  .mc-gate {
+    position: fixed;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(15,42,68,0.96), rgba(15,42,68,0.99));
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--gutter);
+  }
+  .mc-gate-card {
+    background: var(--color-white);
+    max-width: 480px;
+    width: 100%;
+    padding: clamp(var(--space-6), 5vw, var(--space-12)) clamp(var(--space-4), 4vw, var(--space-8));
+    text-align: center;
+    box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+  }
+  .mc-gate-eyebrow { color: var(--color-gold); letter-spacing: 0.32em; }
+  .mc-gate-headline {
+    font-size: clamp(1.75rem, 4vw, 2.5rem);
+    color: var(--color-navy);
+    margin: var(--space-2) 0 var(--space-3);
+    font-weight: 400;
+  }
+  .mc-gate-blurb { color: var(--color-body); font-size: var(--text-base); line-height: 1.6; }
+  #mc-gate-form { display: flex; flex-direction: column; gap: var(--space-2); margin-top: var(--space-4); }
+  #mc-gate-input {
+    padding: 12px 16px;
+    font-family: var(--font-body);
+    font-size: var(--text-base);
+    border: 1px solid rgba(15,42,68,0.18);
+    border-radius: 2px;
+    text-align: center;
+    letter-spacing: 0.06em;
+  }
+  #mc-gate-input:focus { outline: 2px solid var(--color-gold); outline-offset: 2px; border-color: var(--color-gold); }
+  .mc-gate-submit { width: 100%; }
+  .mc-gate-error { color: #b00020; font-size: var(--text-sm); margin: var(--space-2) 0 0; }
+  .mc-gate-foot {
+    margin-top: var(--space-4);
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    border-top: 1px solid rgba(201,169,97,0.3);
+    padding-top: var(--space-3);
+  }
+
+  /* PRIVATE NOTICE */
+  .mc-private-notice {
+    background-color: var(--color-navy);
+    color: var(--color-white);
+    border-bottom: 1px solid var(--color-gold);
+    padding: var(--space-2) 0;
+  }
+  .mc-private-notice-inner {
+    display: flex; flex-wrap: wrap; align-items: baseline; justify-content: center;
+    gap: var(--space-3); text-align: center;
+  }
+  .mc-private-notice-tag {
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    font-weight: 600;
+  }
+  .mc-private-notice-text {
+    font-size: var(--text-sm);
+    color: var(--color-white);
+    opacity: 0.88;
+    font-weight: 300;
+    max-width: 70ch;
+  }
+
+  /* HERO */
+  .mc-hero {
+    position: relative;
+    min-height: 84vh;
+    display: flex; align-items: center;
+    overflow: hidden; color: var(--color-white);
+    padding: clamp(var(--space-12), 12vw, 9rem) 0;
+  }
+  .mc-hero-bg {
+    position: absolute; inset: 0; width: 100%; height: 100%;
+    object-fit: cover; z-index: 0; opacity: 0.45;
+  }
+  .mc-hero-overlay {
+    position: absolute; inset: 0; z-index: 1;
+    background: linear-gradient(180deg, rgba(15,42,68,0.55), rgba(15,42,68,0.85));
+  }
+  .mc-hero-inner { position: relative; z-index: 2; max-width: 880px; }
+  .mc-hero-eyebrow { color: var(--color-gold); letter-spacing: 0.34em; }
+  .mc-hero-headline {
+    color: var(--color-white);
+    font-size: clamp(2.75rem, 7vw, 5.5rem);
+    line-height: 1.02; margin: var(--space-2) 0 var(--space-3);
+    font-weight: 400; letter-spacing: -0.022em;
+  }
+  .mc-hero-headline em { font-style: italic; }
+  .mc-hero-subhead {
+    color: var(--color-white); opacity: 0.94;
+    font-family: var(--font-display); font-style: italic;
+    font-size: clamp(var(--text-lg), 2vw, var(--text-2xl));
+    margin: var(--space-4) 0;
+    max-width: 50ch; font-weight: 400;
+  }
+
+  /* LISTEN BUTTON */
+  .mc-listen-btn {
+    margin-top: var(--space-4);
+    display: inline-flex; align-items: center; gap: var(--space-2);
+    padding: 14px 28px;
+    background: var(--color-gold);
+    color: var(--color-navy);
+    border: 1px solid var(--color-gold);
+    border-radius: 2px;
+    font-family: var(--font-label);
+    font-size: var(--text-sm);
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+  }
+  .mc-listen-btn:hover {
+    background: var(--color-white);
+    color: var(--color-navy);
+    border-color: var(--color-white);
+  }
+  .mc-listen-btn.is-playing {
+    background: var(--color-white);
+    color: var(--color-navy);
+  }
+  .mc-listen-icon { font-size: 0.9em; }
+  .mc-listen-status {
+    margin-top: var(--space-2);
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    opacity: 0.9;
+    min-height: 1.2em;
+  }
+
+  /* SECTION HEADER (shared) */
+  .mc-section-header { max-width: 880px; margin-bottom: clamp(var(--space-8), 6vw, var(--space-12)); }
+  .mc-section-headline {
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+    color: var(--color-navy);
+    margin: var(--space-2) 0 var(--space-3);
+    font-weight: 400; line-height: 1.05; letter-spacing: -0.015em;
+  }
+  .mc-section-headline em { font-style: italic; }
+  .mc-section-lead {
+    color: var(--color-body); font-weight: 300;
+    font-size: clamp(var(--text-base), 1.4vw, var(--text-lg));
+    line-height: 1.7; max-width: 64ch; margin-top: var(--space-3);
+  }
+
+  /* INTENT */
+  .mc-intent { background: var(--color-offwhite); padding: clamp(var(--space-12), 10vw, 9rem) 0; }
+  .mc-intent-headline {
+    font-size: clamp(2rem, 4.5vw, 3.25rem);
+    color: var(--color-navy); margin: var(--space-2) 0 var(--space-4);
+    font-weight: 400; line-height: 1.1;
+  }
+  .mc-intent-lead { font-size: var(--text-lg); line-height: 1.75; color: var(--color-body); font-weight: 300; }
+  .mc-intent p em { font-style: italic; color: var(--color-navy); }
+
+  /* EXISTING GALLERY */
+  .mc-existing { background: var(--color-white); padding: clamp(var(--space-12), 10vw, 9rem) 0; }
+  .mc-gallery {
+    display: grid; grid-template-columns: 1fr; gap: var(--space-3);
+  }
+  @media (min-width: 900px) {
+    .mc-gallery { grid-template-columns: repeat(3, 1fr); }
+    .mc-gallery-feature { grid-column: span 2; grid-row: span 2; }
+  }
+  .mc-gallery-item { margin: 0; }
+  .mc-gallery-item :global(img) {
+    width: 100%; height: 100%; min-height: 240px;
+    object-fit: cover; display: block;
+    aspect-ratio: 4 / 3;
+  }
+  .mc-gallery-feature :global(img) { aspect-ratio: auto; min-height: 480px; }
+  .mc-gallery-item figcaption {
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    padding: var(--space-2) 0;
+  }
+
+  /* EVOLUTION (comparison cards) */
+  .mc-evolution { background: var(--color-offwhite); padding: clamp(var(--space-12), 10vw, 9rem) 0; }
+  .mc-compare {
+    display: grid; grid-template-columns: 1fr;
+    gap: var(--space-4);
+    margin: clamp(var(--space-8), 6vw, var(--space-12)) 0;
+    align-items: center;
+  }
+  @media (min-width: 900px) {
+    .mc-compare { grid-template-columns: 1fr auto 1fr; gap: var(--space-4); }
+  }
+  .mc-compare-side { background: var(--color-white); padding: var(--space-4); }
+  .mc-compare-side :global(img) {
+    width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block;
+    margin-bottom: var(--space-3);
+  }
+  .mc-compare-tag {
+    display: inline-block;
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    font-weight: 600;
+    margin-bottom: var(--space-2);
+  }
+  .mc-compare-tag-our { color: var(--color-gold); }
+  .mc-compare-caption {
+    color: var(--color-body);
+    font-size: var(--text-base);
+    line-height: 1.65;
+    font-weight: 300;
+    margin: 0;
+  }
+  .mc-compare-caption strong {
+    font-weight: 600;
+    color: var(--color-navy);
+  }
+  .mc-compare-arrow {
+    text-align: center;
+    font-size: clamp(1.5rem, 3vw, 2.25rem);
+    color: var(--color-gold);
+  }
+  @media (max-width: 899px) {
+    .mc-compare-arrow { font-size: 1.5rem; }
+  }
+
+  /* PALETTE */
+  .mc-palette { background: var(--color-navy); color: var(--color-white); padding: clamp(var(--space-12), 10vw, 9rem) 0; }
+  .mc-palette .mc-section-headline { color: var(--color-white); }
+  .mc-palette .mc-section-headline em { color: var(--color-gold); }
+  .mc-palette .mc-section-lead { color: var(--color-white); opacity: 0.92; }
+  .mc-palette .eyebrow { color: var(--color-gold); }
+  .mc-swatches {
+    list-style: none; padding: 0; margin: var(--space-4) 0 0;
+    display: grid; grid-template-columns: repeat(2, 1fr); gap: var(--space-3);
+  }
+  @media (min-width: 600px) { .mc-swatches { grid-template-columns: repeat(4, 1fr); } }
+  @media (min-width: 900px) { .mc-swatches { grid-template-columns: repeat(8, 1fr); } }
+  .mc-swatch { display: flex; flex-direction: column; gap: var(--space-2); align-items: center; text-align: center; }
+  .mc-swatch-chip {
+    width: 100%; aspect-ratio: 1 / 1; max-width: 80px;
+    border: 1px solid rgba(255,255,255,0.18);
+  }
+  .mc-swatch-label {
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--color-white);
+    opacity: 0.92;
+  }
+
+  /* MATERIALS */
+  .mc-materials { background: var(--color-white); padding: clamp(var(--space-12), 10vw, 9rem) 0; }
+  .mc-mat-list { margin: 0; padding: 0; display: grid; gap: var(--space-4); }
+  .mc-mat-row {
+    display: grid; grid-template-columns: 1fr;
+    gap: var(--space-2);
+    padding-bottom: var(--space-3);
+    border-bottom: 1px solid rgba(15,42,68,0.08);
+  }
+  @media (min-width: 700px) {
+    .mc-mat-row { grid-template-columns: 200px 1fr; gap: var(--space-6); align-items: baseline; }
+  }
+  .mc-mat-row dt {
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    letter-spacing: 0.24em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    font-weight: 600;
+  }
+  .mc-mat-row dd {
+    margin: 0; color: var(--color-body);
+    font-size: var(--text-base); line-height: 1.65; font-weight: 300;
+    max-width: 64ch;
+  }
+
+  /* CLOSING */
+  .mc-closing { background: var(--color-offwhite); padding: clamp(var(--space-12), 12vw, 9rem) 0; text-align: center; }
+  .mc-closing-line {
+    color: var(--color-navy);
+    font-size: clamp(1.75rem, 4vw, 2.75rem);
+    line-height: 1.2; font-weight: 300; letter-spacing: -0.012em;
+    margin: var(--space-3) auto;
+    max-width: 32ch;
+  }
+  .mc-closing-line em { font-style: italic; color: var(--color-gold); font-weight: 400; }
+  .mc-closing-body {
+    color: var(--color-body); font-weight: 300;
+    font-size: var(--text-lg); line-height: 1.7;
+    max-width: 52ch; margin: var(--space-4) auto;
+  }
+  .mc-closing-cta {
+    display: flex; flex-wrap: wrap; justify-content: center; gap: var(--space-2);
+    margin: var(--space-6) 0 var(--space-4);
+  }
+  .mc-closing-btn { padding: 16px 36px; letter-spacing: 0.14em; }
+  .mc-closing-foot {
+    margin-top: var(--space-6);
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--color-muted);
+    border-top: 1px solid rgba(201,169,97,0.3);
+    padding-top: var(--space-3);
+    max-width: 56ch;
+    margin-left: auto; margin-right: auto;
+  }
+
+  /* REVEAL animations */
+  .reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.9s ease, transform 0.9s ease; }
+  .reveal.is-visible { opacity: 1; transform: translateY(0); }
+  @media (prefers-reduced-motion: reduce) { .reveal { opacity: 1; transform: none; transition: none; } }
+</style>

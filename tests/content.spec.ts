@@ -33,19 +33,30 @@ const expectedTitles: Record<string, string> = {
   '/journal': 'Journal | East Coast Designers',
   '/our-work': 'Our Work — Commercial Portfolio | East Coast Designers',
   '/card': 'Cristina — East Coast Designers',
+  '/manhattan-concept': 'Manhattan Concept — Emirates World | East Coast Designers',
 };
 
 for (const path of PAGES) {
   test.describe(`page ${path}`, () => {
     test.beforeEach(async ({ page }) => {
       await page.goto(path);
-      // /our-work has a client-side password gate. After navigation,
-      // manually hide the gate and reveal the content so tests can assert
-      // on it. Avoids coupling the test to the current password hash.
+      // /our-work and /manhattan-concept have client-side password gates.
+      // After navigation, manually hide the gate and reveal the content so
+      // tests can assert on it. Avoids coupling the test to the current
+      // password hash on either page.
       if (path === '/our-work') {
         await page.evaluate(() => {
           const gate = document.getElementById('ow-gate');
           const content = document.getElementById('ow-content');
+          if (gate) gate.style.display = 'none';
+          if (content) content.style.display = '';
+          document.body.style.overflow = '';
+        });
+      }
+      if (path === '/manhattan-concept') {
+        await page.evaluate(() => {
+          const gate = document.getElementById('mc-gate');
+          const content = document.getElementById('mc-content');
           if (gate) gate.style.display = 'none';
           if (content) content.style.display = '';
           document.body.style.overflow = '';
