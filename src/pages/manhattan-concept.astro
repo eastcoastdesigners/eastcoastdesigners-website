@@ -14,14 +14,23 @@ import dubaiDisplayNiche from '../assets/images/emirates/dubai-display-niche.jpg
 import dubaiTreeWall from '../assets/images/emirates/dubai-tree-wall.jpg';
 import mallStorefront from '../assets/images/emirates/mall-storefront.jpg';
 
-// "Our Manhattan vision" — closest matches from existing ECD AI commercial library
-// (will be replaced with dedicated Manhattan-vision renders once kie.ai credits allow)
-import ourLightingPendant from '../assets/images/commercial-lighting-pendant.jpg';
+// "Our Manhattan vision" — selected to read as MORE LUXURIOUS, MOODIER, MORE HISTORIC
+// than Emirates' light-modern current aesthetic. Mix of AI commercial library + real
+// ECD project photography from Google Business. Will be replaced with dedicated
+// Manhattan-vision renders once kie.ai credits allow.
+import ourBathMarbleBrass from '../assets/images/commercial-bath-marble-brass.jpg';
+import ourBathDarkStone from '../assets/images/commercial-bath-dark-stone.jpg';
 import ourDrywallCove from '../assets/images/commercial-drywall-cove.jpg';
 import ourLibraryClub from '../assets/images/commercial-library-club.jpg';
-import ourBathMarbleBrass from '../assets/images/commercial-bath-marble-brass.jpg';
-import ourLightingLinear from '../assets/images/commercial-lighting-linear.jpg';
-import ourFlooringTerrazzo from '../assets/images/commercial-flooring-terrazzo.jpg';
+import ourStorefrontBoutique from '../assets/images/commercial-storefront-boutique.jpg';
+import ourLightingPendant from '../assets/images/commercial-lighting-pendant.jpg';
+import ourCafeWalnut from '../assets/images/commercial-cafe-walnut.jpg';
+import ourExecutiveLeather from '../assets/images/commercial-executive-leather.jpg';
+import ourLibraryReading from '../assets/images/commercial-library-reading.jpg';
+// Real ECD project shots — designer-grade editorial work
+import realBathSputnik from '../assets/images/real-bath-sputnik.jpg';
+import realBathVaultedRustic from '../assets/images/real-bath-vaulted-rustic.jpg';
+import realKitchenCopper from '../assets/images/real-kitchen-copper.jpg';
 
 const title = 'Manhattan Concept — Emirates World | East Coast Designers';
 const description = 'Concept presentation for the Manhattan Emirates World travel store. By private invitation only.';
@@ -191,41 +200,41 @@ const PASSWORD_HASH = 'd4be9857c495efcc30655f835072f6ea9d2a4574838b47a3d3c262899
         </h2>
         <GoldRule width="64px" />
         <p class="mc-section-lead">
-          We honor every Emirates DNA element. Then we layer in the New York.
-          Pre-war architecture. Historic preservation. Refined materials.
-          Warmer, dimmer light. A sculpted gold tree-branch chandelier where
-          the wall tree once was. The sensory upgrade that turns a retail
-          floor into a private cabin.
+          Same Emirates concept. Translated into a Manhattan vocabulary.
+          <strong>More luxe. More history. More restraint.</strong> Pre-war
+          architecture. Hand-finished materials. Warmer, dimmer light. A
+          sculpted gold tree-branch chandelier where the wall tree once was.
+          The sensory upgrade that turns a retail floor into a private cabin.
         </p>
       </div>
 
-      {/* Comparison 1 — Tree wall → Tree branch chandelier */}
+      {/* Comparison 1 — Tree wall → Sculpted gold chandelier overhead */}
       <div class="mc-compare reveal">
         <div class="mc-compare-side">
           <span class="mc-compare-tag">Currently</span>
           <Image src={dubaiTreeWall} alt="Dubai Ghaf Tree illuminated on the wall" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
-          <p class="mc-compare-caption">Wall-mounted illuminated Ghaf Tree on a brown accent wall.</p>
+          <p class="mc-compare-caption">Wall-mounted illuminated Ghaf Tree on a brown accent wall &mdash; a 2D treatment in a single plane.</p>
         </div>
         <div class="mc-compare-arrow" aria-hidden="true">&#10142;</div>
         <div class="mc-compare-side">
           <span class="mc-compare-tag mc-compare-tag-our">Our Manhattan Evolution</span>
-          <Image src={ourLightingPendant} alt="Sculptural brass pendant cluster as a chandelier centerpiece" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
-          <p class="mc-compare-caption">A sculpted <strong>tree-branch chandelier in gold</strong> &mdash; the Ghaf Tree reimagined as a three-dimensional ceiling centerpiece, drawing the eye upward into a NYC pre-war proportion.</p>
+          <Image src={realBathSputnik} alt="Designer interior with sculptural chandelier and arched architectural moment" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
+          <p class="mc-compare-caption">The Ghaf Tree becomes a <strong>three-dimensional gold tree-branch chandelier overhead</strong> &mdash; sculpted, dimensional, the room's anchor. Same symbol, elevated from a wall decal to architecture you walk under. <em>(Photo: an ECD project showing a similar sculptural ceiling-as-feature treatment.)</em></p>
         </div>
       </div>
 
-      {/* Comparison 2 — LED dots → warm dim spot lighting */}
+      {/* Comparison 2 — Bright LED → warm dim refined retail */}
       <div class="mc-compare reveal">
         <div class="mc-compare-side">
           <span class="mc-compare-tag">Currently</span>
           <Image src={dubaiOverview} alt="Bright LED-lit Dubai floor with white surfaces" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
-          <p class="mc-compare-caption">Bright LED downlighting throughout. High lumens. Even, clinical brightness.</p>
+          <p class="mc-compare-caption">Bright LED downlighting throughout. High lumens. Even, clinical brightness &mdash; the lighting of a phone store.</p>
         </div>
         <div class="mc-compare-arrow" aria-hidden="true">&#10142;</div>
         <div class="mc-compare-side">
           <span class="mc-compare-tag mc-compare-tag-our">Our Manhattan Evolution</span>
-          <Image src={ourLightingLinear} alt="Warm dim cove and spot lighting in a wood-paneled commercial room" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
-          <p class="mc-compare-caption"><strong>Dimmer, warmer spot lighting.</strong> Layered pools of light over key surfaces; soft cove washes on the walls. Closer to a hotel suite than a retail store. The customer is bathed in flattering light.</p>
+          <Image src={ourBathDarkStone} alt="Moody dark stone interior with brass tapware and warm spot lighting" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
+          <p class="mc-compare-caption"><strong>Dimmer, warmer, layered.</strong> Soft cove washes. Warm spot lighting on the key surfaces. The room feels like a five-star hotel suite, not a retail floor. The customer is bathed in flattering light &mdash; the same light that flatters them in First Class.</p>
         </div>
       </div>
 
@@ -234,44 +243,106 @@ const PASSWORD_HASH = 'd4be9857c495efcc30655f835072f6ea9d2a4574838b47a3d3c262899
         <div class="mc-compare-side">
           <span class="mc-compare-tag">Currently</span>
           <Image src={dubaiReception} alt="Bright white curved reception pod" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
-          <p class="mc-compare-caption">Bright white curved reception forms. Modern, clean, slightly clinical.</p>
+          <p class="mc-compare-caption">Bright white curved reception forms. Modern, clean, slightly clinical. The geometry works &mdash; the finish is generic.</p>
         </div>
         <div class="mc-compare-arrow" aria-hidden="true">&#10142;</div>
         <div class="mc-compare-side">
           <span class="mc-compare-tag mc-compare-tag-our">Our Manhattan Evolution</span>
-          <Image src={ourDrywallCove} alt="Hand-finished curved limewashed walls with integrated cove lighting" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
-          <p class="mc-compare-caption">Same curved geometry, but in <strong>hand-troweled limewashed plaster</strong> with subtle warm tonality. References New York pre-war architecture. The same curve, but with texture, history, and depth.</p>
+          <Image src={ourDrywallCove} alt="Hand-finished curved limewashed walls with integrated cove lighting and walnut paneling" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
+          <p class="mc-compare-caption">Same curved geometry. <strong>Hand-troweled limewashed plaster</strong> in place of paint. References New York pre-war architecture. The curve has texture, depth, history. You can feel that someone made it by hand.</p>
         </div>
       </div>
 
-      {/* Comparison 4 — modern light furniture → leather, bouclé, refined */}
+      {/* Comparison 4 — modern furniture → club refinement, walnut + leather + brass */}
       <div class="mc-compare reveal">
         <div class="mc-compare-side">
           <span class="mc-compare-tag">Currently</span>
           <Image src={dubaiFloorWide} alt="Light modern furniture in beige and red on blonde oak" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
-          <p class="mc-compare-caption">Light modern furniture &mdash; tan upholstery, red accents, blonde wood.</p>
+          <p class="mc-compare-caption">Light modern furniture &mdash; tan upholstery, red accents, blonde wood. Pleasant. Forgettable.</p>
         </div>
         <div class="mc-compare-arrow" aria-hidden="true">&#10142;</div>
         <div class="mc-compare-side">
           <span class="mc-compare-tag mc-compare-tag-our">Our Manhattan Evolution</span>
-          <Image src={ourLibraryClub} alt="Refined club lounge with walnut paneling and warm leather seating" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
-          <p class="mc-compare-caption">A <strong>refined NY upgrade</strong>: chestnut leather, deep bouclé, brass-edged tables, walnut detailing. Same lounge geometry &mdash; the difference is what the customer touches.</p>
+          <Image src={ourLibraryClub} alt="Refined club library with walnut paneling, leather chairs, brass accents" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
+          <p class="mc-compare-caption">Walnut paneling. Chestnut leather. Bouclé. Brass-edged tables. <strong>The room feels like a private members&rsquo; club</strong>, not a storefront. Emirates red retained as a single signature chair per zone &mdash; the brand accent, not the dominant note.</p>
         </div>
       </div>
 
-      {/* Comparison 5 — generic greenery → curated NYC botanical */}
+      {/* Comparison 5 — generic greenery → architectural botanical (olive tree welcome) */}
       <div class="mc-compare reveal">
         <div class="mc-compare-side">
           <span class="mc-compare-tag">Currently</span>
           <Image src={dubaiDisplayNiche} alt="Generic potted greenery in white planters" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
-          <p class="mc-compare-caption">Potted greenery in white planters as a finishing touch.</p>
+          <p class="mc-compare-caption">Potted greenery in white planters &mdash; a finishing touch. Decorative, not architectural.</p>
         </div>
         <div class="mc-compare-arrow" aria-hidden="true">&#10142;</div>
         <div class="mc-compare-side">
           <span class="mc-compare-tag mc-compare-tag-our">Our Manhattan Evolution</span>
-          <Image src={ourFlooringTerrazzo} alt="Bright lobby with terrazzo flooring and architectural plant placement" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
-          <p class="mc-compare-caption"><strong>Curated NYC botanical.</strong> Terrariums under glass. A signature mature olive tree as the welcome moment. Moss walls. Brass-edged planters. The greenery becomes an architectural language, not an afterthought.</p>
+          <Image src={ourStorefrontBoutique} alt="Luxury boutique interior with mature olive tree, walnut shelving, terracotta wall" widths={[600, 900]} sizes="(min-width: 900px) 45vw, 100vw" loading="lazy" />
+          <p class="mc-compare-caption"><strong>A signature mature olive tree at the welcome moment.</strong> Terrariums under glass. Moss walls. Brass-edged planters throughout. The greenery becomes architectural language, not afterthought decor. Nature is a primary material, the same weight as the brass and the leather.</p>
         </div>
+      </div>
+
+      <p class="mc-evolution-coda reveal">
+        Five comparisons. Five elevations. <em>Same Emirates soul, more
+        Manhattan body.</em>
+      </p>
+    </div>
+  </section>
+
+  {/* THE MATERIAL STORY — editorial mood board */}
+  <section class="section mc-material-story">
+    <div class="container">
+      <div class="mc-section-header reveal">
+        <span class="eyebrow">Chapter III</span>
+        <h2 class="display display-italic mc-section-headline">
+          The material story.
+        </h2>
+        <GoldRule width="64px" />
+        <p class="mc-section-lead">
+          Mood board: the textures, finishes, and detail moments that build
+          the Manhattan room. Every choice rewards the closer look. The
+          customer can stand a foot from any surface and find craft.
+        </p>
+      </div>
+
+      <div class="mc-material-grid reveal">
+        <figure class="mc-material-item">
+          <Image src={ourBathMarbleBrass} alt="Bookmatched Calacatta marble with unlacquered brass tapware" widths={[600, 900]} sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
+          <figcaption>
+            <strong>Stone &amp; brass.</strong> Bookmatched Calacatta. Solid unlacquered brass that patinates with time. The duo that signals museum-grade craft to anyone who knows.
+          </figcaption>
+        </figure>
+        <figure class="mc-material-item">
+          <Image src={realBathVaultedRustic} alt="Reclaimed wood ceiling beams and warm patinated finishes" widths={[600, 900]} sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
+          <figcaption>
+            <strong>Pre-war texture.</strong> Reclaimed wood ceiling beams. Aged stone surrounds. Hand-finishes that look like they have been there for fifty years &mdash; from day one.
+          </figcaption>
+        </figure>
+        <figure class="mc-material-item">
+          <Image src={ourCafeWalnut} alt="Warm cafe interior with walnut walls and copper pendant lighting" widths={[600, 900]} sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
+          <figcaption>
+            <strong>Warm timber.</strong> Walnut. Copper pendants. The NY corner-cafe lighting register, applied to a luxury retail register. Familiar warmth, lifted by precision.
+          </figcaption>
+        </figure>
+        <figure class="mc-material-item">
+          <Image src={ourLibraryReading} alt="Coffered library reading room with leather seating and natural light" widths={[600, 900]} sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
+          <figcaption>
+            <strong>Coffered ceiling moment.</strong> A formal architectural ceiling reference for the itinerary lounge. The detail that tells a customer they are in a serious room.
+          </figcaption>
+        </figure>
+        <figure class="mc-material-item">
+          <Image src={ourExecutiveLeather} alt="Refined executive office with leather chairs and warm dim ambient lighting" widths={[600, 900]} sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
+          <figcaption>
+            <strong>Leather + dim.</strong> The exact lighting + materials register for the consultation pods. A meeting that feels like a conversation, not a transaction.
+          </figcaption>
+        </figure>
+        <figure class="mc-material-item">
+          <Image src={ourLightingPendant} alt="Sculptural brass pendant cluster with hand-blown glass" widths={[600, 900]} sizes="(min-width: 900px) 50vw, 100vw" loading="lazy" />
+          <figcaption>
+            <strong>Sculpted brass overhead.</strong> The lighting register for the Ghaf Tree centerpiece &mdash; sculpted brass and hand-blown glass, dimensional, three-dimensional, the room's anchor.
+          </figcaption>
+        </figure>
       </div>
     </div>
   </section>
@@ -280,7 +351,7 @@ const PASSWORD_HASH = 'd4be9857c495efcc30655f835072f6ea9d2a4574838b47a3d3c262899
   <section class="section mc-palette">
     <div class="container">
       <div class="mc-section-header reveal">
-        <span class="eyebrow">Chapter III</span>
+        <span class="eyebrow">Chapter IV</span>
         <h2 class="display display-italic mc-section-headline">
           Palette &mdash; <em>light, gold, deep accent.</em>
         </h2>
@@ -312,7 +383,7 @@ const PASSWORD_HASH = 'd4be9857c495efcc30655f835072f6ea9d2a4574838b47a3d3c262899
   <section class="section mc-materials">
     <div class="container">
       <div class="mc-section-header reveal">
-        <span class="eyebrow">Chapter IV</span>
+        <span class="eyebrow">Chapter V</span>
         <h2 class="display display-italic mc-section-headline">
           Materials &amp; finishes.
         </h2>
@@ -364,7 +435,7 @@ const PASSWORD_HASH = 'd4be9857c495efcc30655f835072f6ea9d2a4574838b47a3d3c262899
   <section class="section mc-showcase">
     <div class="container">
       <div class="mc-section-header reveal">
-        <span class="eyebrow">Chapter V</span>
+        <span class="eyebrow">Chapter VI</span>
         <h2 class="display display-italic mc-section-headline">
           The showcase &mdash; <em>did I choose right?</em>
         </h2>
@@ -920,6 +991,57 @@ const PASSWORD_HASH = 'd4be9857c495efcc30655f835072f6ea9d2a4574838b47a3d3c262899
   }
   @media (max-width: 899px) {
     .mc-compare-arrow { font-size: 1.5rem; }
+  }
+
+  /* EVOLUTION CODA */
+  .mc-evolution-coda {
+    margin-top: clamp(var(--space-8), 6vw, var(--space-12));
+    text-align: center;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(var(--text-lg), 2.2vw, var(--text-2xl));
+    color: var(--color-navy);
+    line-height: 1.4;
+    max-width: 56ch;
+    margin-left: auto; margin-right: auto;
+  }
+  .mc-evolution-coda em { color: var(--color-gold); font-style: italic; }
+
+  /* MATERIAL STORY */
+  .mc-material-story { background: #0a0a0a; color: var(--color-white); padding: clamp(var(--space-12), 10vw, 9rem) 0; }
+  .mc-material-story .mc-section-headline { color: var(--color-white); }
+  .mc-material-story .mc-section-lead { color: var(--color-white); opacity: 0.88; }
+  .mc-material-story .eyebrow { color: var(--color-gold); }
+  .mc-material-grid {
+    display: grid; grid-template-columns: 1fr; gap: var(--space-4);
+  }
+  @media (min-width: 700px) { .mc-material-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1100px) { .mc-material-grid { grid-template-columns: repeat(3, 1fr); } }
+  .mc-material-item {
+    margin: 0;
+    display: flex; flex-direction: column;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(201,169,97,0.16);
+  }
+  .mc-material-item :global(img) {
+    width: 100%; aspect-ratio: 4 / 3; object-fit: cover; display: block;
+  }
+  .mc-material-item figcaption {
+    padding: var(--space-4);
+    color: var(--color-white); opacity: 0.92;
+    font-size: var(--text-sm);
+    line-height: 1.65;
+    font-weight: 300;
+  }
+  .mc-material-item figcaption strong {
+    display: block;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    color: var(--color-gold);
+    font-size: var(--text-lg);
+    margin-bottom: var(--space-1);
   }
 
   /* PALETTE */
