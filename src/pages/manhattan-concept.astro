@@ -360,6 +360,91 @@ const PASSWORD_HASH = 'd4be9857c495efcc30655f835072f6ea9d2a4574838b47a3d3c262899
     </div>
   </section>
 
+  {/* THE SHOWCASE — experience zones */}
+  <section class="section mc-showcase">
+    <div class="container">
+      <div class="mc-section-header reveal">
+        <span class="eyebrow">Chapter V</span>
+        <h2 class="display display-italic mc-section-headline">
+          The showcase &mdash; <em>did I choose right?</em>
+        </h2>
+        <GoldRule width="64px" />
+        <p class="mc-section-lead">
+          People are not paying for a plane ticket. They are paying for an
+          experience. The Manhattan store&rsquo;s most important job is to
+          make every visitor walk out certain they chose the right airline.
+          We design dedicated zones for that &mdash; tactile, edible,
+          factual, emotional. Five reasons to never fly anyone else.
+        </p>
+      </div>
+
+      <ul class="mc-showcase-grid reveal">
+        <li class="mc-showcase-item">
+          <span class="mc-showcase-tag">Touch</span>
+          <h3 class="mc-showcase-title">The Cabin Test</h3>
+          <p>
+            An actual Business and First Class seat in the room. Sit. Recline.
+            Test the legroom. Feel the leather. The fabrics of the cabin in your
+            hands before you ever book.
+          </p>
+        </li>
+        <li class="mc-showcase-item">
+          <span class="mc-showcase-tag">Taste</span>
+          <h3 class="mc-showcase-title">The Tasting Bar</h3>
+          <p>
+            A small marble bar with daily samplings from Emirates&rsquo; inflight
+            menu. Coffee from the same blend served onboard. Dates. Pistachio
+            pastry. The food becomes a reason to come back.
+          </p>
+        </li>
+        <li class="mc-showcase-item">
+          <span class="mc-showcase-tag">Story</span>
+          <h3 class="mc-showcase-title">The Brand Wall</h3>
+          <p>
+            A discreet, beautifully composed wall telling the Emirates story
+            since 1985. Fleet size. Routes added. Awards. The numbers behind
+            the brand, presented like a museum installation.
+          </p>
+        </li>
+        <li class="mc-showcase-item">
+          <span class="mc-showcase-tag">Sky</span>
+          <h3 class="mc-showcase-title">The Window</h3>
+          <p>
+            A floor-to-ceiling LED window with live aerial footage from
+            Emirates&rsquo; current routes &mdash; sunrise over the Maldives,
+            night approach into Dubai. The cabin view, brought into the room.
+          </p>
+        </li>
+        <li class="mc-showcase-item">
+          <span class="mc-showcase-tag">Plan</span>
+          <h3 class="mc-showcase-title">The Itinerary Lounge</h3>
+          <p>
+            Private consultation pods with a travel advisor and a large screen.
+            Sit, plan, build a multi-city itinerary in conversation. Not at a
+            counter. In a lounge. Like a member of the airline, not a customer
+            in a queue.
+          </p>
+        </li>
+        <li class="mc-showcase-item">
+          <span class="mc-showcase-tag">Proof</span>
+          <h3 class="mc-showcase-title">The Why-Emirates Card</h3>
+          <p>
+            Every visitor leaves with a small letterpress card &mdash; a single
+            beautiful object that summarizes why Emirates is the answer. A
+            keepsake, not a brochure. The thing they show their partner when
+            they get home.
+          </p>
+        </li>
+      </ul>
+
+      <p class="mc-showcase-coda reveal">
+        At the end of the day, this is about experience. Emirates is paying us
+        to give your customer an experience. <em>Every choice we make is in
+        service of that one thing.</em>
+      </p>
+    </div>
+  </section>
+
   {/* CLOSING */}
   <section class="mc-closing">
     <div class="container content reveal">
@@ -471,6 +556,7 @@ const PASSWORD_HASH = 'd4be9857c495efcc30655f835072f6ea9d2a4574838b47a3d3c262899
         "Emirates is showcased as a luxury airline, and most customers walking into this store will never fly private. The closest experience they will ever have to private aviation is the moment they walk through this door. The store IS the cabin upgrade. Our job is to make every material, every light, every chair, every detail feel like the customer is what's being showcased.",
         "Emirates already created the design DNA. The Ghaf Tree. The light curved forms. The vertical wood slat walls. The greenery as architecture. That works. Our job is not to override it. Our job is to translate it into a Manhattan vernacular without losing what makes it Emirates.",
         "What we add: deeper materials. Hand troweled limewashed walls referencing pre war New York. A signature tree branch chandelier, sculpted in gold, replacing the wall mounted tree light. Dimmer, warmer spot lighting in place of bright L E D. Reclaimed plank floors over blonde oak. Leather, bouclé, brass edged planters, terrariums under glass. A scent. A soundscape. The complete sensory upgrade.",
+        "We also design dedicated showcase zones for the customer. A Cabin Test where they sit in an actual Business Class seat. A Tasting Bar with the food served onboard. A Brand Wall telling the Emirates story since nineteen eighty five. A floor to ceiling Sky Window with live aerial footage from Emirates routes. Private itinerary lounges instead of a counter. A Why-Emirates letterpress card every visitor takes home. Every detail in service of one feeling: I chose the right airline.",
         "The team is two women, design and construction veterans from this area, on our farewell project to the tri state. We are honest about that, because trust beats convenience. You get our undivided focus.",
         "We are ready to translate your global design language for Manhattan, and to travel for the next city after that. We will deliver this with the soul of two people who actually love what they do.",
         "The soul of a place that needed to be captured and spread and continue its legacy. Because it's that beautiful.",
@@ -886,6 +972,63 @@ const PASSWORD_HASH = 'd4be9857c495efcc30655f835072f6ea9d2a4574838b47a3d3c262899
     margin: 0; color: var(--color-body);
     font-size: var(--text-base); line-height: 1.65; font-weight: 300;
     max-width: 64ch;
+  }
+
+  /* SHOWCASE */
+  .mc-showcase { background: var(--color-white); padding: clamp(var(--space-12), 10vw, 9rem) 0; }
+  .mc-showcase-grid {
+    list-style: none; padding: 0; margin: 0;
+    display: grid; grid-template-columns: 1fr; gap: var(--space-4);
+  }
+  @media (min-width: 700px) { .mc-showcase-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (min-width: 1000px) { .mc-showcase-grid { grid-template-columns: repeat(3, 1fr); } }
+  .mc-showcase-item {
+    background: var(--color-offwhite);
+    padding: var(--space-5) var(--space-4);
+    border-left: 2px solid var(--color-gold);
+    display: flex; flex-direction: column; gap: var(--space-2);
+  }
+  .mc-showcase-tag {
+    font-family: var(--font-label);
+    font-size: var(--text-xs);
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: var(--color-gold);
+    font-weight: 600;
+  }
+  .mc-showcase-title {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: var(--text-xl);
+    color: var(--color-navy);
+    margin: 0;
+    line-height: 1.2;
+    letter-spacing: -0.005em;
+  }
+  .mc-showcase-item p {
+    color: var(--color-body);
+    font-size: var(--text-base);
+    line-height: 1.65;
+    font-weight: 300;
+    margin: 0;
+    max-width: 50ch;
+  }
+  .mc-showcase-coda {
+    margin-top: clamp(var(--space-8), 6vw, var(--space-12));
+    text-align: center;
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 400;
+    font-size: clamp(var(--text-lg), 2vw, var(--text-2xl));
+    color: var(--color-navy);
+    line-height: 1.4;
+    max-width: 60ch;
+    margin-left: auto; margin-right: auto;
+  }
+  .mc-showcase-coda em {
+    font-style: italic;
+    color: var(--color-gold);
   }
 
   /* CLOSING */
